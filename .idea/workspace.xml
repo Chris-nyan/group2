@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="337f872e-f95f-4311-b23a-a94aea340c9a" name="Changes" comment="Changes badges in readme">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="337f872e-f95f-4311-b23a-a94aea340c9a" name="Changes" comment="Modifying in App file for MongoDB connection">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/napier/sem/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/napier/sem/App.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +53,13 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.App.executor": "Run",
+    "Docker.Docker Image (1).executor": "Run",
+    "Docker.Docker Image (2).executor": "Run",
+    "Docker.Docker Image.executor": "Run",
     "Docker.Dockerfile.executor": "Run",
+    "Maven.group2 [clean].executor": "Run",
+    "Maven.group2 [compile].executor": "Run",
+    "Maven.group2 [package].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -70,6 +77,63 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RunManager" selected="Docker.Docker Image (2)">
+    <configuration name="Docker Image (1)" type="docker-deploy" factoryName="docker-image" temporary="true" server-name="Docker">
+      <deployment type="docker-image">
+        <settings>
+          <option name="imageTag" value="sha256:52b2811c953119f6bc3abd6a56bfa2cab7d1762dfb15b720def5c87c5ef786be" />
+          <option name="containerName" value="" />
+          <option name="commandLineOptions" value="--network se-methods" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="Docker Image (2)" type="docker-deploy" factoryName="docker-image" temporary="true" server-name="Docker">
+      <deployment type="docker-image">
+        <settings>
+          <option name="imageTag" value="sha256:0315445020704ed3614b98c75d5ea86b15a73455a0865ed899608354c58f32d8" />
+          <option name="containerName" value="" />
+          <option name="commandLineOptions" value="--network se-methods" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="Docker Image" type="docker-deploy" factoryName="docker-image" temporary="true" server-name="Docker">
+      <deployment type="docker-image">
+        <settings>
+          <option name="imageTag" value="sha256:52b2811c953119f6bc3abd6a56bfa2cab7d1762dfb15b720def5c87c5ef786be" />
+          <option name="containerName" value="" />
+          <option name="commandLineOptions" value="--network se-methods" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="buildOnly" value="true" />
+          <option name="sourceFilePath" value="Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="docker-image" temporary="true">
+      <deployment type="docker-image" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
+      <deployment type="dockerfile" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Docker.Docker Image (2)" />
+        <item itemvalue="Docker.Dockerfile" />
+        <item itemvalue="Docker.Docker Image (1)" />
+        <item itemvalue="Docker.Docker Image" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -86,7 +150,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1706197389349</updated>
-      <workItem from="1706197390430" duration="2142000" />
+      <workItem from="1706197390430" duration="3019000" />
     </task>
     <task id="LOCAL-00001" summary="Initial setup">
       <option name="closed" value="true" />
@@ -120,7 +184,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706199374235</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Modifying in App file for MongoDB connection">
+      <option name="closed" value="true" />
+      <created>1706199726244</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1706199726244</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -130,7 +202,8 @@
     <MESSAGE value="Initial setup" />
     <MESSAGE value="Creating app.java file for testing purpose" />
     <MESSAGE value="Changes badges in readme" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes badges in readme" />
+    <MESSAGE value="Modifying in App file for MongoDB connection" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modifying in App file for MongoDB connection" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
