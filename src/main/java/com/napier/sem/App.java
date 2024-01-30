@@ -32,7 +32,7 @@ public class App
                 System.out.println("Successfully connected");
                 // Wait a bit
                 Thread.sleep(10000);
-                // Exit for loop
+                // Exit for the loop
                 break;
             }
             catch (SQLException sqle)
