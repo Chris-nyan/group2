@@ -5,4 +5,3 @@ Hons-8 DevOps
 [![Releases](https://img.shields.io/github/release/Chris-nyan/sem/all.svg?style=flat-square)](https://github.com/Chris-nyan/sem/releases)
 # Software Engineering Methods
 ![GitHub Workflow Status develop](https://img.shields.io/github/actions/workflow/status/Chris-nyan/group2/main.yml?branch=develop)
-test
