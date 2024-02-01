@@ -5,6 +5,7 @@ package com.napier.sem;
  */
 public class Countries
 {
+
     /**
      * Country code
      */
@@ -34,6 +35,18 @@ public class Countries
      * Capital
      */
     private String Capital;
+
+    public Countries(String code, String name, String continent, String region, String population, String capital) {
+        Code = code;
+        Name = name;
+        Continent = continent;
+        Region = region;
+        Population = population;
+        Capital = capital;
+    }
+    public Countries(){
+
+    }
 
     public String getCode() {
         return Code;
@@ -82,4 +95,6 @@ public class Countries
     public void setCapital(String capital) {
         Capital = capital;
     }
+
+
 }
