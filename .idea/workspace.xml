@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="337f872e-f95f-4311-b23a-a94aea340c9a" name="Changes" comment="popular countries in world">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/napier/sem/DatabaseConnection.java" afterDir="false" />
+    <list default="true" id="337f872e-f95f-4311-b23a-a94aea340c9a" name="Changes" comment="popular countries in world with database">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/napier/sem/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/napier/sem/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/napier/sem/Countries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/napier/sem/Countries.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/napier/sem/DatabaseConnection.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +85,7 @@
       <recent name="$PROJECT_DIR$/db" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.App">
+  <component name="RunManager" selected="Docker.docker-compose.yml: Compose Deployment">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.napier.sem.App" />
       <module name="Group2" />
@@ -140,10 +137,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.App" />
         <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
         <item itemvalue="Docker.db/Dockerfile" />
         <item itemvalue="Docker.Dockerfile" />
+        <item itemvalue="Application.App" />
       </list>
     </recent_temporary>
   </component>
@@ -164,7 +161,7 @@
       <option name="presentableId" value="Default" />
       <updated>1706197389349</updated>
       <workItem from="1706197390430" duration="399000" />
-      <workItem from="1706791959496" duration="8784000" />
+      <workItem from="1706791959496" duration="14281000" />
     </task>
     <task id="LOCAL-00001" summary="Initial setup">
       <option name="closed" value="true" />
@@ -230,7 +227,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706797837586</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="popular countries in world with database">
+      <option name="closed" value="true" />
+      <created>1706803403671</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1706803403671</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -254,6 +259,7 @@
     <MESSAGE value="mysql setup test" />
     <MESSAGE value="changed JDK ver to 17 in main.yml" />
     <MESSAGE value="popular countries in world" />
-    <option name="LAST_COMMIT_MESSAGE" value="popular countries in world" />
+    <MESSAGE value="popular countries in world with database" />
+    <option name="LAST_COMMIT_MESSAGE" value="popular countries in world with database" />
   </component>
 </project>
