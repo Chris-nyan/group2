@@ -1,7 +1,12 @@
 package com.napier.sem;
-
+/**
+ * Importing necessary modules or packages
+ * java.sql for SQL queries
+ * util.ArrayList For storing data such as country and city as array list
+ * */
 import java.sql.*;
 import java.util.ArrayList;
+
 
 public class App
 {
@@ -19,12 +24,10 @@ public class App
 
         // Display result
         a.displayCountry(country);
-
+        ArrayList<City> cities = a.getcity();
+        //a.displayCities(cities);
         // Disconnect from database
         //a.disconnect();
-        ArrayList<City> cities = a.getcity();
-//        a.displayCities(cities);
-
     }
 
     /**
@@ -64,10 +67,10 @@ public class App
                     " SELECT city.Name, country.Name AS country_name, city.Population, city.District " +
                             " FROM city " +
                             " INNER JOIN country ON city.CountryCode = country.Code " +
-                            " ORDER BY city.Population DESC "; //country table and city table is joined internally with country code and ID
+                            " ORDER BY city.Population DESC ";
+            //country table and city table is joined internally with country code and ID
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
-
             while (rset.next())
             {
                 City cty = new City();
@@ -148,10 +151,8 @@ public class App
             System.out.println("No country details available");
         }
     }
-
-
     /**
-     *     get countries method
+     *     Get countries method
      */
     public ArrayList<Countries> getcountries()
     {
