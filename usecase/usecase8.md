@@ -37,6 +37,8 @@ Working for the organization that requires population information.
 1.Opening and testing world database in Xampp
 2. Writing query
 3. Coding with Java Language
+4. Get Output for all the cities in a continent by largest population to smallest
+5. Data analyst givies report to organization
 
 ## EXTENSIONS
 
