@@ -1,4 +1,4 @@
-# USE CASE: <3> <Report Population Information>
+# USE CASE: <4> <Report Population Information>
 
 ## CHARACTERISTIC INFORMATION
 
