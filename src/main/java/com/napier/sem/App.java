@@ -2,7 +2,7 @@ package com.napier.sem;
 
 import java.sql.*;
 import java.util.ArrayList;
-//adding necessary libraries and modules
+//adding necessary libraries, modules
 
 public class App
 {
