@@ -37,6 +37,9 @@ Working for the organization that requires population information.
 1.Opening and testing world database in Xampp
 2. Writing query
 3. Coding with Java Language
+4. Get Output for population of the world
+5. Data analyst givies report to organization
+
 
 ## EXTENSIONS
 
