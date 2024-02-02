@@ -37,6 +37,8 @@ Working for the organization that requires population information.
 1.Opening and testing world database in Xampp
 2. Writing query
 3. Coding with Java Language
+4. Get output for top 5 populated countries in the world where 5 is provided by user
+5. Data analyst givies report to organization
 
 ## EXTENSIONS
 
