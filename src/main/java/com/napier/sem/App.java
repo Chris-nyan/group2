@@ -6,6 +6,7 @@ package com.napier.sem;
  * */
 import java.sql.*;
 import java.util.ArrayList;
+//importing Arraylist for using array list in cities
 
 
 public class App
