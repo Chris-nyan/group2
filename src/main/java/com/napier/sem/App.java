@@ -1,6 +1,7 @@
 package com.napier.sem;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class App
 {
@@ -17,12 +18,12 @@ public class App
         ArrayList<Countries> continent = a.getContinent();
 
         // Display result
-        a.displayCountry(continent);
+        a.displayCountry(country);
 
         // Disconnect from database
         //a.disconnect();
         ArrayList<City> cities = a.getcity();
-        a.displayCities(cities);
+//        a.displayCities(cities);
 
     }
 
