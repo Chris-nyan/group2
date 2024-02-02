@@ -150,6 +150,9 @@ public class App
     }
 
 
+    /**
+     *     get countries method
+     */
     public ArrayList<Countries> getcountries()
     {
         ArrayList<Countries> a = new ArrayList<Countries>();
@@ -187,6 +190,9 @@ public class App
         }
     }
 
+    /***
+     *    get continent method
+     */
     public ArrayList<Countries> getContinent()
     {
         ArrayList<Countries> a = new ArrayList<Countries>();
