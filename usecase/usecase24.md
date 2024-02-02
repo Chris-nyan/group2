@@ -37,7 +37,7 @@ Working for the organization that requires population information.
 1.Opening and testing world database in Xampp
 2. Writing query
 3. Coding with Java Language
-4. Get Output for top 5 populated capital cities in a continent where 5 is provided by the user
+4. Get Output for population of people, people living in cities and poeple not living in cities in each region
 5. Data analyst givies report to organization
 
 ## EXTENSIONS
