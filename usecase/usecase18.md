@@ -34,7 +34,7 @@ Working for the organization that requires population information.
 
 ## MAIN SUCCESS SCENARIO
 
-1. Data analyst requests report about top 5 populated capital cities in a continent where 5 is provided by the user.
+1. Data analyst requests report about all the capital cities in a continent by largest population to smallest.
 2. System extract from database according to the request. 
 3. System displays result. 
 
