@@ -34,7 +34,7 @@ Working for the organization that requires population information.
 
 ## MAIN SUCCESS SCENARIO
 
-1. Data analyst requests report about population of people, peopl living in cities and people not living in cities in each region.
+1. Data analyst requests report about population of the world.
 2. System extract from database according to the request. 
 3. System displays result. 
 
