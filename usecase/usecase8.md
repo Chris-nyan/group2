@@ -34,27 +34,15 @@ Working for the organization that requires population information.
 
 ## MAIN SUCCESS SCENARIO
 
-1.Opening and testing world database in Xampp
-2. Writing query
-3. Coding with Java Language
-4. Get Output for all the cities in a continent by largest population to smallest
-5. Data analyst givies report to organization
+1. Data analyst requests report about all the cities in a continent by largest population to smallest.
+2. System extract from database according to the request. 
+3. System displays result. 
 
 ## EXTENSIONS
 
-1a. Xampp Error
-     1a1. Fixing error in Xampp.
-1a. Database cannot connect with IntelliJ
-     1a1. Fixing error to connect database with IntelliJ
-2a. Syntax error in query
-     3a1. Making double check to fix error
-
-## SUB-VARIATIONS
-
-2. Writing query
- 	1.Xampp
- 	2.mySQL
-	3.postgresql
+2a. Request and data in system do not match so it will show as null.
+	2a1. Checking both request and data in system and fix the wrong one to be right.
+ 
 ## SCHEDULE
 
 2/2/2024
