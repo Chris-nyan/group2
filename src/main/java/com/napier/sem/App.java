@@ -23,10 +23,14 @@ public class App
         //Retrieve continent details
         ArrayList<Region> regions = a.getRegion();
 
+        //Retrieve continent details
+        ArrayList<UserInputWorld> userInputWorlds = a.getUserInputWorld();
+
         // Display result
         a.displayCountry(country);
         a.displayContinent(continent);
         a.displayRegion(regions);
+        a.displayUserInputWorld(userInputWorlds);
 
 
         // Disconnect from database
@@ -286,19 +290,76 @@ public class App
 
     public void displayRegion(ArrayList<Region> regions) {
         if (regions != null && !regions.isEmpty()) {
-            System.out.println("--------------------------------------------------------------------------------");
+            System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------");
             System.out.printf("| %-25s | %-25s | %-25s | %-25s | %-25s | \n",
                     "Code", "Name", "Region", "Continent", "Population");
-            System.out.println("---------------------------------------------------------------------------------");
+            System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------");
 
             for (Region region : regions) {
                 System.out.printf("| %-25s |%-25s | %-25s | %-25s | %-25s |\n",
                         region.getCode(), region.getName(), region.getRegion(), region.getContinent(), region.getPopulation());
             }
 
-            System.out.println("----------------------------------------------------------------------------------");
+            System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------");
         } else {
             System.out.println("No Region details available");
+        }
+    }
+
+    /**
+     * The top N populated countries in the world where N is provided by the user.
+     */
+    public ArrayList<UserInputWorld> getUserInputWorld()
+    {
+        ArrayList<UserInputWorld> a = new ArrayList<UserInputWorld>();
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    " SELECT country.Code, country.Name AS country_name, country.Region, country.Continent, country.Population " +
+                            " FROM country " +
+                            " ORDER BY country.Population DESC LIMIT 5 ";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Return new employee if valid.
+            // Check one is returned
+            while (rset.next())
+            {
+                UserInputWorld userinputworld = new UserInputWorld();
+                userinputworld.setCode(rset.getString("Code"));
+                userinputworld.setCountry_name(rset.getString("Country_Name"));
+                userinputworld.setRegion(rset.getString("Region"));
+                userinputworld.setContinent(rset.getString("Continent"));
+                userinputworld.setPopulation(rset.getInt("Population"));
+                a.add(userinputworld);
+            }
+            return a;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get User Input details");
+            return null;
+        }
+    }
+
+    public void displayUserInputWorld(ArrayList<UserInputWorld> userInputWorlds) {
+        if (userInputWorlds != null && !userInputWorlds.isEmpty()) {
+            System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.printf("| %-25s | %-25s | %-25s | %-25s | %-25s | \n",
+                    "Code", "Country_Name", "Region", "Continent", "Population");
+            System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+
+            for (UserInputWorld userInputWorld : userInputWorlds) {
+                System.out.printf("| %-25s |%-25s | %-25s | %-25s | %-25s |\n",
+                        userInputWorld.getCode(), userInputWorld.getCountry_name(), userInputWorld.getRegion(), userInputWorld.getContinent(), userInputWorld.getPopulation());
+            }
+
+            System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+        } else {
+            System.out.println("No Population in world by users details available");
         }
     }
 
