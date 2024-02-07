@@ -112,7 +112,7 @@ public class App {
         }
     }
     /**
-     * Sorting cities IN THE REGION according to population
+     * Sorting cities IN THE REGION according to Population
      */
     public ArrayList<CityRegion> sortCityRegion() {
         ArrayList<CityRegion> sortCityRegionList = new ArrayList<>();
