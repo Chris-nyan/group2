@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="337f872e-f95f-4311-b23a-a94aea340c9a" name="Changes" comment="popular countries in world and continent" />
+    <list default="true" id="337f872e-f95f-4311-b23a-a94aea340c9a" name="Changes" comment="popular countries in world and continent">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/napier/sem/Continent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/napier/sem/Region.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/napier/sem/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/napier/sem/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/napier/sem/Countries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/napier/sem/CountriesInWorld.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -84,7 +90,7 @@
   <component name="RunManager" selected="Docker.docker-compose.yml: Compose Deployment">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.napier.sem.App" />
-      <module name="Group2" />
+      <module name="group2" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.napier.sem.*" />
@@ -158,6 +164,9 @@
       <updated>1706197389349</updated>
       <workItem from="1706197390430" duration="399000" />
       <workItem from="1706791959496" duration="16087000" />
+      <workItem from="1707235800055" duration="11030000" />
+      <workItem from="1707248545476" duration="16000" />
+      <workItem from="1707276681074" duration="9110000" />
     </task>
     <task id="LOCAL-00001" summary="Initial setup">
       <option name="closed" value="true" />
@@ -265,6 +274,7 @@
     <MESSAGE value="popular countries in world" />
     <MESSAGE value="popular countries in world with database" />
     <MESSAGE value="popular countries in world and continent" />
-    <option name="LAST_COMMIT_MESSAGE" value="popular countries in world and continent" />
+    <MESSAGE value="Unit testing add" />
+    <option name="LAST_COMMIT_MESSAGE" value="Unit testing add" />
   </component>
 </project>
