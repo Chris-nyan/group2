@@ -1,59 +1,62 @@
 package com.napier.sem;
 
+import java.math.BigDecimal;
+
 /**
-        * Represents a country with capital city details
+        * Represents a countries
  */
-public class Capitalcity {
+public class Capitalcity
+{
 
     /**
-            * Country Name
+            * Country continent
      */
-    private String Name;
+    private String Capital_City;
 
     /**
-            * Capital City
+            * Country continent
      */
-    private String Capital;
+    private String Country_Name;
 
     /**
-            * Population of the Capital City
+            * Country continent
      */
-    private String Population;
+    private int Population;
 
-    public Capitalcity(){
+    /**
+            * Country continent
+     */
+    private String Continent;
 
-    }
-    public Capitalcity(String name, String capital, String population) {
-        Name = name;
-        Capital = capital;
-        Population = population;
-    }
-
-// Other fields and methods remain the same...
-
-    public String getName() {
-        return Name;
+    public String getCapital_City() {
+        return Capital_City;
     }
 
-    public void setName(String name) {
-        Name = name;
+    public void setCapital_City(String capital_City) {
+        Capital_City = capital_City;
     }
 
-    public String getCapital() {
-        return Capital;
+    public String getCountry_Name() {
+        return Country_Name;
     }
 
-    public void setCapital(String capital) {
-        Capital = capital;
+    public void setCountry_Name(String country_Name) {
+        Country_Name = country_Name;
     }
 
-    public String getPopulation() {
+    public int getPopulation() {
         return Population;
     }
 
-    public void setPopulation(String population) {
+    public void setPopulation(int population) {
         Population = population;
     }
 
-    // Other methods remain the same...
+    public String getContinent() {
+        return Continent;
+    }
+
+    public void setContinent(String continent) {
+        Continent = continent;
+    }
 }

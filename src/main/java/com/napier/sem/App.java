@@ -1,7 +1,11 @@
 package com.napier.sem;
 
+import com.napier.sem.Capitalcity;
+
+import java.math.BigDecimal;
 import java.sql.*;
 import java.util.ArrayList;
+//adding necessary libraries, modules
 
 public class App
 {
@@ -9,15 +13,14 @@ public class App
     {
         // Create new Application
         App a = new App();
-
         // Connect to database
         a.connect();
 
-        // Retrieve country details
-        ArrayList<Capitalcity> capital = a.getCapitalcity();
+        // Retrieve country in world details
+        ArrayList<Capitalcity> capitacity = a.getCapitalCity();
 
         // Display result
-        a.displayCountry(capital);
+        a.displayCapital(capitacity);
 
         // Disconnect from database
         a.disconnect();
@@ -49,7 +52,7 @@ public class App
         int retries = 10;
         for (int i = 0; i < retries; ++i)
         {
-            System.out.println("Connecting to database... successfully");
+            System.out.println("Connecting to database...");
             try
             {
                 // Wait a bit for db to start
@@ -71,67 +74,9 @@ public class App
             }
         }
     }
-    /**
-            * Display country details.
-     */
-    public void displayCountry(ArrayList<Capitalcity> countries) {
-        if (countries != null && !countries.isEmpty()) {
-            for (Capitalcity c : countries) {
-                System.out.println(
-                                "Name: " + c.getName() + "\n"
-                                + "Population: " + c.getPopulation() + "\n"
-                                + "Capital: " + c.getCapital() + "\n"
-                );
-            }
-        } else {
-            System.out.println("No country details available");
-        }
-    }
 
-
-    public ArrayList<Capitalcity> getCapitalcity()
-    {
-        ArrayList<Capitalcity> a = new ArrayList<Capitalcity>();
-        try
-        {
-            // Create an SQL statement
-            Statement stmt = con.createStatement();
-            // Create string for SQL statement
-            String strSelect =
-                    "SELECT c.Name AS CapitalCity, co.Name AS Country, c.Population " +
-                            "FROM city c JOIN country co ON c.ID = co.Capital " +
-                            "ORDER BY c.Population DESC";
-            // Execute SQL statement
-            ResultSet rset = stmt.executeQuery(strSelect);
-            // Return new employee if valid.
-            // Check one is returned
-            while (rset.next())
-            {
-                Capitalcity capi = new Capitalcity();
-
-                capi.setName(rset.getString("Name"));
-
-
-                capi.setPopulation(rset.getString("Population"));
-                capi.setCapital(rset.getString("Capital"));
-                a.add(capi);
-            }
-            return a;
-        }
-        catch (Exception e)
-        {
-            System.out.println(e.getMessage());
-
-
-            System.out.println("Failed to get countries details");
-            return null;
-        }
-    }
-
-
-
-    /**
-            * Disconnect from the MySQL database.
+        /**
+        * Disconnect from the MySQL database.
      */
     public void disconnect()
     {
@@ -148,5 +93,67 @@ public class App
             }
         }
     }
+
+
+/**
+        * All the countries in a continent organised by largest population to smallest.
+        */
+    public ArrayList<Capitalcity> getCapitalCity()
+    {
+        ArrayList<Capitalcity> a = new ArrayList<Capitalcity>();
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    " SELECT city.Name AS Capital_City, country.Name AS Country_Name, city.Population, country.Continent " +
+                            " FROM city INNER JOIN country ON city.CountryCode = country.Code WHERE city.ID = country.Capital AND country.Continent = \"Asia\" " +
+                            " ORDER BY city.Population DESC ";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Return new employee if valid.
+            // Check one is returned
+            while (rset.next())
+            {
+                Capitalcity capitalcity = new Capitalcity();
+                capitalcity.setCapital_City(rset.getString("Capital_City"));
+                capitalcity.setCountry_Name(rset.getString("Country_Name"));
+                capitalcity.setPopulation(rset.getInt("Population"));
+                capitalcity.setContinent(rset.getString("Continent"));
+
+
+                a.add(capitalcity);
+            }
+            return a;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get Capital details");
+            return null;
+        }
+    }
+
+    public void displayCapital(ArrayList<Capitalcity> capitalcities) {
+        if (capitalcities != null && !capitalcities.isEmpty()) {
+            System.out.println("----------------------------------------------------------------------------------------------------------------");
+            System.out.printf("| %-25s |  %-25s |  %-25s |  %-25s | \n",
+                    "Capital_City", "Country_Name", "Population", "Continent");
+            System.out.println("-----------------------------------------------------------------------------------------------------------------");
+
+            for (Capitalcity capitalcity : capitalcities) {
+                System.out.printf("| %-25s |  %-25s |  %-25s |  %-25s | \n",
+                        capitalcity.getCapital_City(), capitalcity.getCountry_Name(), capitalcity.getPopulation(), capitalcity.getContinent());
+            }
+
+            System.out.println("-----------------------------------------------------------------------------------------------------------------");
+        } else {
+            System.out.println("No continent details available");
+        }
+    }
+
+
+
 
 }
