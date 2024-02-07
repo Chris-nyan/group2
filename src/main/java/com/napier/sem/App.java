@@ -1,12 +1,9 @@
 package com.napier.sem;
 
 import java.sql.*;
-
 import java.util.List;
 import java.util.ArrayList;
-//adding necessary libraries and modules
-//testing
-
+//importing Arraylist for using array list in cities
 
 public class App
 {
@@ -17,124 +14,232 @@ public class App
 
         // Connect to database
         a.connect();
-
-        // Retrieve country details
-        ArrayList<Countries> country = a.getcountries();
-        ArrayList<Countries> continent = a.getContinent();
-
-        // Display result
-        a.displayCountry(continent);
-
         // Disconnect from database
-
         //a.disconnect();
         ArrayList<City> cities = a.getcity();
         a.displayCities(cities);
 
-        a.disconnect();
-
-
-
     }
-
     /**
      * Connection to MySQL database.
      */
     private Connection con = null;
-    /**
-     * Display SQL results
-     */
-    public void displayCities(ArrayList<City> cities) {
-        // Check if the list is not empty
-        if (cities != null && !cities.isEmpty()) {
-            for (City city : cities) {
-                System.out.println("Name: " + city.getName());
-                System.out.println("District: " + city.getDistrict());
-                System.out.println("Country Name: " + city.getCountryCode());
-                System.out.println("Population: " + city.getPopulation());
-                System.out.println("--------------------------");
+
+    public static void main(String[] args) {
+        App app = new App();
+        app.connect();
+        ArrayList<City> sortCity = app.sortCity();
+//        app.displaySortCity(sortCity);
+        ArrayList<CityWorld> sortCityWorld = app.sortCityWorld();
+//        app.displaySortCityWorld(sortCityWorld);
+        ArrayList<CityRegion> sortCityRegion = app.sortCityRegion();
+//        app.displaySortCityRegion(sortCityRegion);
+        ArrayList<CityCountry> sortCityCountry = app.sortCityCountry();
+        app.displaySortCityCountry(sortCityCountry);
+        app.disconnect();
+    }
+
+    public ArrayList<City> sortCity() {
+        ArrayList<City> sortCityList = new ArrayList<>();
+        String query = "SELECT city.Name, country.Name AS country_name, city.Population, city.District, country.Continent " +
+                "FROM city " +
+                "INNER JOIN country ON city.CountryCode = country.Code " +
+                "WHERE country.Continent = 'Asia' " +
+                "ORDER BY city.Population DESC";
+        try {
+            Statement ps = con.createStatement();
+            ResultSet rs = ps.executeQuery(query);
+
+            while (rs.next()) {
+                City sortCity = new City();
+                sortCity.setName(rs.getString("Name"));
+                sortCity.setCountryName(rs.getString("country_name"));
+                sortCity.setPopulation(rs.getInt("Population"));
+                sortCity.setDistrict(rs.getString("District"));
+                sortCity.setContinent(rs.getString("Continent"));
+                sortCityList.add(sortCity);
             }
+            return sortCityList;
+
+        } catch (Exception e) {
+            System.out.println("Error on sort city");
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public void displaySortCity(ArrayList<City> sortCities) {
+        if (sortCities != null && !sortCities.isEmpty()) {
+            System.out.println("Population of the cities in a continent, Asia, sorting from largest to smallest");
+            System.out.printf("| %-25s | %-25s | %-15s | %-25s | %-15s |\n", "Name", "Country Name", "Population", "District", "Continent");
+
+            for (City sortCity : sortCities) {
+                System.out.printf("| %-25s | %-25s | %-15d | %-25s | %-15s |\n",
+                        sortCity.getName(), sortCity.getCountryName(), sortCity.getPopulation(), sortCity.getDistrict(), sortCity.getContinent());
+            }
+
+            System.out.println("----------------------------------------------------------------------------------------------------------");
         } else {
             System.out.println("No cities found.");
         }
     }
 
     /**
-     * Sorting countries in the world based on population largest to smallest
-      */
-    public ArrayList<City> getcity()
-    {
-        try
-        {
-            ArrayList<City> city_list = new ArrayList<City>(); //cities list to stored data extracted by SQL
-            // Create an SQL statement
-            Statement stmt = con.createStatement();
-            // Create string for SQL statement
-            String strSelect =
-                    " SELECT city.Name, country.Name AS country_name, city.Population, city.District " +
-                            " FROM city " +
-                            " INNER JOIN country ON city.CountryCode = country.Code " +
-                            " ORDER BY city.Population DESC "; //country table and city table is joined internally with country code and ID
-            // Execute SQL statement
-            ResultSet rset = stmt.executeQuery(strSelect);
+     * Sorting cities ON THE WORLD according to population
+     */
+    public ArrayList<CityWorld> sortCityWorld() {
+        ArrayList<CityWorld> sortCityWorldList = new ArrayList<>();
+        String query = "SELECT city.Name, country.Name AS country_name, city.Population, city.District " +
+                "FROM city " +
+                "INNER JOIN country ON city.CountryCode = country.Code " +
+                "ORDER BY city.Population DESC";
+        try {
+            Statement ps = con.createStatement();
+            ResultSet rs = ps.executeQuery(query);
 
-            while (rset.next())
-            {
-                City cty = new City();
-                cty.setName(rset.getString("Name"));
-                cty.setDistrict(rset.getString("District"));
-                cty.setCountryCode(rset.getString("country_name"));
-                cty.setPopulation(Integer.parseInt(rset.getString("Population")));
-                city_list.add(cty);
+            while (rs.next()) {
+                CityWorld sortCityWorld = new CityWorld();
+                sortCityWorld.setCity_name(rs.getString("Name"));
+                sortCityWorld.setCountry_name(rs.getString("country_name"));
+                sortCityWorld.setDistrict(rs.getString("District"));
+                sortCityWorld.setPopulation(rs.getInt("Population"));
+                sortCityWorldList.add(sortCityWorld);
             }
-        return city_list;
-//            else
-//                return null;
+            return sortCityWorldList;
+
+        } catch (Exception e) {
+            System.out.println("Error on sort city on the world");
+            e.printStackTrace();
         }
-        catch (Exception e)
-        {
-            System.out.println(e.getMessage());
-            System.out.println("Failed to get City information");
-            return null;
+        return null;
+    }
+    public void displaySortCityWorld(ArrayList<CityWorld> sortCitiesWorld) {
+        if (sortCitiesWorld != null && !sortCitiesWorld.isEmpty()) {
+            System.out.println("Population of the cities around the world sorting from largest to smallest");
+            System.out.printf("| %-25s | %-25s | %-25s | %-25s |\n", "Name", "Country Name", "District", "Population");
+
+            for (CityWorld sortCityWorld : sortCitiesWorld) {
+                System.out.printf("| %-25s | %-25s | %-25s | %-25d |\n",
+                        sortCityWorld.getCity_name(), sortCityWorld.getCountry_name(), sortCityWorld.getDistrict(), sortCityWorld.getPopulation());
+            }
+
+            System.out.println("----------------------------------------------------------------------------------------------------------");
+        } else {
+            System.out.println("No cities to display.");
         }
     }
     /**
-     * Connect to the MySQL database.
+     * Sorting cities IN THE REGION according to Population
      */
-    public void connect()
-    {
-        try
-        {
-            // Load Database driver
-            Class.forName("com.mysql.cj.jdbc.Driver");
+    public ArrayList<CityRegion> sortCityRegion() {
+        ArrayList<CityRegion> sortCityRegionList = new ArrayList<>();
+        String query = "SELECT city.Name, country.Name AS country_name, city.Population, city.District " +
+                "FROM city " +
+                "INNER JOIN country ON city.CountryCode = country.Code " +
+                "WHERE country.Region = 'Middle East'" +
+                "ORDER BY city.Population DESC";
+        try {
+            Statement ps = con.createStatement();
+            ResultSet rs = ps.executeQuery(query);
+
+            while (rs.next()) {
+                CityRegion sortCityRegion = new CityRegion();
+                sortCityRegion.setCity_name(rs.getString("Name"));
+                sortCityRegion.setCountry_name(rs.getString("country_name"));
+                sortCityRegion.setDistrict(rs.getString("District"));
+                sortCityRegion.setPopulation(rs.getInt("Population"));
+                sortCityRegionList.add(sortCityRegion);
+            }
+            return sortCityRegionList;
+
+        } catch (Exception e) {
+            System.out.println("Error on sort city on the world");
+            e.printStackTrace();
         }
-        catch (ClassNotFoundException e)
-        {
+        return null;
+    }
+    public void displaySortCityRegion(ArrayList<CityRegion> sortCitiesRegion) {
+        if (sortCitiesRegion != null && !sortCitiesRegion.isEmpty()) {
+            System.out.println("Population of the cities in a region called Middle East sorting from largest to smallest");
+            System.out.printf("| %-25s | %-25s | %-25s | %-25s |\n", "Name", "Country Name", "District", "Population");
+
+            for (CityRegion sortCityRegion : sortCitiesRegion) {
+                System.out.printf("| %-25s | %-25s | %-25s | %-25d |\n",
+                        sortCityRegion.getCity_name(), sortCityRegion.getCountry_name(), sortCityRegion.getDistrict(), sortCityRegion.getPopulation());
+            }
+            System.out.println("----------------------------------------------------------------------------------------------------------");
+        } else {
+            System.out.println("No cities to display.");
+        }
+    }
+
+    /**
+     * Sorting cities IN THE COUNTRY according to Population
+     */
+    public ArrayList<CityCountry> sortCityCountry() {
+        ArrayList<CityCountry> sortCityCountryList = new ArrayList<>();
+        String query = "SELECT city.Name, country.Name AS country_name, city.Population, city.District " +
+                "FROM city " +
+                "INNER JOIN country ON city.CountryCode = country.Code " +
+                "WHERE country.Name = 'Myanmar'" +
+                "ORDER BY city.Population DESC";
+        try {
+            Statement ps = con.createStatement();
+            ResultSet rs = ps.executeQuery(query);
+
+            while (rs.next()) {
+                CityCountry sortCityCountry = new CityCountry();
+                sortCityCountry.setCity_name(rs.getString("Name"));
+                sortCityCountry.setCountry_name(rs.getString("country_name"));
+                sortCityCountry.setDistrict(rs.getString("District"));
+                sortCityCountry.setPopulation(rs.getInt("Population"));
+                sortCityCountryList.add(sortCityCountry);
+            }
+            return sortCityCountryList;
+
+        } catch (Exception e) {
+            System.out.println("Error on sort city on the world");
+            e.printStackTrace();
+        }
+        return null;
+    }
+    public void displaySortCityCountry(ArrayList<CityCountry> sortCitiesCountry) {
+        if (sortCitiesCountry != null && !sortCitiesCountry.isEmpty()) {
+            System.out.println("Population of the cities in a country called Myanmar sorting from largest to smallest");
+            System.out.printf("| %-25s | %-25s | %-25s | %-25s |\n", "Name", "Country Name", "District", "Population");
+
+            for (CityCountry sortCityCountry : sortCitiesCountry) {
+                System.out.printf("| %-25s | %-25s | %-25s | %-25d |\n",
+                        sortCityCountry.getCity_name(), sortCityCountry.getCountry_name(), sortCityCountry.getDistrict(), sortCityCountry.getPopulation());
+            }
+            System.out.println("----------------------------------------------------------------------------------------------------------");
+        } else {
+            System.out.println("No cities to display.");
+        }
+    }
+
+
+
+    public void connect() {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
             System.out.println("Could not load SQL driver");
             System.exit(-1);
         }
 
         int retries = 10;
-        for (int i = 0; i < retries; ++i)
-        {
+        for (int i = 0; i < retries; ++i) {
             System.out.println("Connecting to database...");
-            try
-            {
-                // Wait a bit for db to start
+            try {
                 Thread.sleep(30000);
-                // Connect to database
                 con = DriverManager.getConnection("jdbc:mysql://db:3306/world?useSSL=false", "root", "example");
-//                con = DriverManager.getConnection("jdbc:mysql://localhost:33060/world?useSSL=false", "root", "example");
-                System.out.println("Successfully connected jgghkgu");
+                System.out.println("Successfully connected");
                 break;
-            }
-            catch (SQLException sqle)
-            {
+            } catch (SQLException sqle) {
                 System.out.println("Failed to connect to database attempt " + Integer.toString(i));
                 System.out.println(sqle.getMessage());
-            }
-            catch (InterruptedException ie)
-            {
+            } catch (InterruptedException ie) {
                 System.out.println("Thread interrupted? Should not happen.");
             }
         }
@@ -230,20 +335,11 @@ public class App
     }
 
 
-    /**
-     * Disconnect from the MySQL database.
-     */
-    public void disconnect()
-    {
-        if (con != null)
-        {
-            try
-            {
-                // Close connection
+    public void disconnect() {
+        if (con != null) {
+            try {
                 con.close();
-            }
-            catch (Exception e)
-            {
+            } catch (Exception e) {
                 System.out.println("Error closing connection to database");
             }
         }

@@ -11,9 +11,9 @@ public class City {
      */
     private String Name;
     /**
-     * Country code
+     * Country Name
      */
-    private String CountryCode;
+    private String CountryName;
     /**
      *District
      */
@@ -22,6 +22,19 @@ public class City {
      *Population
      */
     private int population;
+
+    /**
+     * Continent
+     */
+    private String continent;
+
+    public String getContinent() {
+        return continent;
+    }
+
+    public void setContinent(String continent) {
+        this.continent = continent;
+    }
 
     public int getID() {
         return ID;
@@ -39,12 +52,12 @@ public class City {
         Name = name;
     }
 
-    public String getCountryCode() {
-        return CountryCode;
+    public String getCountryName() {
+        return CountryName;
     }
 
-    public void setCountryCode(String countryCode) {
-        CountryCode = countryCode;
+    public void setCountryName(String countryName) {
+        CountryName = countryName;
     }
 
     public String getDistrict() {
