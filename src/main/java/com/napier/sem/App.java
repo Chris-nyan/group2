@@ -14,11 +14,13 @@ public class App {
         App app = new App();
         app.connect();
         ArrayList<City> sortCity = app.sortCity();
-        app.displaySortCity(sortCity);
+//        app.displaySortCity(sortCity);
         ArrayList<CityWorld> sortCityWorld = app.sortCityWorld();
-        app.displaySortCityWorld(sortCityWorld);
+//        app.displaySortCityWorld(sortCityWorld);
         ArrayList<CityRegion> sortCityRegion = app.sortCityRegion();
-        app.displaySortCityRegion(sortCityRegion);
+//        app.displaySortCityRegion(sortCityRegion);
+        ArrayList<CityCountry> sortCityCountry = app.sortCityCountry();
+        app.displaySortCityCountry(sortCityCountry);
         app.disconnect();
     }
 
@@ -149,6 +151,51 @@ public class App {
             for (CityRegion sortCityRegion : sortCitiesRegion) {
                 System.out.printf("| %-25s | %-25s | %-25s | %-25d |\n",
                         sortCityRegion.getCity_name(), sortCityRegion.getCountry_name(), sortCityRegion.getDistrict(), sortCityRegion.getPopulation());
+            }
+            System.out.println("----------------------------------------------------------------------------------------------------------");
+        } else {
+            System.out.println("No cities to display.");
+        }
+    }
+
+    /**
+     * Sorting cities IN THE COUNTRY according to Population
+     */
+    public ArrayList<CityCountry> sortCityCountry() {
+        ArrayList<CityCountry> sortCityCountryList = new ArrayList<>();
+        String query = "SELECT city.Name, country.Name AS country_name, city.Population, city.District " +
+                "FROM city " +
+                "INNER JOIN country ON city.CountryCode = country.Code " +
+                "WHERE country.Name = 'Myanmar'" +
+                "ORDER BY city.Population DESC";
+        try {
+            Statement ps = con.createStatement();
+            ResultSet rs = ps.executeQuery(query);
+
+            while (rs.next()) {
+                CityCountry sortCityCountry = new CityCountry();
+                sortCityCountry.setCity_name(rs.getString("Name"));
+                sortCityCountry.setCountry_name(rs.getString("country_name"));
+                sortCityCountry.setDistrict(rs.getString("District"));
+                sortCityCountry.setPopulation(rs.getInt("Population"));
+                sortCityCountryList.add(sortCityCountry);
+            }
+            return sortCityCountryList;
+
+        } catch (Exception e) {
+            System.out.println("Error on sort city on the world");
+            e.printStackTrace();
+        }
+        return null;
+    }
+    public void displaySortCityCountry(ArrayList<CityCountry> sortCitiesCountry) {
+        if (sortCitiesCountry != null && !sortCitiesCountry.isEmpty()) {
+            System.out.println("Population of the cities in a country called Myanmar sorting from largest to smallest");
+            System.out.printf("| %-25s | %-25s | %-25s | %-25s |\n", "Name", "Country Name", "District", "Population");
+
+            for (CityCountry sortCityCountry : sortCitiesCountry) {
+                System.out.printf("| %-25s | %-25s | %-25s | %-25d |\n",
+                        sortCityCountry.getCity_name(), sortCityCountry.getCountry_name(), sortCityCountry.getDistrict(), sortCityCountry.getPopulation());
             }
             System.out.println("----------------------------------------------------------------------------------------------------------");
         } else {
