@@ -8,37 +8,7 @@ import java.util.ArrayList;
 
 public class App
 {
-    public static void main(String[] args)
-    {
-        // Create new Application
-        App a = new App();
-        // Connect to database
-        a.connect();
 
-        // Retrieve country in world details
-        ArrayList<CountriesInWorld> country = a.getCountriesInWorld();
-
-        //Retrieve continent details
-        ArrayList<Continent> continent = a.getContinent();
-
-        //Retrieve continent details
-        ArrayList<Region> regions = a.getRegion();
-
-        //Retrieve continent details
-        ArrayList<UserInputWorld> userInputWorlds = a.getUserInputWorld();
-
-        // Display result
-        a.displayCountry(country);
-        a.displayContinent(continent);
-        a.displayRegion(regions);
-        a.displayUserInputWorld(userInputWorlds);
-
-
-        // Disconnect from database
-        a.disconnect();
-
-
-    }
 
     /**
      * Connection to MySQL database.
@@ -56,6 +26,26 @@ public class App
 //        app.displaySortCityRegion(sortCityRegion);
         ArrayList<CityCountry> sortCityCountry = app.sortCityCountry();
         app.displaySortCityCountry(sortCityCountry);
+
+        // Retrieve country in world details
+        ArrayList<CountriesInWorld> country = app.getCountriesInWorld();
+
+        //Retrieve continent details
+        ArrayList<Continent> continent = app.getContinent();
+
+        //Retrieve continent details
+        ArrayList<Region> regions = app.getRegion();
+
+        //Retrieve continent details
+        ArrayList<UserInputWorld> userInputWorlds = app.getUserInputWorld();
+
+        // Display result
+        app.displayCountry(country);
+        app.displayContinent(continent);
+        app.displayRegion(regions);
+        app.displayUserInputWorld(userInputWorlds);
+
+
         app.disconnect();
     }
 
@@ -268,21 +258,7 @@ public class App
     /**
      * Disconnect from the MySQL database.
      */
-    public void disconnect()
-    {
-        if (con != null)
-        {
-            try
-            {
-                // Close connection
-                con.close();
-            }
-            catch (Exception e)
-            {
-                System.out.println("Error closing connection to database");
-            }
-        }
-    }
+
 
     /**
      * All the countries in the world organised by largest population to smallest.
@@ -485,20 +461,13 @@ public class App
         }
     }
 
-    public void disconnect() {
-        if (con != null) {
-            try {
-                con.close();
-            } catch (Exception e) {
-                System.out.println("Error closing connection to database");
     /**
      * The top N populated countries in the world where N is provided by the user.
      */
-    public ArrayList<UserInputWorld> getUserInputWorld()
+    public ArrayList<UserInputWorld> getUserInputWorld ()
     {
         ArrayList<UserInputWorld> a = new ArrayList<UserInputWorld>();
-        try
-        {
+        try {
             // Create an SQL statement
             Statement stmt = con.createStatement();
             // Create string for SQL statement
@@ -510,8 +479,7 @@ public class App
             ResultSet rset = stmt.executeQuery(strSelect);
             // Return new employee if valid.
             // Check one is returned
-            while (rset.next())
-            {
+            while (rset.next()) {
                 UserInputWorld userinputworld = new UserInputWorld();
                 userinputworld.setCode(rset.getString("Code"));
                 userinputworld.setCountry_name(rset.getString("Country_Name"));
@@ -521,16 +489,14 @@ public class App
                 a.add(userinputworld);
             }
             return a;
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get User Input details");
             return null;
         }
     }
 
-    public void displayUserInputWorld(ArrayList<UserInputWorld> userInputWorlds) {
+    public void displayUserInputWorld (ArrayList < UserInputWorld > userInputWorlds) {
         if (userInputWorlds != null && !userInputWorlds.isEmpty()) {
             System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
             System.out.printf("| %-25s | %-25s | %-25s | %-25s | %-25s | \n",
@@ -549,5 +515,15 @@ public class App
     }
 
 
+
+    public void disconnect() {
+        if (con != null) {
+            try {
+                con.close();
+            } catch (Exception e) {
+                System.out.println("Error closing connection to database");
+            }
+        }
+    }
 
 }
