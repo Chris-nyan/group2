@@ -3,17 +3,16 @@ package com.napier.sem;
 import java.math.BigDecimal;
 
 /**
- * Represents Population in each continent
+ * Represents a population in region
  */
-public class Population
-{
+public class PopulationRegion{
 
     /**
-     * Population in each continent
+     * Population in each Region
      */
-    private String Continent;
+    private String Region;
     /**
-     * Continent
+     *Region
      */
     private long Total_Population;
     /**
@@ -35,12 +34,13 @@ public class Population
     /**
      * Percentage Population Not In Cities
      */
-    public String getContinent() {
-        return Continent;
+
+    public String getRegion() {
+        return Region;
     }
 
-    public void setContinent(String continent) {
-        Continent = continent;
+    public void setRegion(String region) {
+        Region = region;
     }
 
     public long getTotal_Population() {
