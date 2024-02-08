@@ -2,7 +2,6 @@ package com.napier.sem;
 
 import java.math.BigDecimal;
 import java.sql.*;
-import java.util.List;
 import java.util.ArrayList;
 //importing Arraylist for using array list in cities
 
@@ -15,41 +14,48 @@ public class App
      */
     private Connection con = null;
 
+    public App() {
+    }
+
     public static void main(String[] args) {
         App app = new App();
         app.connect();
-        ArrayList<City> sortCity = app.sortCity();
+        ArrayList<City> sortCity = app.sortCity(app.con);
 //        app.displaySortCity(sortCity);
-        ArrayList<CityWorld> sortCityWorld = app.sortCityWorld();
+        ArrayList<CityWorld> sortCityWorld = app.sortCityWorld(app.con);
 //        app.displaySortCityWorld(sortCityWorld);
-        ArrayList<CityRegion> sortCityRegion = app.sortCityRegion();
+        ArrayList<CityRegion> sortCityRegion = app.sortCityRegion(app.con);
 //        app.displaySortCityRegion(sortCityRegion);
-        ArrayList<CityCountry> sortCityCountry = app.sortCityCountry();
-        app.displaySortCityCountry(sortCityCountry);
+        ArrayList<CityCountry> sortCityCountry = app.sortCityCountry(app.con);
+
 
         // Retrieve country in world details
-        ArrayList<CountriesInWorld> country = app.getCountriesInWorld();
+        ArrayList<CountriesInWorld> country = app.getCountriesInWorld(app.con);
 
         //Retrieve continent details
-        ArrayList<Continent> continent = app.getContinent();
+        ArrayList<Continent> continent = app.getContinent(app.con);
 
         //Retrieve continent details
-        ArrayList<Region> regions = app.getRegion();
+        ArrayList<Region> regions = app.getRegion(app.con);
 
         //Retrieve continent details
-        ArrayList<UserInputWorld> userInputWorlds = app.getUserInputWorld();
+        ArrayList<UserInputWorld> userInputWorlds = app.getUserInputWorld(app.con);
 
         // Display result
         app.displayCountry(country);
         app.displayContinent(continent);
         app.displayRegion(regions);
         app.displayUserInputWorld(userInputWorlds);
+        app.displaySortCity(sortCity);
+        app.displaySortCityWorld(sortCityWorld);
+        app.displaySortCityRegion(sortCityRegion);
+        app.displaySortCityCountry(sortCityCountry);
 
 
         app.disconnect();
     }
 
-    public ArrayList<City> sortCity() {
+    public ArrayList<City> sortCity(Connection con) {
         ArrayList<City> sortCityList = new ArrayList<>();
         String query = "SELECT city.Name, country.Name AS country_name, city.Population, city.District, country.Continent " +
                 "FROM city " +
@@ -84,6 +90,8 @@ public class App
             System.out.printf("| %-25s | %-25s | %-15s | %-25s | %-15s |\n", "Name", "Country Name", "Population", "District", "Continent");
 
             for (City sortCity : sortCities) {
+                if (sortCity != null)
+                    continue;
                 System.out.printf("| %-25s | %-25s | %-15d | %-25s | %-15s |\n",
                         sortCity.getName(), sortCity.getCountryName(), sortCity.getPopulation(), sortCity.getDistrict(), sortCity.getContinent());
             }
@@ -97,7 +105,7 @@ public class App
     /**
      * Sorting cities ON THE WORLD according to population
      */
-    public ArrayList<CityWorld> sortCityWorld() {
+    public ArrayList<CityWorld> sortCityWorld(Connection con) {
         ArrayList<CityWorld> sortCityWorldList = new ArrayList<>();
         String query = "SELECT city.Name, country.Name AS country_name, city.Population, city.District " +
                 "FROM city " +
@@ -141,7 +149,7 @@ public class App
     /**
      * Sorting cities IN THE REGION according to Population
      */
-    public ArrayList<CityRegion> sortCityRegion() {
+    public ArrayList<CityRegion> sortCityRegion(Connection con) {
         ArrayList<CityRegion> sortCityRegionList = new ArrayList<>();
         String query = "SELECT city.Name, country.Name AS country_name, city.Population, city.District " +
                 "FROM city " +
@@ -186,7 +194,7 @@ public class App
     /**
      * Sorting cities IN THE COUNTRY according to Population
      */
-    public ArrayList<CityCountry> sortCityCountry() {
+    public ArrayList<CityCountry> sortCityCountry(Connection con) {
         ArrayList<CityCountry> sortCityCountryList = new ArrayList<>();
         String query = "SELECT city.Name, country.Name AS country_name, city.Population, city.District " +
                 "FROM city " +
@@ -229,7 +237,6 @@ public class App
     }
 
 
-
     public void connect() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -243,7 +250,7 @@ public class App
             System.out.println("Connecting to database...");
             try {
                 Thread.sleep(30000);
-                con = DriverManager.getConnection("jdbc:mysql://db:3306/world?useSSL=false", "root", "example");
+                DriverManager.getConnection("jdbc:mysql://db:3306/world?useSSL=false", "root", "example");
                 System.out.println("Successfully connected");
                 break;
             } catch (SQLException sqle) {
@@ -254,6 +261,9 @@ public class App
             }
         }
     }
+    public Connection getConnection() {
+        return con;
+    }
 
     /**
      * Disconnect from the MySQL database.
@@ -263,7 +273,7 @@ public class App
     /**
      * All the countries in the world organised by largest population to smallest.
      */
-    public ArrayList<CountriesInWorld> getCountriesInWorld()
+    public ArrayList<CountriesInWorld> getCountriesInWorld(Connection con)
     {
         ArrayList<CountriesInWorld> a = new ArrayList<CountriesInWorld>();
         try
@@ -349,7 +359,7 @@ public class App
 /**
  * All the countries in a continent organised by largest population to smallest.
  */
-    public ArrayList<Continent> getContinent()
+    public ArrayList<Continent> getContinent(Connection con)
     {
         ArrayList<Continent> a = new ArrayList<Continent>();
         try
@@ -407,7 +417,7 @@ public class App
     /**
      * All the countries in Region organised by largest population to smallest.
      */
-    public ArrayList<Region> getRegion()
+    public ArrayList<Region> getRegion(Connection con)
     {
         ArrayList<Region> a = new ArrayList<Region>();
         try
@@ -464,7 +474,7 @@ public class App
     /**
      * The top N populated countries in the world where N is provided by the user.
      */
-    public ArrayList<UserInputWorld> getUserInputWorld ()
+    public ArrayList<UserInputWorld> getUserInputWorld (Connection con)
     {
         ArrayList<UserInputWorld> a = new ArrayList<UserInputWorld>();
         try {
@@ -526,4 +536,6 @@ public class App
         }
     }
 
+    public void setConnection(Connection mockConnection) {
+    }
 }
