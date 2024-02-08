@@ -24,7 +24,7 @@ jobs:
 #      - name: view logs
 #        run: docker logs semcontainer
       - name: Unit Tests
-        run: mvn -Dtest=com.napier.sem.AppTest test
+        run: mvn -Dtest=test.AppTest test
 
   build:
     name: Build and Start Using docker-compose
