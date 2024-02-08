@@ -1,4 +1,4 @@
 FROM openjdk:latest
-COPY ./target/group2-1.0-SNAPSHOT-jar-with-dependencies.jar /tmp
+COPY ./target/seMethods.jar /tmp
 WORKDIR /tmp
-ENTRYPOINT ["java", "-jar", "group2-1.0-SNAPSHOT-jar-with-dependencies.jar"]
+ENTRYPOINT ["java", "-jar", "seMethods.jar", "db:3306", "30000"]
