@@ -71,11 +71,11 @@ public class AppTest {
 //     void connect() {
 //        app.connect();
 //    }
-    @Test
-     void disconnect() {
-        // Implement your disconnection logic here
-        app.disconnect();
-    }
+//    @Test
+//     void disconnect() {
+//        // Implement your disconnection logic here
+//        app.disconnect();
+//    }
     @Test
     void testSortCityWithCities() throws Exception {
         // Mocking the Connection, Statement, and ResultSet

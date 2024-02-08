@@ -14,9 +14,6 @@ public class App
      */
     private Connection con = null;
 
-    public App() {
-    }
-
     public static void main(String[] args) {
         App app = new App();
         app.connect();
@@ -237,6 +234,7 @@ public class App
     }
 
 
+
     public void connect() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -250,7 +248,7 @@ public class App
             System.out.println("Connecting to database...");
             try {
                 Thread.sleep(30000);
-                DriverManager.getConnection("jdbc:mysql://db:3306/world?useSSL=false", "root", "example");
+                con = DriverManager.getConnection("jdbc:mysql://db:3306/world?useSSL=false", "root", "example");
                 System.out.println("Successfully connected");
                 break;
             } catch (SQLException sqle) {
@@ -261,9 +259,7 @@ public class App
             }
         }
     }
-    public Connection getConnection() {
-        return con;
-    }
+
 
     /**
      * Disconnect from the MySQL database.
