@@ -16,7 +16,13 @@ public class App
 
     public static void main(String[] args) {
         App app = new App();
-        app.connect();
+//        app.connect();
+        if(args.length < 1){
+            app.connect("localhost:33060", 30000);
+        }else{
+            app.connect(args[0], Integer.parseInt(args[1]));
+        }
+
         ArrayList<City> sortCity = app.sortCity(app.con);
 //        app.displaySortCity(sortCity);
         ArrayList<CityWorld> sortCityWorld = app.sortCityWorld(app.con);
@@ -235,7 +241,7 @@ public class App
 
 
 //Connect
-    public void connect() {
+    public void connect(String location, int delay) {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
@@ -247,8 +253,10 @@ public class App
         for (int i = 0; i < retries; ++i) {
             System.out.println("Connecting to database...");
             try {
-                Thread.sleep(30000);
-                con = DriverManager.getConnection("jdbc:mysql://db:3306/world?useSSL=false", "root", "example");
+                Thread.sleep(delay);
+                con = DriverManager.getConnection("jdbc:mysql://" + location
+                        + "/world?allowPublicKeyRetrieval=true&useSSL=false",
+                        "root", "example");
                 System.out.println("Successfully connected");
                 break;
             } catch (SQLException sqle) {
