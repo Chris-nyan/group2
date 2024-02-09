@@ -4,7 +4,7 @@ public class City {
     /**
      * City ID
      */
-    private int ID;
+//    private int ID;
 
     /**
      * City name
@@ -36,13 +36,13 @@ public class City {
         this.continent = continent;
     }
 
-    public int getID() {
-        return ID;
-    }
-
-    public void setID(int ID) {
-        this.ID = ID;
-    }
+//    public int getID() {
+//        return ID;
+//    }
+//
+//    public void setID(int ID) {
+//        this.ID = ID;
+//    }
 
     public String getName() {
         return Name;
