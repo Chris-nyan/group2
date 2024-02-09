@@ -39,6 +39,16 @@ jobs:
           docker stop world
           docker rm world
           docker image rm database
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v2
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+        with:
+          # token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
+          directory: ./target/site/jacoco
+          flags: IntegrationTests # optional
+          verbose: true # optional (default = false)
+          branch: master
 
   build:
     name: Build and Start Using docker-compose
