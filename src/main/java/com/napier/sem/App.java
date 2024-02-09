@@ -12,37 +12,36 @@ public class App
     /**
      * Connection to MySQL database.
      */
-    private Connection con = null;
 
     public static void main(String[] args) {
         App app = new App();
-//        app.connect();
+        Connection con;
         if(args.length < 1){
-            app.connect("localhost:33060", 0);
+            con = app.connect("localhost:33060", 0);
         }else{
-            app.connect(args[0], Integer.parseInt(args[1]));
+            con =app.connect(args[0], Integer.parseInt(args[1]));
         }
 
-        ArrayList<City> sortCity = app.sortCity(app.con);
+        ArrayList<City> sortCity = app.sortCity(con);
 //        app.displaySortCity(sortCity);
-        ArrayList<CityWorld> sortCityWorld = app.sortCityWorld(app.con);
+        ArrayList<CityWorld> sortCityWorld = app.sortCityWorld(con);
 //        app.displaySortCityWorld(sortCityWorld);
-        ArrayList<CityRegion> sortCityRegion = app.sortCityRegion(app.con);
+        ArrayList<CityRegion> sortCityRegion = app.sortCityRegion(con);
 //        app.displaySortCityRegion(sortCityRegion);
-        ArrayList<CityCountry> sortCityCountry = app.sortCityCountry(app.con);
+        ArrayList<CityCountry> sortCityCountry = app.sortCityCountry(con);
 
 
         // Retrieve country in world details
-        ArrayList<CountriesInWorld> country = app.getCountriesInWorld(app.con);
+        ArrayList<CountriesInWorld> country = app.getCountriesInWorld(con);
 
         //Retrieve continent details
-        ArrayList<Continent> continent = app.getContinent(app.con);
+        ArrayList<Continent> continent = app.getContinent(con);
 
         //Retrieve continent details
-        ArrayList<Region> regions = app.getRegion(app.con);
+        ArrayList<Region> regions = app.getRegion(con);
 
         //Retrieve continent details
-        ArrayList<UserInputWorld> userInputWorlds = app.getUserInputWorld(app.con);
+        ArrayList<UserInputWorld> userInputWorlds = app.getUserInputWorld(con);
 
         // Display result
         app.displayCountry(country);
@@ -55,10 +54,12 @@ public class App
         app.displaySortCityCountry(sortCityCountry);
 
 
-        app.disconnect();
+        app.disconnect(con);
     }
 
     public ArrayList<City> sortCity(Connection con) {
+
+
         ArrayList<City> sortCityList = new ArrayList<>();
         String query = "SELECT city.Name, country.Name AS country_name, city.Population, city.District, country.Continent " +
                 "FROM city " +
@@ -241,7 +242,7 @@ public class App
 
 
 //Connect
-    public void connect(String location, int delay) {
+    public Connection connect(String location, int delay) {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
@@ -250,22 +251,26 @@ public class App
         }
 
         int retries = 10;
+        Connection con = null;
         for (int i = 0; i < retries; ++i) {
             System.out.println("Connecting to database...");
             try {
                 Thread.sleep(delay);
                 con = DriverManager.getConnection("jdbc:mysql://" + location
-                        + "/world?allowPublicKeyRetrieval=true&useSSL=false",
+                                + "/world?allowPublicKeyRetrieval=true&useSSL=false",
                         "root", "example");
-                System.out.println("Successfully connected");
+                System.out.println("Successfully connected...");
                 break;
             } catch (SQLException sqle) {
                 System.out.println("Failed to connect to database attempt " + Integer.toString(i));
                 System.out.println(sqle.getMessage());
+                return null;
             } catch (InterruptedException ie) {
                 System.out.println("Thread interrupted? Should not happen.");
+                return null;
             }
         }
+        return con;
     }
 
 
@@ -530,7 +535,7 @@ public class App
 
 
 
-    public void disconnect() {
+    public void disconnect(Connection con) {
         if (con != null) {
             try {
                 con.close();
