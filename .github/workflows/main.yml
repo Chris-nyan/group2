@@ -24,7 +24,7 @@ jobs:
 #      - name: view logs
 #        run: docker logs semcontainer
       - name: Unit Tests
-        run: mvn -Dtest=test.AppTest test
+        run: mvn -Dtest=test.java.AppTest test
 
   build:
     name: Build and Start Using docker-compose
