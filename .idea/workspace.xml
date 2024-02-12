@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="337f872e-f95f-4311-b23a-a94aea340c9a" name="Changes" comment="Continent and Region results">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/napier/sem/UserInputWorld.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/napier/sem/UserInputContinent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/napier/sem/UserInputRegion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/napier/sem/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/napier/sem/App.java" afterDir="false" />
     </list>
