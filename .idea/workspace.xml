@@ -4,15 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="337f872e-f95f-4311-b23a-a94aea340c9a" name="Changes" comment="User Input Continent and Region and table format update">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="337f872e-f95f-4311-b23a-a94aea340c9a" name="Changes" comment="User Input Continent and Region and table format update(adding capital)">
       <change beforePath="$PROJECT_DIR$/src/main/java/com/napier/sem/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/napier/sem/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/napier/sem/Continent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/napier/sem/Continent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/napier/sem/CountriesInWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/napier/sem/CountriesInWorld.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/napier/sem/Region.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/napier/sem/Region.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/napier/sem/UserInputContinent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/napier/sem/UserInputContinent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/napier/sem/UserInputRegion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/napier/sem/UserInputRegion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/napier/sem/UserInputWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/napier/sem/UserInputWorld.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -267,7 +260,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707736274749</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="User Input Continent and Region and table format update(adding capital)">
+      <option name="closed" value="true" />
+      <created>1707738449450</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1707738449450</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -296,6 +297,7 @@
     <MESSAGE value="Unit testing add" />
     <MESSAGE value="Continent and Region results" />
     <MESSAGE value="User Input Continent and Region and table format update" />
-    <option name="LAST_COMMIT_MESSAGE" value="User Input Continent and Region and table format update" />
+    <MESSAGE value="User Input Continent and Region and table format update(adding capital)" />
+    <option name="LAST_COMMIT_MESSAGE" value="User Input Continent and Region and table format update(adding capital)" />
   </component>
 </project>

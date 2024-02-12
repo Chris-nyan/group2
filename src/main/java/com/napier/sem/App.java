@@ -140,12 +140,12 @@ public class App
         if (countries != null && !countries.isEmpty()) {
             System.out.println("All the countries in the world organized by largest population to smallest");
             System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-            System.out.printf("| %-25s | %-40s | %-25s | %-25s | %-25s | %-25s | \n",
+            System.out.printf("| %-5s | %-40s | %-20s | %-10s | %-15s | %-10s | \n",
                     "Code", "Country Name", "Region", "Continent", "Population", "Capital");
             System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 
             for (CountriesInWorld coun : countries) {
-                System.out.printf("| %-25s | %-40s | %-25s | %-25s | %-25s | %-25s | \n",
+                System.out.printf("| %-5s | %-40s | %-20s | %-10s | %-15s | %-10s | \n",
                         coun.getCode(), coun.getName(), coun.getRegion(), coun.getContinent(), coun.getPopulation(), coun.getCapital());
             }
 
@@ -201,12 +201,12 @@ public class App
         if (continents != null && !continents.isEmpty()) {
             System.out.println("All the countries in a continent organized by largest population to smallest");
             System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-            System.out.printf("| %-25s |  %-25s |  %-25s |  %-25s |  %-25s | %-25s |\n",
+            System.out.printf("| %-5s | %-20s | %-20s | %-10s | %-15s | %-10s |\n",
                     "Code", "Name", "Region", "Continent", "Population", "Capital");
             System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 
             for (Continent continent : continents) {
-                System.out.printf("| %-25s |  %-25s |  %-25s |  %-25s |  %-25s | %-25s |\n",
+                System.out.printf("| %-5s | %-20s | %-20s | %-10s | %-15s | %-10s |\n",
                         continent.getCode(), continent.getName(), continent.getRegion(), continent.getContinent(), continent.getPopulation(), continent.getCapital());
             }
 
@@ -261,12 +261,12 @@ public class App
         if (regions != null && !regions.isEmpty()) {
             System.out.println("All the countries in Region organized by largest population to smallest");
             System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-            System.out.printf("| %-25s | %-25s | %-25s | %-25s | %-25s | %-25s |\n",
+            System.out.printf("| %-5s | %-20s | %-20s | %-10s | %-15s | %-10s |\n",
                     "Code", "Name", "Region", "Continent", "Population", "Capital");
             System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 
             for (Region region : regions) {
-                System.out.printf("| %-25s | %-25s | %-25s | %-25s | %-25s | %-25s |\n",
+                System.out.printf("| %-5s | %-20s | %-20s | %-10s | %-15s | %-10s |\n",
                         region.getCode(), region.getName(), region.getRegion(), region.getContinent(), region.getPopulation(), region.getCapital());
             }
 
@@ -320,12 +320,12 @@ public class App
         if (userInputWorlds != null && !userInputWorlds.isEmpty()) {
             System.out.println("The top N populated countries in the world where N is provided by the user");
             System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-            System.out.printf("| %-25s | %-25s | %-25s | %-25s | %-25s | %-25s |\n",
+            System.out.printf("| %-5s | %-20s | %-20s | %-10s | %-15s | %-10s |\n",
                     "Code", "Country Name", "Region", "Continent", "Population","Capital");
             System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 
             for (UserInputWorld userInputWorld : userInputWorlds) {
-                System.out.printf("| %-25s | %-25s | %-25s | %-25s | %-25s | %-25s |\n",
+                System.out.printf("| %-5s | %-20s | %-20s | %-10s | %-15s | %-10s |\n",
                         userInputWorld.getCode(), userInputWorld.getName(), userInputWorld.getRegion(), userInputWorld.getContinent(), userInputWorld.getPopulation(), userInputWorld.getCapital());
             }
 
@@ -379,12 +379,12 @@ public class App
         if (userInputContinents != null && !userInputContinents.isEmpty()) {
             System.out.println("The top N populated countries in the Continent where N is provided by the user");
             System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-            System.out.printf("| %-25s | %-25s | %-25s | %-25s | %-25s | %-25s |\n",
+            System.out.printf("| %-5s | %-20s | %-20s | %-10s | %-15s | %-10s |\n",
                     "Code", "Country Name", "Region", "Continent", "Population", "Capital");
             System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 
             for (UserInputContinent userInputContinent : userInputContinents) {
-                System.out.printf("| %-25s | %-25s | %-25s | %-25s | %-25s | %-25s |\n",
+                System.out.printf("| %-5s | %-20s | %-20s | %-10s | %-15s | %-10s |\n",
                         userInputContinent.getCode(), userInputContinent.getName(), userInputContinent.getRegion(), userInputContinent.getContinent(), userInputContinent.getPopulation(), userInputContinent.getCapital());
             }
 
@@ -435,12 +435,12 @@ public class App
         if (userInputRegions != null && !userInputRegions.isEmpty()) {
             System.out.println("The top N populated countries in the Region where N is provided by the user");
             System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-            System.out.printf("| %-25s | %-25s | %-25s | %-25s | %-25s | %-25s |\n",
+            System.out.printf("| %-5s | %-20s | %-20s | %-10s | %-15s | %-10s |\n",
                     "Code", "Country Name", "Region", "Continent", "Population", "Capital");
             System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 
             for (UserInputRegion userInputRegion : userInputRegions) {
-                System.out.printf("| %-25s | %-25s | %-25s | %-25s | %-25s | %-25s |\n",
+                System.out.printf("| %-5s | %-20s | %-20s | %-10s | %-15s | %-10s |\n",
                         userInputRegion.getCode(), userInputRegion.getName(), userInputRegion.getRegion(), userInputRegion.getContinent(), userInputRegion.getPopulation(), userInputRegion.getCapital());
             }
 
