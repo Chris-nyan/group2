@@ -9,29 +9,48 @@ public class UserInputWorld
 {
 
     /**
-     * Country continent
+     * Country code
      */
     private String Code;
 
     /**
-     * Country continent
+     * Country Name
      */
-    private String country_name;
+    private String Name ;
 
     /**
-     * Country continent
-     */
-    private String Region;
-
-    /**
-     * Country continent
+     * Continent
      */
     private String Continent;
 
     /**
-     * Country continent
+     * region
+     */
+    private String Region;
+
+    /**
+     * Population
      */
     private int Population;
+
+    /**
+     * Capital
+     */
+    private int Capital;
+
+
+//    public Countries(String code, String name, String continent, String region, String population, String capital) {
+//        Code = code;
+//        Name = name;
+//        Continent = continent;
+//        Region = region;
+//        Population = population;
+//        Capital = capital;
+//    }
+//    public Countries(){
+//
+//    }
+
 
     public String getCode() {
         return Code;
@@ -41,20 +60,12 @@ public class UserInputWorld
         Code = code;
     }
 
-    public String getCountry_name() {
-        return country_name;
+    public String getName() {
+        return Name;
     }
 
-    public void setCountry_name(String country_name) {
-        this.country_name = country_name;
-    }
-
-    public String getRegion() {
-        return Region;
-    }
-
-    public void setRegion(String region) {
-        Region = region;
+    public void setName(String name) {
+        Name = name;
     }
 
     public String getContinent() {
@@ -65,6 +76,15 @@ public class UserInputWorld
         Continent = continent;
     }
 
+    public String getRegion() {
+        return Region;
+    }
+
+    public void setRegion(String region) {
+        Region = region;
+    }
+
+
     public int getPopulation() {
         return Population;
     }
@@ -72,4 +92,15 @@ public class UserInputWorld
     public void setPopulation(int population) {
         Population = population;
     }
+
+
+    public int getCapital() {
+        return Capital;
+    }
+
+    public void setCapital(int capital) {
+        Capital = capital;
+    }
+
+
 }

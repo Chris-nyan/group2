@@ -9,29 +9,36 @@ public class UserInputRegion
 {
 
     /**
-     * Country continent
+     * Country code
      */
     private String Code;
 
     /**
-     * Country continent
+     * Country Name
      */
-    private String Name;
+    private String Name ;
 
     /**
-     * Country continent
-     */
-    private String Region;
-
-    /**
-     * Country continent
+     * Continent
      */
     private String Continent;
 
     /**
-     * Country continent
+     * region
+     */
+    private String Region;
+
+    /**
+     * Population
      */
     private int Population;
+
+    /**
+     * Capital
+     */
+    private int Capital;
+
+
 
     public String getCode() {
         return Code;
@@ -49,14 +56,6 @@ public class UserInputRegion
         Name = name;
     }
 
-    public String getRegion() {
-        return Region;
-    }
-
-    public void setRegion(String region) {
-        Region = region;
-    }
-
     public String getContinent() {
         return Continent;
     }
@@ -65,6 +64,15 @@ public class UserInputRegion
         Continent = continent;
     }
 
+    public String getRegion() {
+        return Region;
+    }
+
+    public void setRegion(String region) {
+        Region = region;
+    }
+
+
     public int getPopulation() {
         return Population;
     }
@@ -72,4 +80,15 @@ public class UserInputRegion
     public void setPopulation(int population) {
         Population = population;
     }
+
+
+    public int getCapital() {
+        return Capital;
+    }
+
+    public void setCapital(int capital) {
+        Capital = capital;
+    }
+
+
 }
