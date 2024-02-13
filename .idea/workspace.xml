@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="337f872e-f95f-4311-b23a-a94aea340c9a" name="Changes" comment="User Input Continent and Region and table format update(adding capital)1">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="337f872e-f95f-4311-b23a-a94aea340c9a" name="Changes" comment="User Input Continent and Region and table format update(adding capital)">
       <change beforePath="$PROJECT_DIR$/src/main/java/com/napier/sem/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/napier/sem/App.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -277,7 +276,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707739015097</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="User Input Continent and Region and table format update(adding capital)">
+      <option name="closed" value="true" />
+      <created>1707796646134</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1707796646134</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -306,8 +313,8 @@
     <MESSAGE value="Unit testing add" />
     <MESSAGE value="Continent and Region results" />
     <MESSAGE value="User Input Continent and Region and table format update" />
-    <MESSAGE value="User Input Continent and Region and table format update(adding capital)" />
     <MESSAGE value="User Input Continent and Region and table format update(adding capital)1" />
-    <option name="LAST_COMMIT_MESSAGE" value="User Input Continent and Region and table format update(adding capital)1" />
+    <MESSAGE value="User Input Continent and Region and table format update(adding capital)" />
+    <option name="LAST_COMMIT_MESSAGE" value="User Input Continent and Region and table format update(adding capital)" />
   </component>
 </project>
