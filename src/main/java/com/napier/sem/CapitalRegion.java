@@ -3,23 +3,23 @@ package com.napier.sem;
 import java.math.BigDecimal;
 
 /**
-        * Represents a countries
+ * Represents a countries
  */
-public class Capitalcity
+public class CapitalRegion
 {
 
     /**
-            * Country continent
+     * Country continent
      */
     private String Capital_Name;
 
     /**
-            * Country continent
+     * Country continent
      */
     private String Country_Name;
 
     /**
-            * Country continent
+     * Country continent
      */
     private int Population;
 
