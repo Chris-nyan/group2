@@ -25,10 +25,22 @@ public class App
         // Retrieve country in world details
         ArrayList<CapitalRegion> capitalRegions = a.getCapitalRegion();
 
+        // Retrieve country in world details
+        ArrayList<InputCapitalWorld> inputCapitalWorlds = a.getInputCapitalWorld();
+
+        // Retrieve country in world details
+        ArrayList<InputCapitalContinent> inputCapitalContinents = a.getInputCapitalContinent();
+
+        // Retrieve country in world details
+        ArrayList<InputCapitalRegion> inputCapitalRegions = a.getInputCapitalRegion();
+
         // Display result
         a.displayCapital(capitalcity);
         a.displayCapitalContinent(capitalContinents);
         a.displayCapitalRegion(capitalRegions);
+        a.displayInputCapitalWorld(inputCapitalWorlds);
+        a.displayInputCapitalContinent(inputCapitalContinents);
+        a.displayInputCapitalRegion(inputCapitalRegions);
 
         // Disconnect from database
         a.disconnect();
@@ -279,6 +291,182 @@ public class App
         }
     }
 
+    /**
+     * The top N populated capital cities in the world where N is provided by the user.
+     */
+    public ArrayList<InputCapitalWorld> getInputCapitalWorld()
+    {
+        ArrayList<InputCapitalWorld> a = new ArrayList<InputCapitalWorld>();
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    " SELECT city.Name AS Capital_Name, country.Name AS Country_Name, city.Population " +
+                            " FROM city INNER JOIN country ON city.CountryCode = country.Code " +
+                            " WHERE city.ID = country.Capital " +
+                            " ORDER BY city.Population DESC LIMIT 5 ";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Return new employee if valid.
+            // Check one is returned
+            while (rset.next())
+            {
+                InputCapitalWorld inputCapitalWorld = new InputCapitalWorld();
+                inputCapitalWorld.setCapital_Name(rset.getString("Capital_Name"));
+                inputCapitalWorld.setCountry_Name(rset.getString("Country_Name"));
+                inputCapitalWorld.setPopulation(rset.getInt("Population"));
+
+
+                a.add(inputCapitalWorld);
+            }
+            return a;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get Capital details");
+            return null;
+        }
+    }
+
+    public void displayInputCapitalWorld(ArrayList<InputCapitalWorld> inputCapitalWorlds) {
+        if (inputCapitalWorlds != null && !inputCapitalWorlds.isEmpty()) {
+            System.out.println("The top N populated capital cities in the world where N is provided by the user.");
+            System.out.println("---------------------------------------------------------------------------------------");
+            System.out.printf("| %-25s |  %-25s |  %-25s | \n",
+                    "Capital_Name", "Country_Name", "Population");
+            System.out.println("---------------------------------------------------------------------------------------");
+
+            for (InputCapitalWorld inputCapitalWorld : inputCapitalWorlds) {
+                System.out.printf("| %-25s |  %-25s |  %-25s | \n",
+                        inputCapitalWorld.getCapital_Name(), inputCapitalWorld.getCountry_Name(), inputCapitalWorld.getPopulation());
+            }
+
+            System.out.println("--------------------------------------------------------------------------------------");
+        } else {
+            System.out.println("No regions details available");
+        }
+    }
+
+    /**
+     * The top N populated capital cities in the continent where N is provided by the user.
+     */
+    public ArrayList<InputCapitalContinent> getInputCapitalContinent()
+    {
+        ArrayList<InputCapitalContinent> a = new ArrayList<InputCapitalContinent>();
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    " SELECT city.Name AS Capital_Name, country.Name AS Country_Name, city.Population " +
+                            " FROM city INNER JOIN country ON city.CountryCode = country.Code " +
+                            " WHERE city.ID = country.Capital AND country.Continent = \"Asia\" " +
+                            " ORDER BY city.Population DESC LIMIT 5 ";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Return new employee if valid.
+            // Check one is returned
+            while (rset.next())
+            {
+                InputCapitalContinent inputCapitalContinent = new InputCapitalContinent();
+                inputCapitalContinent.setCapital_Name(rset.getString("Capital_Name"));
+                inputCapitalContinent.setCountry_Name(rset.getString("Country_Name"));
+                inputCapitalContinent.setPopulation(rset.getInt("Population"));
+
+
+                a.add(inputCapitalContinent);
+            }
+            return a;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get Capital details");
+            return null;
+        }
+    }
+
+    public void displayInputCapitalContinent(ArrayList<InputCapitalContinent> inputCapitalContinents) {
+        if (inputCapitalContinents != null && !inputCapitalContinents.isEmpty()) {
+            System.out.println("The top N populated capital cities in the continent where N is provided by the user.");
+            System.out.println("---------------------------------------------------------------------------------------");
+            System.out.printf("| %-25s |  %-25s |  %-25s | \n",
+                    "Capital_Name", "Country_Name", "Population");
+            System.out.println("---------------------------------------------------------------------------------------");
+
+            for (InputCapitalContinent inputCapitalContinent : inputCapitalContinents) {
+                System.out.printf("| %-25s |  %-25s |  %-25s | \n",
+                        inputCapitalContinent.getCapital_Name(), inputCapitalContinent.getCountry_Name(), inputCapitalContinent.getPopulation());
+            }
+
+            System.out.println("--------------------------------------------------------------------------------------");
+        } else {
+            System.out.println("No regions details available");
+        }
+    }
+
+    /**
+     * The top N populated capital cities in the region where N is provided by the user.
+     */
+    public ArrayList<InputCapitalRegion> getInputCapitalRegion()
+    {
+        ArrayList<InputCapitalRegion> a = new ArrayList<InputCapitalRegion>();
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    " SELECT city.Name AS Capital_Name, country.Name AS Country_Name, city.Population " +
+                            " FROM city INNER JOIN country ON city.CountryCode = country.Code " +
+                            " WHERE city.ID = country.Capital AND country.Region = \"Middle East\" " +
+                            " ORDER BY city.Population DESC LIMIT 5 ";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Return new employee if valid.
+            // Check one is returned
+            while (rset.next())
+            {
+                InputCapitalRegion inputCapitalRegion = new InputCapitalRegion();
+                inputCapitalRegion.setCapital_Name(rset.getString("Capital_Name"));
+                inputCapitalRegion.setCountry_Name(rset.getString("Country_Name"));
+                inputCapitalRegion.setPopulation(rset.getInt("Population"));
+
+
+                a.add(inputCapitalRegion);
+            }
+            return a;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get Capital details");
+            return null;
+        }
+    }
+
+    public void displayInputCapitalRegion(ArrayList<InputCapitalRegion> inputCapitalRegions) {
+        if (inputCapitalRegions != null && !inputCapitalRegions.isEmpty()) {
+            System.out.println("The top N populated capital cities in the region where N is provided by the user.");
+            System.out.println("---------------------------------------------------------------------------------------");
+            System.out.printf("| %-25s |  %-25s |  %-25s | \n",
+                    "Capital_Name", "Country_Name", "Population");
+            System.out.println("---------------------------------------------------------------------------------------");
+
+            for (InputCapitalRegion inputCapitalRegion : inputCapitalRegions) {
+                System.out.printf("| %-25s |  %-25s |  %-25s | \n",
+                        inputCapitalRegion.getCapital_Name(), inputCapitalRegion.getCountry_Name(), inputCapitalRegion.getPopulation());
+            }
+
+            System.out.println("--------------------------------------------------------------------------------------");
+        } else {
+            System.out.println("No regions details available");
+        }
+    }
 
 
 
