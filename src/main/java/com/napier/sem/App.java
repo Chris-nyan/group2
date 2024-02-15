@@ -1,6 +1,5 @@
 package com.napier.sem;
 
-import java.math.BigDecimal;
 import java.sql.*;
 import java.util.ArrayList;
 //importing Arraylist for using array list in cities
@@ -67,22 +66,22 @@ public class App
         ArrayList<InputCapitalRegion> inputCapitalRegions = app.getInputCapitalRegion(con);
 
         // Display result
-        app.displayCountry(country);
-        app.displayContinent(continent);
-        app.displayRegion(regions);
-        app.displayUserInputWorld(userInputWorlds);
-        app.displaySortCity(sortCity);
-        app.displaySortCityWorld(sortCityWorld);
-        app.displaySortCityRegion(sortCityRegion);
-        app.displaySortCityCountry(sortCityCountry);
-        app.displayUserInputContinent(userInputContinent);
-        app.displayUserInputRegion(userInputRegion);
-        app.displayCapital(capitalcities);
-        app.displayCapitalContinent(capitalContinents);
-        app.displayCapitalRegion(capitalRegions);
-        app.displayInputCapitalWorld(inputCapitalWorlds);
-        app.displayInputCapitalContinent(inputCapitalContinents);
-        app.displayInputCapitalRegion(inputCapitalRegions);
+        app.displayCountry(country, "country.md");
+        app.displayContinent(continent, "continent.md");
+        app.displayRegion(regions, "Region.md");
+        app.displayUserInputWorld(userInputWorlds,"UserInputWorld.md");
+        app.displaySortCity(sortCity,"SortCity");
+        app.displaySortCityWorld(sortCityWorld,"SortCityWorld");
+        app.displaySortCityRegion(sortCityRegion, "SortCityRegion");
+        app.displaySortCityCountry(sortCityCountry,"SortCityCountry");
+        app.displayUserInputContinent(userInputContinent,"UserInputContinent");
+        app.displayUserInputRegion(userInputRegion,"UserInputRegion");
+        app.displayCapital(capitalcities,"CapitalCities");
+        app.displayCapitalContinent(capitalContinents,"CapitalContinent");
+        app.displayCapitalRegion(capitalRegions,"CapitalRegion");
+        app.displayInputCapitalWorld(inputCapitalWorlds,"InputCapitalWorld");
+        app.displayInputCapitalContinent(inputCapitalContinents,"InputCapitalContinent");
+        app.displayInputCapitalRegion(inputCapitalRegions,"InputCapitalRegion");
 
 
         app.disconnect(con);
@@ -119,7 +118,7 @@ public class App
         return null;
     }
 
-    public void displaySortCity(ArrayList<City> sortCities) {
+    public void displaySortCity(ArrayList<City> sortCities, String SortCity) {
         if (sortCities != null && !sortCities.isEmpty()) {
             System.out.println("Population of the cities in a continent, Asia, sorting from largest to smallest");
             System.out.printf("| %-25s | %-25s | %-15s | %-25s | %-15s |\n", "Name", "Country Name", "Population", "District", "Continent");
@@ -166,7 +165,7 @@ public class App
         }
         return null;
     }
-    public void displaySortCityWorld(ArrayList<CityWorld> sortCitiesWorld) {
+    public void displaySortCityWorld(ArrayList<CityWorld> sortCitiesWorld, String SortCityWorld) {
         if (sortCitiesWorld != null && !sortCitiesWorld.isEmpty()) {
             System.out.println("Population of the cities around the world sorting from largest to smallest");
             System.out.printf("| %-25s | %-25s | %-25s | %-25s |\n", "Name", "Country Name", "District", "Population");
@@ -211,7 +210,7 @@ public class App
         }
         return null;
     }
-    public void displaySortCityRegion(ArrayList<CityRegion> sortCitiesRegion) {
+    public void displaySortCityRegion(ArrayList<CityRegion> sortCitiesRegion, String SortCityRegion) {
         if (sortCitiesRegion != null && !sortCitiesRegion.isEmpty()) {
             System.out.println("Population of the cities in a region called Middle East sorting from largest to smallest");
             System.out.printf("| %-25s | %-25s | %-25s | %-25s |\n", "Name", "Country Name", "District", "Population");
@@ -256,7 +255,7 @@ public class App
         }
         return null;
     }
-    public void displaySortCityCountry(ArrayList<CityCountry> sortCitiesCountry) {
+    public void displaySortCityCountry(ArrayList<CityCountry> sortCitiesCountry, String SortCityCountry) {
         if (sortCitiesCountry != null && !sortCitiesCountry.isEmpty()) {
             System.out.println("Population of the cities in a country called Myanmar sorting from largest to smallest");
             System.out.printf("| %-25s | %-25s | %-25s | %-25s |\n", "Name", "Country Name", "District", "Population");
@@ -351,7 +350,7 @@ public class App
     /**
      * Display country details.
      */
-    public void displayCountry(ArrayList<CountriesInWorld> countries) {
+    public void displayCountry(ArrayList<CountriesInWorld> countries, String Country) {
         if (countries != null && !countries.isEmpty()) {
             System.out.println("All the countries in the world organized by largest population to smallest");
             System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
@@ -410,7 +409,7 @@ public ArrayList<Continent> getContinent(Connection con)
     }
 }
 
-    public void displayContinent(ArrayList<Continent> continents) {
+    public void displayContinent(ArrayList<Continent> continents, String Continent) {
         if (continents != null && !continents.isEmpty()) {
             System.out.println("All the countries in a continent organized by largest population to smallest");
             System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
@@ -469,7 +468,7 @@ public ArrayList<Continent> getContinent(Connection con)
         }
     }
 
-    public void displayRegion(ArrayList<Region> regions) {
+    public void displayRegion(ArrayList<Region> regions, String Region) {
         if (regions != null && !regions.isEmpty()) {
             System.out.println("All the countries in Region organized by largest population to smallest");
             System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
@@ -529,7 +528,7 @@ public ArrayList<Continent> getContinent(Connection con)
         }
     }
 
-    public void displayUserInputWorld(ArrayList<UserInputWorld> userInputWorlds) {
+    public void displayUserInputWorld(ArrayList<UserInputWorld> userInputWorlds, String UserInputWorld) {
         if (userInputWorlds != null && !userInputWorlds.isEmpty()) {
             System.out.println("The top N populated countries in the world where N is provided by the user");
             System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
@@ -588,7 +587,7 @@ public ArrayList<Continent> getContinent(Connection con)
         }
     }
 
-    public void displayUserInputContinent(ArrayList<UserInputContinent> userInputContinents) {
+    public void displayUserInputContinent(ArrayList<UserInputContinent> userInputContinents, String UserInputContinent) {
         if (userInputContinents != null && !userInputContinents.isEmpty()) {
             System.out.println("The top N populated countries in the Continent where N is provided by the user");
             System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
@@ -646,7 +645,7 @@ public ArrayList<Continent> getContinent(Connection con)
         }
     }
 
-    public void displayUserInputRegion(ArrayList<UserInputRegion> userInputRegions) {
+    public void displayUserInputRegion(ArrayList<UserInputRegion> userInputRegions, String UserInputRegion) {
         if (userInputRegions != null && !userInputRegions.isEmpty()) {
             System.out.println("The top N populated countries in the Region where N is provided by the user");
             System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
@@ -704,7 +703,7 @@ public ArrayList<Continent> getContinent(Connection con)
         }
     }
 
-    public void displayCapital(ArrayList<Capitalcity> capitalcities) {
+    public void displayCapital(ArrayList<Capitalcity> capitalcities, String capitalCities) {
         if (capitalcities != null && !capitalcities.isEmpty()) {
             System.out.println("All the capital cities in a world organised by largest population to smallest.");
             System.out.println("---------------------------------------------------------------------------------------");
@@ -763,7 +762,7 @@ public ArrayList<Continent> getContinent(Connection con)
         }
     }
 
-    public void displayCapitalContinent(ArrayList<CapitalContinent> capitalContinents) {
+    public void displayCapitalContinent(ArrayList<CapitalContinent> capitalContinents, String CapitalContinent) {
         if (capitalContinents != null && !capitalContinents.isEmpty()) {
             System.out.println("All the capital cities in a continent organised by largest population to smallest.");
             System.out.println("--------------------------------------------------------------------------------------");
@@ -822,7 +821,7 @@ public ArrayList<Continent> getContinent(Connection con)
         }
     }
 
-    public void displayCapitalRegion(ArrayList<CapitalRegion> capitalRegions) {
+    public void displayCapitalRegion(ArrayList<CapitalRegion> capitalRegions, String CapitalRegion) {
         if (capitalRegions != null && !capitalRegions.isEmpty()) {
             System.out.println("All the capital cities in a region organised by largest population to smallest.");
             System.out.println("---------------------------------------------------------------------------------------");
@@ -881,7 +880,7 @@ public ArrayList<Continent> getContinent(Connection con)
         }
     }
 
-    public void displayInputCapitalWorld(ArrayList<InputCapitalWorld> inputCapitalWorlds) {
+    public void displayInputCapitalWorld(ArrayList<InputCapitalWorld> inputCapitalWorlds, String InputCapitalWorld) {
         if (inputCapitalWorlds != null && !inputCapitalWorlds.isEmpty()) {
             System.out.println("The top N populated capital cities in the world where N is provided by the user.");
             System.out.println("---------------------------------------------------------------------------------------");
@@ -940,7 +939,7 @@ public ArrayList<Continent> getContinent(Connection con)
         }
     }
 
-    public void displayInputCapitalContinent(ArrayList<InputCapitalContinent> inputCapitalContinents) {
+    public void displayInputCapitalContinent(ArrayList<InputCapitalContinent> inputCapitalContinents, String InputCapitalContinent) {
         if (inputCapitalContinents != null && !inputCapitalContinents.isEmpty()) {
             System.out.println("The top N populated capital cities in the continent where N is provided by the user.");
             System.out.println("---------------------------------------------------------------------------------------");
@@ -999,7 +998,7 @@ public ArrayList<Continent> getContinent(Connection con)
         }
     }
 
-    public void displayInputCapitalRegion(ArrayList<InputCapitalRegion> inputCapitalRegions) {
+    public void displayInputCapitalRegion(ArrayList<InputCapitalRegion> inputCapitalRegions, String InputCapitalRegion) {
         if (inputCapitalRegions != null && !inputCapitalRegions.isEmpty()) {
             System.out.println("The top N populated capital cities in the region where N is provided by the user.");
             System.out.println("---------------------------------------------------------------------------------------");

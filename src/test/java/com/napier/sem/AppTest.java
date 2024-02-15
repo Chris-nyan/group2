@@ -1,10 +1,7 @@
 package com.napier.sem;
 
-import com.napier.sem.*;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.math.BigDecimal;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -12,18 +9,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 // Copy import
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 
 import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 public class AppTest {
@@ -117,7 +107,7 @@ public class AppTest {
     public void displaySortCityNull() {
         // Ensure app is not null before calling its methods
         assertNotNull(app, "App should not be null");
-        app.displaySortCity(null);
+        app.displaySortCity(null, "SortCity");
 //        ArrayList<CountriesInWorld> countries = app.getCountriesInWorld();
 //        assertNotNull(countries, "Countries list should not be null");
     }
@@ -128,7 +118,7 @@ public class AppTest {
         // Create and populate the ArrayList of City objects
         ArrayList<City> sortCityList = new ArrayList<>();
         // Test when sorting an empty list
-        app.displaySortCity(sortCityList);
+        app.displaySortCity(sortCityList, "SortCity");
     }
 
     @Test
@@ -138,7 +128,7 @@ public class AppTest {
         ArrayList<City> sortCityList = new ArrayList<>();
 //        sortCityList.add(null);
         // Test when sorting a list containing null
-        app.displaySortCity(sortCityList);
+        app.displaySortCity(sortCityList, "SortCity");
     }
 
     @Test
@@ -156,7 +146,7 @@ public class AppTest {
         cities.add(city);
 
         // Call the displaySortCity method
-        app.displaySortCity(cities);
+        app.displaySortCity(cities, "SortCity");
     }
 
     @Test
@@ -192,7 +182,7 @@ public class AppTest {
     public void displaySortCityWorldNull() {
         // Ensure app is not null before calling its methods
         assertNotNull(app, "City World should not be null");
-        app.displaySortCityWorld(null);
+        app.displaySortCityWorld(null, "SortCityWorld");
 //        ArrayList<CountriesInWorld> countries = app.getCountriesInWorld();
 //        assertNotNull(countries, "Countries list should not be null");
     }
@@ -203,7 +193,7 @@ public class AppTest {
         // Create and populate the ArrayList of City objects
         ArrayList<CityWorld> sortCityWorldList = new ArrayList<>();
         // Test when sorting an empty list
-        app.displaySortCityWorld(sortCityWorldList);
+        app.displaySortCityWorld(sortCityWorldList, "SortCityWorld");
     }
 
     @Test
@@ -213,7 +203,7 @@ public class AppTest {
         ArrayList<CityWorld> sortCityWorldList = new ArrayList<>();
 //        sortCityList.add(null);
         // Test when sorting a list containing null
-        app.displaySortCityWorld(sortCityWorldList);
+        app.displaySortCityWorld(sortCityWorldList, "SortCityWorld");
     }
 
     @Test
@@ -231,7 +221,7 @@ public class AppTest {
         sortCityWorldList.add(cityworld);
 
         // Call the displaySortCity method
-        app.displaySortCityWorld(sortCityWorldList);
+        app.displaySortCityWorld(sortCityWorldList, "SortCityWorld");
     }
 
     @Test
@@ -269,7 +259,7 @@ public class AppTest {
     public void displaySortCityRegionNull() {
         // Ensure app is not null before calling its methods
         assertNotNull(app, "City World should not be null");
-        app.displaySortCityRegion(null);
+        app.displaySortCityRegion(null, "SortCityRegion");
 //        ArrayList<CountriesInWorld> countries = app.getCountriesInWorld();
 //        assertNotNull(countries, "Countries list should not be null");
     }
@@ -280,7 +270,7 @@ public class AppTest {
         // Create and populate the ArrayList of City objects
         ArrayList<CityRegion> sortCityRegionList = new ArrayList<>();
         // Test when sorting an empty list
-        app.displaySortCityRegion(sortCityRegionList);
+        app.displaySortCityRegion(sortCityRegionList, "SortCityRegion");
     }
 
     @Test
@@ -290,7 +280,7 @@ public class AppTest {
         ArrayList<CityRegion> sortCityRegionList = new ArrayList<>();
 //        sortCityList.add(null);
         // Test when sorting a list containing null
-        app.displaySortCityRegion(sortCityRegionList);
+        app.displaySortCityRegion(sortCityRegionList, "SortCityRegion");
     }
 
     @Test
@@ -308,7 +298,7 @@ public class AppTest {
         sortCityRegionList.add(cityregion);
 
         // Call the displaySortCity method
-        app.displaySortCityRegion(sortCityRegionList);
+        app.displaySortCityRegion(sortCityRegionList, "SortCityRegion");
     }
 
     @Test
@@ -346,7 +336,7 @@ public class AppTest {
     public void displaySortCityCountryNull() {
         // Ensure app is not null before calling its methods
         assertNotNull(app, "City Country should not be null");
-        app.displaySortCityCountry(null);
+        app.displaySortCityCountry(null, "SortCityCountry");
 //        ArrayList<CountriesInWorld> countries = app.getCountriesInWorld();
 //        assertNotNull(countries, "Countries list should not be null");
     }
@@ -357,7 +347,7 @@ public class AppTest {
         // Create and populate the ArrayList of City objects
         ArrayList<CityCountry> sortCityCountryList = new ArrayList<>();
         // Test when sorting an empty list
-        app.displaySortCityCountry(sortCityCountryList);
+        app.displaySortCityCountry(sortCityCountryList, "SortCityCountry");
     }
 
     @Test
@@ -367,7 +357,7 @@ public class AppTest {
         ArrayList<CityCountry> sortCityCountryList = new ArrayList<>();
 //        sortCityList.add(null);
         // Test when sorting a list containing null
-        app.displaySortCityCountry(sortCityCountryList);
+        app.displaySortCityCountry(sortCityCountryList, "SortCityCountry");
     }
 
     @Test
@@ -385,7 +375,7 @@ public class AppTest {
         sortCityCountryList.add(citycountry);
 
         // Call the displaySortCity method
-        app.displaySortCityCountry(sortCityCountryList);
+        app.displaySortCityCountry(sortCityCountryList, "SortCityCountry");
     }
     @Test
     void testGetCountriesInWorld() throws Exception {
@@ -431,7 +421,7 @@ public class AppTest {
     public void displayCountriesInWorldNull() {
         // Ensure app is not null before calling its methods
         assertNotNull(app, "City Country should not be null");
-        app.displayCountry(null);
+        app.displayCountry(null, "country.md");
 //        ArrayList<CountriesInWorld> countries = app.getCountriesInWorld();
 //        assertNotNull(countries, "Countries list should not be null");
     }
@@ -442,7 +432,7 @@ public class AppTest {
         // Create and populate the ArrayList of City objects
         ArrayList<CountriesInWorld> a = new ArrayList<>();
         // Test when sorting an empty list
-        app.displayCountry(a);
+        app.displayCountry(a, "country.md");
     }
 
     @Test
@@ -452,7 +442,7 @@ public class AppTest {
         ArrayList<CountriesInWorld> a = new ArrayList<>();
 //        sortCityList.add(null);
         // Test when sorting a list containing null
-        app.displayCountry(a);
+        app.displayCountry(a, "country.md");
     }
 
     @Test
@@ -472,7 +462,7 @@ public class AppTest {
         countries.add(china);
 
         // Call the displayCountry method
-        app.displayCountry(countries);
+        app.displayCountry(countries, "country.md");
 
 
     }
@@ -511,7 +501,7 @@ public class AppTest {
     public void displayContinentNull() {
         // Ensure app is not null before calling its methods
         assertNotNull(app, "Continent should not be null");
-        app.displayContinent(null);
+        app.displayContinent(null, "continent.md");
 //        ArrayList<CountriesInWorld> countries = app.getCountriesInWorld();
 //        assertNotNull(countries, "Countries list should not be null");
     }
@@ -522,7 +512,7 @@ public class AppTest {
         // Create and populate the ArrayList of City objects
         ArrayList<Continent> a = new ArrayList<Continent>();
         // Test when sorting an empty list
-        app.displayContinent(a);
+        app.displayContinent(a, "continent.md");
     }
 
     @Test
@@ -532,7 +522,7 @@ public class AppTest {
         ArrayList<Continent> a = new ArrayList<Continent>();
 //        sortCityList.add(null);
         // Test when sorting a list containing null
-        app.displayContinent(a);
+        app.displayContinent(a, "continent.md");
     }
 
     @Test
@@ -551,7 +541,7 @@ public class AppTest {
         a.add(continent);
 
         // Call the displayCountry method
-        app.displayContinent(a);
+        app.displayContinent(a, "continent.md");
 
 
     }
@@ -593,7 +583,7 @@ public class AppTest {
     public void displayRegionNull() {
         // Ensure app is not null before calling its methods
         assertNotNull(app, "Region should not be null");
-        app.displayRegion(null);
+        app.displayRegion(null, "Region.md");
 //        ArrayList<CountriesInWorld> countries = app.getCountriesInWorld();
 //        assertNotNull(countries, "Countries list should not be null");
     }
@@ -604,7 +594,7 @@ public class AppTest {
         // Create and populate the ArrayList of City objects
         ArrayList<Continent> a = new ArrayList<Continent>();
         // Test when sorting an empty list
-        app.displayContinent(a);
+        app.displayContinent(a, "continent.md");
     }
 
     @Test
@@ -614,7 +604,7 @@ public class AppTest {
         ArrayList<Region> a = new ArrayList<Region>();
 //        sortCityList.add(null);
         // Test when sorting a list containing null
-        app.displayRegion(a);
+        app.displayRegion(a, "Region.md");
     }
 
     @Test
@@ -633,7 +623,7 @@ public class AppTest {
         a.add(region);
 
         // Call the displayCountry method
-        app.displayRegion(a);
+        app.displayRegion(a, "Region.md");
 
 
     }
@@ -673,7 +663,7 @@ public class AppTest {
     public void displayUserWorldNull() {
         // Ensure app is not null before calling its methods
         assertNotNull(app, "World should not be null");
-        app.displayUserInputWorld(null);
+        app.displayUserInputWorld(null, "UserInputWorld.md");
 //        ArrayList<CountriesInWorld> countries = app.getCountriesInWorld();
 //        assertNotNull(countries, "Countries list should not be null");
     }
@@ -684,7 +674,7 @@ public class AppTest {
         // Create and populate the ArrayList of City objects
         ArrayList<UserInputWorld> a = new ArrayList<UserInputWorld>();
         // Test when sorting an empty list
-        app.displayUserInputWorld(a);
+        app.displayUserInputWorld(a, "UserInputWorld.md");
     }
 
     @Test
@@ -694,7 +684,7 @@ public class AppTest {
         ArrayList<UserInputWorld> a = new ArrayList<UserInputWorld>();
 //        sortCityList.add(null);
         // Test when sorting a list containing null
-        app.displayUserInputWorld(a);
+        app.displayUserInputWorld(a, "UserInputWorld.md");
     }
 
     @Test
@@ -713,7 +703,7 @@ public class AppTest {
         a.add(userWorld);
 
         // Call the displayCountry method
-        app.displayUserInputWorld(a);
+        app.displayUserInputWorld(a, "UserInputWorld.md");
 
 
     }
@@ -755,7 +745,7 @@ public class AppTest {
     public void displayUserContinentNull() {
         // Ensure app is not null before calling its methods
         assertNotNull(app, "Continent should not be null");
-        app.displayUserInputWorld(null);
+        app.displayUserInputWorld(null, "UserInputWorld.md");
 //        ArrayList<CountriesInWorld> countries = app.getCountriesInWorld();
 //        assertNotNull(countries, "Countries list should not be null");
     }
@@ -766,7 +756,7 @@ public class AppTest {
         // Create and populate the ArrayList of City objects
         ArrayList<UserInputContinent> a = new ArrayList<UserInputContinent>();
         // Test when sorting an empty list
-        app.displayUserInputContinent(a);
+        app.displayUserInputContinent(a, "UserInputContinent");
     }
 
     @Test
@@ -776,7 +766,7 @@ public class AppTest {
         ArrayList<UserInputContinent> a = new ArrayList<UserInputContinent>();
 //        sortCityList.add(null);
         // Test when sorting a list containing null
-        app.displayUserInputContinent(a);
+        app.displayUserInputContinent(a, "UserInputContinent");
     }
 
     @Test
@@ -795,7 +785,7 @@ public class AppTest {
         a.add(userContinent);
 
         // Call the displayCountry method
-        app.displayUserInputContinent(a);
+        app.displayUserInputContinent(a, "UserInputContinent");
 
 
     }
@@ -837,7 +827,7 @@ public class AppTest {
     public void displayUserRegionNull() {
         // Ensure app is not null before calling its methods
         assertNotNull(app, "Region should not be null");
-        app.displayUserInputRegion(null);
+        app.displayUserInputRegion(null, "UserInputRegion");
 //        ArrayList<CountriesInWorld> countries = app.getCountriesInWorld();
 //        assertNotNull(countries, "Countries list should not be null");
     }
@@ -848,7 +838,7 @@ public class AppTest {
         // Create and populate the ArrayList of City objects
         ArrayList<UserInputRegion> a = new ArrayList<UserInputRegion>();
         // Test when sorting an empty list
-        app.displayUserInputRegion(a);
+        app.displayUserInputRegion(a, "UserInputRegion");
     }
 
     @Test
@@ -858,7 +848,7 @@ public class AppTest {
         ArrayList<UserInputRegion> a = new ArrayList<UserInputRegion>();
 //        sortCityList.add(null);
         // Test when sorting a list containing null
-        app.displayUserInputRegion(a);
+        app.displayUserInputRegion(a, "UserInputRegion");
     }
 
     @Test
@@ -878,7 +868,7 @@ public class AppTest {
         a.add(userInputRegion);
 
         // Call the displayCountry method
-        app.displayUserInputRegion(a);
+        app.displayUserInputRegion(a, "UserInputRegion");
 
 
     }
@@ -918,7 +908,7 @@ public class AppTest {
     public void displayCapitalCityNull() {
         // Ensure app is not null before calling its methods
         assertNotNull(app, "Capital City should not be null");
-        app.displayCapital(null);
+        app.displayCapital(null, "CapitalCities");
 //        ArrayList<CountriesInWorld> countries = app.getCountriesInWorld();
 //        assertNotNull(countries, "Countries list should not be null");
     }
@@ -929,7 +919,7 @@ public class AppTest {
         // Create and populate the ArrayList of City objects
         ArrayList<Capitalcity> a = new ArrayList<Capitalcity>();
         // Test when sorting an empty list
-        app.displayCapital(a);
+        app.displayCapital(a, "CapitalCities");
     }
 
     @Test
@@ -939,7 +929,7 @@ public class AppTest {
         ArrayList<Capitalcity> a = new ArrayList<Capitalcity>();
 //        sortCityList.add(null);
         // Test when sorting a list containing null
-        app.displayCapital(a);
+        app.displayCapital(a, "CapitalCities");
     }
 
     @Test
@@ -957,7 +947,7 @@ public class AppTest {
         a.add(capitalcity);
 
         // Call the displayCountry method
-        app.displayCapital(a);
+        app.displayCapital(a, "CapitalCities");
 
 
     }
@@ -996,7 +986,7 @@ public class AppTest {
     public void displayCapitalContinentNull() {
         // Ensure app is not null before calling its methods
         assertNotNull(app, "Capital Continent should not be null");
-        app.displayCapitalContinent(null);
+        app.displayCapitalContinent(null, "CapitalContinent");
 //        ArrayList<CountriesInWorld> countries = app.getCountriesInWorld();
 //        assertNotNull(countries, "Countries list should not be null");
     }
@@ -1007,7 +997,7 @@ public class AppTest {
         // Create and populate the ArrayList of City objects
         ArrayList<CapitalContinent> a = new ArrayList<CapitalContinent>();
         // Test when sorting an empty list
-        app.displayCapitalContinent(a);
+        app.displayCapitalContinent(a, "CapitalContinent");
     }
 
     @Test
@@ -1017,7 +1007,7 @@ public class AppTest {
         ArrayList<CapitalContinent> a = new ArrayList<CapitalContinent>();
 //        sortCityList.add(null);
         // Test when sorting a list containing null
-        app.displayCapitalContinent(a);
+        app.displayCapitalContinent(a, "CapitalContinent");
     }
 
     @Test
@@ -1035,7 +1025,7 @@ public class AppTest {
         a.add(capitalContinent);
 
         // Call the displayCountry method
-        app.displayCapitalContinent(a);
+        app.displayCapitalContinent(a, "CapitalContinent");
 
 
     }
@@ -1074,7 +1064,7 @@ public class AppTest {
     public void displayCapitalRegionNull() {
         // Ensure app is not null before calling its methods
         assertNotNull(app, "Capital Region should not be null");
-        app.displayCapitalRegion(null);
+        app.displayCapitalRegion(null, "CapitalRegion");
 //        ArrayList<CountriesInWorld> countries = app.getCountriesInWorld();
 //        assertNotNull(countries, "Countries list should not be null");
     }
@@ -1085,7 +1075,7 @@ public class AppTest {
         // Create and populate the ArrayList of City objects
         ArrayList<CapitalRegion> a = new ArrayList<CapitalRegion>();
         // Test when sorting an empty list
-        app.displayCapitalRegion(a);
+        app.displayCapitalRegion(a, "CapitalRegion");
     }
 
     @Test
@@ -1095,7 +1085,7 @@ public class AppTest {
         ArrayList<CapitalRegion> a = new ArrayList<CapitalRegion>();
 //        sortCityList.add(null);
         // Test when sorting a list containing null
-        app.displayCapitalRegion(a);
+        app.displayCapitalRegion(a, "CapitalRegion");
     }
 
     @Test
@@ -1113,7 +1103,7 @@ public class AppTest {
         a.add(capitalRegion);
 
         // Call the displayCountry method
-        app.displayCapitalRegion(a);
+        app.displayCapitalRegion(a, "CapitalRegion");
 
 
     }
@@ -1152,7 +1142,7 @@ public class AppTest {
     public void displayInputCapitalWorldNull() {
         // Ensure app is not null before calling its methods
         assertNotNull(app, "Capital Region should not be null");
-        app.displayCapitalRegion(null);
+        app.displayCapitalRegion(null, "CapitalRegion");
 //        ArrayList<CountriesInWorld> countries = app.getCountriesInWorld();
 //        assertNotNull(countries, "Countries list should not be null");
     }
@@ -1163,7 +1153,7 @@ public class AppTest {
         // Create and populate the ArrayList of City objects
         ArrayList<InputCapitalWorld> a = new ArrayList<InputCapitalWorld>();
         // Test when sorting an empty list
-        app.displayInputCapitalWorld(a);
+        app.displayInputCapitalWorld(a, "InputCapitalWorld");
     }
 
     @Test
@@ -1173,7 +1163,7 @@ public class AppTest {
         ArrayList<InputCapitalWorld> a = new ArrayList<InputCapitalWorld>();
 //        sortCityList.add(null);
         // Test when sorting a list containing null
-        app.displayInputCapitalWorld(a);
+        app.displayInputCapitalWorld(a, "InputCapitalWorld");
     }
 
     @Test
@@ -1191,7 +1181,7 @@ public class AppTest {
         a.add(inputCapitalWorld);
 
         // Call the displayCountry method
-        app.displayInputCapitalWorld(a);
+        app.displayInputCapitalWorld(a, "InputCapitalWorld");
 
 
     }
@@ -1230,7 +1220,7 @@ public class AppTest {
     public void displayInputCapitalContinentNull() {
         // Ensure app is not null before calling its methods
         assertNotNull(app, "Capital Region should not be null");
-        app.displayInputCapitalContinent(null);
+        app.displayInputCapitalContinent(null, "InputCapitalContinent");
 //        ArrayList<CountriesInWorld> countries = app.getCountriesInWorld();
 //        assertNotNull(countries, "Countries list should not be null");
     }
@@ -1241,7 +1231,7 @@ public class AppTest {
         // Create and populate the ArrayList of City objects
         ArrayList<InputCapitalContinent> a = new ArrayList<InputCapitalContinent>();
         // Test when sorting an empty list
-        app.displayInputCapitalContinent(a);
+        app.displayInputCapitalContinent(a, "InputCapitalContinent");
     }
 
     @Test
@@ -1251,7 +1241,7 @@ public class AppTest {
         ArrayList<InputCapitalContinent> a = new ArrayList<InputCapitalContinent>();
 //        sortCityList.add(null);
         // Test when sorting a list containing null
-        app.displayInputCapitalContinent(a);
+        app.displayInputCapitalContinent(a, "InputCapitalContinent");
     }
 
     @Test
@@ -1269,7 +1259,7 @@ public class AppTest {
         a.add(inputCapitalContinent);
 
         // Call the displayCountry method
-        app.displayInputCapitalContinent(a);
+        app.displayInputCapitalContinent(a, "InputCapitalContinent");
 
 
     }
@@ -1308,7 +1298,7 @@ public class AppTest {
     public void displayInputCapitalRegionNull() {
         // Ensure app is not null before calling its methods
         assertNotNull(app, "Capital Region should not be null");
-        app.displayInputCapitalRegion(null);
+        app.displayInputCapitalRegion(null, "InputCapitalRegion");
 //        ArrayList<CountriesInWorld> countries = app.getCountriesInWorld();
 //        assertNotNull(countries, "Countries list should not be null");
     }
@@ -1319,7 +1309,7 @@ public class AppTest {
         // Create and populate the ArrayList of City objects
         ArrayList<InputCapitalRegion> a = new ArrayList<InputCapitalRegion>();
         // Test when sorting an empty list
-        app.displayInputCapitalRegion(a);
+        app.displayInputCapitalRegion(a, "InputCapitalRegion");
     }
 
     @Test
@@ -1329,7 +1319,7 @@ public class AppTest {
         ArrayList<InputCapitalRegion> a = new ArrayList<InputCapitalRegion>();
 //        sortCityList.add(null);
         // Test when sorting a list containing null
-        app.displayInputCapitalRegion(a);
+        app.displayInputCapitalRegion(a, "InputCapitalRegion");
     }
 
     @Test
@@ -1347,7 +1337,7 @@ public class AppTest {
         a.add(inputCapitalRegion);
 
         // Call the displayCountry method
-        app.displayInputCapitalRegion(a);
+        app.displayInputCapitalRegion(a, "InputCapitalRegion");
 
 
     }
