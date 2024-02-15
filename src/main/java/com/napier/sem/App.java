@@ -1,5 +1,9 @@
 package com.napier.sem;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 //importing Arraylist for using array list in cities
@@ -16,7 +20,7 @@ public class App
         App app = new App();
         Connection con;
         if(args.length < 1){
-            con = app.connect("localhost:33060", 0);
+            con = app.connect("localhost:33061", 0);
         }else{
             con =app.connect(args[0], Integer.parseInt(args[1]));
         }
@@ -120,17 +124,37 @@ public class App
 
     public void displaySortCity(ArrayList<City> sortCities, String SortCity) {
         if (sortCities != null && !sortCities.isEmpty()) {
-            System.out.println("Population of the cities in a continent, Asia, sorting from largest to smallest");
-            System.out.printf("| %-25s | %-25s | %-15s | %-25s | %-15s |\n", "Name", "Country Name", "Population", "District", "Continent");
+            try {
+                // Create the reports directory if it doesn't exist
+                new File("./reports/").mkdir();
 
-            for (City sortCity : sortCities) {
-//                if (sortCity != null)
-//                    continue;
-                System.out.printf("| %-25s | %-25s | %-15d | %-25s | %-15s |\n",
-                        sortCity.getName(), sortCity.getCountryName(), sortCity.getPopulation(), sortCity.getDistrict(), sortCity.getContinent());
+                // Create a BufferedWriter for writing to the file
+                BufferedWriter writer = new BufferedWriter(new FileWriter(new File("./reports/" + SortCity)));
+
+                // Write header to the file
+                writer.write("Population of the cities in a continent, Asia, sorting from largest to smallest\n");
+                writer.write("---------------------------------------------------------------------------------------------------------");
+                writer.write("| %-25s | %-25s | %-15s | %-25s | %-15s |\n");
+                writer.write("----------------------------------------------------------------------------------------------------------\n");
+
+                // Loop over all cities in the list
+                for (City sortCity : sortCities) {
+                    if (sortCity == null)
+                        continue;
+
+                    // Write city information to the file
+                    writer.write(String.format("| %-25s | %-25s | %-15d | %-25s | %-15s |\n",
+                            sortCity.getName(), sortCity.getCountryName(), sortCity.getPopulation(), sortCity.getDistrict(), sortCity.getContinent()));
+                }
+
+                // Close the BufferedWriter
+                writer.close();
+                System.out.println("File created successfully: " + SortCity);
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (Exception e) {
+                throw new RuntimeException(e);
             }
-
-            System.out.println("----------------------------------------------------------------------------------------------------------");
         } else {
             System.out.println("No cities found.");
         }
