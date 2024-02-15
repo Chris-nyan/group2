@@ -98,7 +98,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Copy Output
-        run: docker container cp grp2-app-1:./tmp/reports ./
+        run: docker container cp interesting_moser_grp2-app-1:./tmp/reports ./
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.2.5
