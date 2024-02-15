@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 /**
  * Represents a countries
  */
-public class UserInputWorld
+public class UserInputContinent
 {
 
     /**

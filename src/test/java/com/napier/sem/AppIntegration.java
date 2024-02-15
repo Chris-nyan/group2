@@ -23,7 +23,7 @@ public class AppIntegration {
     @BeforeAll
     static void init() {
         app = new App();
-        con = app.connect("localhost:33060", 0);
+        con = app.connect("localhost:33061", 0);
 
         // Assuming you have a method to establish a database connection in your App class
 //        try {
@@ -143,19 +143,8 @@ public class AppIntegration {
         assertEquals("China", firstCountriesInWorld.getName());
         assertEquals("Asia", firstCountriesInWorld.getContinent());
         assertEquals("Eastern Asia", firstCountriesInWorld.getRegion());
-//        assertEquals(BigDecimal.valueOf(9572900.00).stripTrailingZeros(), firstCountriesInWorld.getSurfaceArea());
-//        assertEquals(9572900.00, firstCountriesInWorld.getSurfaceArea());
-        assertEquals(BigDecimal.valueOf(9572900.00).setScale(2), firstCountriesInWorld.getSurfaceArea());
-        assertEquals(-1523, firstCountriesInWorld.getIndepYear());
         assertEquals(1277558000, firstCountriesInWorld.getPopulation());
-        assertEquals(BigDecimal.valueOf(71.4), firstCountriesInWorld.getLifeExpectancy());
-        assertEquals(BigDecimal.valueOf(982268.00).setScale(2), firstCountriesInWorld.getGNP());
-        assertEquals(BigDecimal.valueOf(917719.00).setScale(2), firstCountriesInWorld.getGNPOld());
-        assertEquals("Zhongquo", firstCountriesInWorld.getLocalName());
-        assertEquals("People'sRepublic", firstCountriesInWorld.getGovernmentForm());
-        assertEquals("Jiang Zemin", firstCountriesInWorld.getHeadOfState());
         assertEquals(Integer.parseInt("1891"), firstCountriesInWorld.getCapital());
-        assertEquals("CN", firstCountriesInWorld.getCode2());
 
     }
 
@@ -212,7 +201,7 @@ public class AppIntegration {
         UserInputWorld firstUserInputWorld = sortUserInputWorldList.get(0);
 
         assertEquals("CHN", firstUserInputWorld.getCode());
-        assertEquals("China", firstUserInputWorld.getCountry_name());
+        assertEquals("China", firstUserInputWorld.getName());
         assertEquals("Eastern Asia", firstUserInputWorld.getRegion());
         assertEquals("Asia", firstUserInputWorld.getContinent());
         assertEquals(1277558000, firstUserInputWorld.getPopulation());

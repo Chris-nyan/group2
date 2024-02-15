@@ -466,17 +466,8 @@ public class AppTest {
         china.setName("China");
         china.setContinent("Asia");
         china.setRegion("Eastern Asia");
-        china.setSurfaceArea(BigDecimal.valueOf(9572900.00));
-        china.setIndepYear(-1523);
         china.setPopulation(1277558000);
-        china.setLifeExpectancy(BigDecimal.valueOf(71.4));
-        china.setGNP(BigDecimal.valueOf(982268.00));
-        china.setGNPOld(BigDecimal.valueOf(917719.00));
-        china.setLocalName("Zhongquo");
-        china.setGovernmentForm("People's Republic");
-        china.setHeadOfState("Jiang Zemin");
         china.setCapital(Integer.parseInt("1891"));
-        china.setCode2("CN");
 
         countries.add(china);
 
@@ -714,7 +705,7 @@ public class AppTest {
         // Add a sample CountriesInWorld object
         UserInputWorld userWorld = new UserInputWorld();
         userWorld.setCode("CHN");
-        userWorld.setCountry_name("China");
+        userWorld.setName("China");
         userWorld.setRegion("Eastern Asia");
         userWorld.setContinent("Asia");
         userWorld.setPopulation(1277558000);
@@ -726,6 +717,641 @@ public class AppTest {
 
 
     }
+
+    @Test
+    void testGetUserInputContinent() throws Exception {
+        // Mocking the Connection, Statement, and ResultSet
+        Connection mockConnection = mock(Connection.class);
+        Statement mockStatement = mock(Statement.class);
+        when(mockConnection.createStatement()).thenReturn(mockStatement);
+        ResultSet mockResultSet = mock(ResultSet.class);
+        when(mockStatement.executeQuery(anyString())).thenReturn(mockResultSet);
+
+        // Setting up the expected behavior for the ResultSet
+        when(mockResultSet.next())
+                .thenReturn(true)   // First entry
+                .thenReturn(true)   // Second entry
+                .thenReturn(false); // No more entries
+
+        when(mockResultSet.getString("Code")).thenReturn("CHN").thenReturn("IND");
+        when(mockResultSet.getString("Country_Name")).thenReturn("China").thenReturn("India");
+        when(mockResultSet.getString("Region")).thenReturn("Eastern Asia").thenReturn("Southern and Central Asia");
+        when(mockResultSet.getString("Continent")).thenReturn("Asia").thenReturn("Asia");
+        when(mockResultSet.getInt("Population")).thenReturn(1277558000).thenReturn(1013662000);
+        when(mockResultSet.getInt("Capital")).thenReturn(1891).thenReturn(1109);
+
+        // When
+        ArrayList<UserInputContinent> result = new App().getUserInputContinent(mockConnection);
+
+        // Then
+        assertNotNull(result, "Result should not be null");
+        assertTrue(result.size() >= 2, "Result should contain at least two entries");
+        assertEquals("CHN", result.get(0).getCode(), "CHN should be the code of the first entry");
+        assertEquals("IND", result.get(1).getCode(), "IND should be the code of the second entry");
+
+    }
+
+    @Test
+    public void displayUserContinentNull() {
+        // Ensure app is not null before calling its methods
+        assertNotNull(app, "Continent should not be null");
+        app.displayUserInputWorld(null);
+//        ArrayList<CountriesInWorld> countries = app.getCountriesInWorld();
+//        assertNotNull(countries, "Countries list should not be null");
+    }
+
+    @Test
+    void displayUserContinentEmpty()
+    {
+        // Create and populate the ArrayList of City objects
+        ArrayList<UserInputContinent> a = new ArrayList<UserInputContinent>();
+        // Test when sorting an empty list
+        app.displayUserInputContinent(a);
+    }
+
+    @Test
+    void displayUserContinentContainsNull()
+    {
+        // Create and populate the ArrayList of City objects with a null entry
+        ArrayList<UserInputContinent> a = new ArrayList<UserInputContinent>();
+//        sortCityList.add(null);
+        // Test when sorting a list containing null
+        app.displayUserInputContinent(a);
+    }
+
+    @Test
+    void testDisplayUserContinent() {
+        // Create and populate the ArrayList of CountriesInWorld objects
+        ArrayList<UserInputContinent> a = new ArrayList<UserInputContinent>();
+
+        // Add a sample CountriesInWorld object
+        UserInputContinent userContinent = new UserInputContinent();
+        userContinent.setCode("CHN");
+        userContinent.setName("China");
+        userContinent.setRegion("Eastern Asia");
+        userContinent.setContinent("Asia");
+        userContinent.setPopulation(1277558000);
+
+        a.add(userContinent);
+
+        // Call the displayCountry method
+        app.displayUserInputContinent(a);
+
+
+    }
+
+    @Test
+    void testGetUserInputRegion() throws Exception {
+        // Mocking the Connection, Statement, and ResultSet
+        Connection mockConnection = mock(Connection.class);
+        Statement mockStatement = mock(Statement.class);
+        when(mockConnection.createStatement()).thenReturn(mockStatement);
+        ResultSet mockResultSet = mock(ResultSet.class);
+        when(mockStatement.executeQuery(anyString())).thenReturn(mockResultSet);
+
+        // Setting up the expected behavior for the ResultSet
+        when(mockResultSet.next())
+                .thenReturn(true)   // First entry
+                .thenReturn(true)   // Second entry
+                .thenReturn(false); // No more entries
+
+        when(mockResultSet.getString("Code")).thenReturn("CHN").thenReturn("JPN");
+        when(mockResultSet.getString("Country_Name")).thenReturn("China").thenReturn("Japan");
+        when(mockResultSet.getString("Region")).thenReturn("Eastern Asia").thenReturn("Eastern Asia");
+        when(mockResultSet.getString("Continent")).thenReturn("Asia").thenReturn("Asia");
+        when(mockResultSet.getInt("Population")).thenReturn(1277558000).thenReturn(126714000);
+        when(mockResultSet.getInt("Capital")).thenReturn(1891).thenReturn(1532);
+
+        // When
+        ArrayList<UserInputContinent> result = new App().getUserInputContinent(mockConnection);
+
+        // Then
+        assertNotNull(result, "Result should not be null");
+        assertTrue(result.size() >= 2, "Result should contain at least two entries");
+        assertEquals("CHN", result.get(0).getCode(), "CHN should be the code of the first entry");
+        assertEquals("JPN", result.get(1).getCode(), "JPN should be the code of the second entry");
+
+    }
+
+    @Test
+    public void displayUserRegionNull() {
+        // Ensure app is not null before calling its methods
+        assertNotNull(app, "Region should not be null");
+        app.displayUserInputRegion(null);
+//        ArrayList<CountriesInWorld> countries = app.getCountriesInWorld();
+//        assertNotNull(countries, "Countries list should not be null");
+    }
+
+    @Test
+    void displayUserRegionEmpty()
+    {
+        // Create and populate the ArrayList of City objects
+        ArrayList<UserInputRegion> a = new ArrayList<UserInputRegion>();
+        // Test when sorting an empty list
+        app.displayUserInputRegion(a);
+    }
+
+    @Test
+    void displayUserRegionContainsNull()
+    {
+        // Create and populate the ArrayList of City objects with a null entry
+        ArrayList<UserInputRegion> a = new ArrayList<UserInputRegion>();
+//        sortCityList.add(null);
+        // Test when sorting a list containing null
+        app.displayUserInputRegion(a);
+    }
+
+    @Test
+    void testDisplayUserRegion() {
+        // Create and populate the ArrayList of CountriesInWorld objects
+        ArrayList<UserInputRegion> a = new ArrayList<UserInputRegion>();
+
+        // Add a sample CountriesInWorld object
+        UserInputRegion userInputRegion = new UserInputRegion();
+        userInputRegion.setCode("CHN");
+        userInputRegion.setName("China");
+        userInputRegion.setRegion("Eastern Asia");
+        userInputRegion.setContinent("Asia");
+        userInputRegion.setPopulation(1277558000);
+        userInputRegion.setCapital(1891);
+
+        a.add(userInputRegion);
+
+        // Call the displayCountry method
+        app.displayUserInputRegion(a);
+
+
+    }
+
+
+    @Test
+    void testGetCapitalCity() throws Exception {
+        // Mocking the Connection, Statement, and ResultSet
+        Connection mockConnection = mock(Connection.class);
+        Statement mockStatement = mock(Statement.class);
+        when(mockConnection.createStatement()).thenReturn(mockStatement);
+        ResultSet mockResultSet = mock(ResultSet.class);
+        when(mockStatement.executeQuery(anyString())).thenReturn(mockResultSet);
+
+        // Setting up the expected behavior for the ResultSet
+        when(mockResultSet.next())
+                .thenReturn(true)   // First entry
+                .thenReturn(true)   // Second entry
+                .thenReturn(false); // No more entries
+
+        when(mockResultSet.getString("Capital_Name")).thenReturn("Seoul").thenReturn("Jakarta");
+        when(mockResultSet.getString("Country_Name")).thenReturn("South Korea").thenReturn("Indonesia");
+        when(mockResultSet.getInt("Population")).thenReturn(9981619).thenReturn(9604900);
+
+        // When
+        ArrayList<Capitalcity> result = new App().getCapitalCity(mockConnection);
+
+        // Then
+        assertNotNull(result, "Result should not be null");
+        assertTrue(result.size() >= 2, "Result should contain at least two entries");
+        assertEquals("Seoul", result.get(0).getCapital_Name(), "Seoul should be the code of the first entry");
+        assertEquals("Jakarta", result.get(1).getCapital_Name(), "Jakarta should be the code of the second entry");
+
+    }
+
+    @Test
+    public void displayCapitalCityNull() {
+        // Ensure app is not null before calling its methods
+        assertNotNull(app, "Capital City should not be null");
+        app.displayCapital(null);
+//        ArrayList<CountriesInWorld> countries = app.getCountriesInWorld();
+//        assertNotNull(countries, "Countries list should not be null");
+    }
+
+    @Test
+    void displayCapitalCityEmpty()
+    {
+        // Create and populate the ArrayList of City objects
+        ArrayList<Capitalcity> a = new ArrayList<Capitalcity>();
+        // Test when sorting an empty list
+        app.displayCapital(a);
+    }
+
+    @Test
+    void displayCapitalCityContainsNull()
+    {
+        // Create and populate the ArrayList of City objects with a null entry
+        ArrayList<Capitalcity> a = new ArrayList<Capitalcity>();
+//        sortCityList.add(null);
+        // Test when sorting a list containing null
+        app.displayCapital(a);
+    }
+
+    @Test
+    void testDisplayCapitalCity() {
+        // Create and populate the ArrayList of CountriesInWorld objects
+        ArrayList<Capitalcity> a = new ArrayList<Capitalcity>();
+
+        // Add a sample CountriesInWorld object
+        Capitalcity capitalcity = new Capitalcity();
+        capitalcity.setCapital_Name("Seoul");
+        capitalcity.setCountry_Name("South Korea");
+        capitalcity.setPopulation(9981619);
+
+
+        a.add(capitalcity);
+
+        // Call the displayCountry method
+        app.displayCapital(a);
+
+
+    }
+
+    @Test
+    void testGetCapitalContinent() throws Exception {
+        // Mocking the Connection, Statement, and ResultSet
+        Connection mockConnection = mock(Connection.class);
+        Statement mockStatement = mock(Statement.class);
+        when(mockConnection.createStatement()).thenReturn(mockStatement);
+        ResultSet mockResultSet = mock(ResultSet.class);
+        when(mockStatement.executeQuery(anyString())).thenReturn(mockResultSet);
+
+        // Setting up the expected behavior for the ResultSet
+        when(mockResultSet.next())
+                .thenReturn(true)   // First entry
+                .thenReturn(true)   // Second entry
+                .thenReturn(false); // No more entries
+
+        when(mockResultSet.getString("Capital_Name")).thenReturn("Seoul").thenReturn("Jakarta");
+        when(mockResultSet.getString("Country_Name")).thenReturn("South Korea").thenReturn("Indonesia");
+        when(mockResultSet.getInt("Population")).thenReturn(9981619).thenReturn(9604900);
+
+        // When
+        ArrayList<CapitalContinent> result = new App().getCapitalContinent(mockConnection);
+
+        // Then
+        assertNotNull(result, "Result should not be null");
+        assertTrue(result.size() >= 2, "Result should contain at least two entries");
+        assertEquals("Seoul", result.get(0).getCapital_Name(), "Seoul should be the code of the first entry");
+        assertEquals("Jakarta", result.get(1).getCapital_Name(), "Jakarta should be the code of the second entry");
+
+    }
+
+    @Test
+    public void displayCapitalContinentNull() {
+        // Ensure app is not null before calling its methods
+        assertNotNull(app, "Capital Continent should not be null");
+        app.displayCapitalContinent(null);
+//        ArrayList<CountriesInWorld> countries = app.getCountriesInWorld();
+//        assertNotNull(countries, "Countries list should not be null");
+    }
+
+    @Test
+    void displayCapitalContinentEmpty()
+    {
+        // Create and populate the ArrayList of City objects
+        ArrayList<CapitalContinent> a = new ArrayList<CapitalContinent>();
+        // Test when sorting an empty list
+        app.displayCapitalContinent(a);
+    }
+
+    @Test
+    void displayCapitalContinentContainsNull()
+    {
+        // Create and populate the ArrayList of City objects with a null entry
+        ArrayList<CapitalContinent> a = new ArrayList<CapitalContinent>();
+//        sortCityList.add(null);
+        // Test when sorting a list containing null
+        app.displayCapitalContinent(a);
+    }
+
+    @Test
+    void testDisplayCapitalContinent() {
+        // Create and populate the ArrayList of CountriesInWorld objects
+        ArrayList<CapitalContinent> a = new ArrayList<CapitalContinent>();
+
+        // Add a sample CountriesInWorld object
+        CapitalContinent capitalContinent = new CapitalContinent();
+        capitalContinent.setCapital_Name("Seoul");
+        capitalContinent.setCountry_Name("South Korea");
+        capitalContinent.setPopulation(9981619);
+
+
+        a.add(capitalContinent);
+
+        // Call the displayCountry method
+        app.displayCapitalContinent(a);
+
+
+    }
+
+    @Test
+    void testGetCapitalRegion() throws Exception {
+        // Mocking the Connection, Statement, and ResultSet
+        Connection mockConnection = mock(Connection.class);
+        Statement mockStatement = mock(Statement.class);
+        when(mockConnection.createStatement()).thenReturn(mockStatement);
+        ResultSet mockResultSet = mock(ResultSet.class);
+        when(mockStatement.executeQuery(anyString())).thenReturn(mockResultSet);
+
+        // Setting up the expected behavior for the ResultSet
+        when(mockResultSet.next())
+                .thenReturn(true)   // First entry
+                .thenReturn(true)   // Second entry
+                .thenReturn(false); // No more entries
+
+        when(mockResultSet.getString("Capital_Name")).thenReturn("Seoul").thenReturn("Jakarta");
+        when(mockResultSet.getString("Country_Name")).thenReturn("South Korea").thenReturn("Indonesia");
+        when(mockResultSet.getInt("Population")).thenReturn(9981619).thenReturn(9604900);
+
+        // When
+        ArrayList<CapitalRegion> result = new App().getCapitalRegion(mockConnection);
+
+        // Then
+        assertNotNull(result, "Result should not be null");
+        assertTrue(result.size() >= 2, "Result should contain at least two entries");
+        assertEquals("Seoul", result.get(0).getCapital_Name(), "Seoul should be the code of the first entry");
+        assertEquals("Jakarta", result.get(1).getCapital_Name(), "Jakarta should be the code of the second entry");
+
+    }
+
+    @Test
+    public void displayCapitalRegionNull() {
+        // Ensure app is not null before calling its methods
+        assertNotNull(app, "Capital Region should not be null");
+        app.displayCapitalRegion(null);
+//        ArrayList<CountriesInWorld> countries = app.getCountriesInWorld();
+//        assertNotNull(countries, "Countries list should not be null");
+    }
+
+    @Test
+    void displayCapitalRegionEmpty()
+    {
+        // Create and populate the ArrayList of City objects
+        ArrayList<CapitalRegion> a = new ArrayList<CapitalRegion>();
+        // Test when sorting an empty list
+        app.displayCapitalRegion(a);
+    }
+
+    @Test
+    void displayCapitalRegionContainsNull()
+    {
+        // Create and populate the ArrayList of City objects with a null entry
+        ArrayList<CapitalRegion> a = new ArrayList<CapitalRegion>();
+//        sortCityList.add(null);
+        // Test when sorting a list containing null
+        app.displayCapitalRegion(a);
+    }
+
+    @Test
+    void testDisplayCapitalRegion() {
+        // Create and populate the ArrayList of CountriesInWorld objects
+        ArrayList<CapitalRegion> a = new ArrayList<CapitalRegion>();
+
+        // Add a sample CountriesInWorld object
+        CapitalRegion capitalRegion = new CapitalRegion();
+        capitalRegion.setCapital_Name("Seoul");
+        capitalRegion.setCountry_Name("South Korea");
+        capitalRegion.setPopulation(9981619);
+
+
+        a.add(capitalRegion);
+
+        // Call the displayCountry method
+        app.displayCapitalRegion(a);
+
+
+    }
+
+    @Test
+    void testGetInputCapitalWorld() throws Exception {
+        // Mocking the Connection, Statement, and ResultSet
+        Connection mockConnection = mock(Connection.class);
+        Statement mockStatement = mock(Statement.class);
+        when(mockConnection.createStatement()).thenReturn(mockStatement);
+        ResultSet mockResultSet = mock(ResultSet.class);
+        when(mockStatement.executeQuery(anyString())).thenReturn(mockResultSet);
+
+        // Setting up the expected behavior for the ResultSet
+        when(mockResultSet.next())
+                .thenReturn(true)   // First entry
+                .thenReturn(true)   // Second entry
+                .thenReturn(false); // No more entries
+
+        when(mockResultSet.getString("Capital_Name")).thenReturn("Seoul").thenReturn("Jakarta");
+        when(mockResultSet.getString("Country_Name")).thenReturn("South Korea").thenReturn("Indonesia");
+        when(mockResultSet.getInt("Population")).thenReturn(9981619).thenReturn(9604900);
+
+        // When
+        ArrayList<InputCapitalWorld> result = new App().getInputCapitalWorld(mockConnection);
+
+        // Then
+        assertNotNull(result, "Result should not be null");
+        assertTrue(result.size() >= 2, "Result should contain at least two entries");
+        assertEquals("Seoul", result.get(0).getCapital_Name(), "Seoul should be the code of the first entry");
+        assertEquals("Jakarta", result.get(1).getCapital_Name(), "Jakarta should be the code of the second entry");
+
+    }
+
+    @Test
+    public void displayInputCapitalWorldNull() {
+        // Ensure app is not null before calling its methods
+        assertNotNull(app, "Capital Region should not be null");
+        app.displayCapitalRegion(null);
+//        ArrayList<CountriesInWorld> countries = app.getCountriesInWorld();
+//        assertNotNull(countries, "Countries list should not be null");
+    }
+
+    @Test
+    void displayInputCapitalWorldEmpty()
+    {
+        // Create and populate the ArrayList of City objects
+        ArrayList<InputCapitalWorld> a = new ArrayList<InputCapitalWorld>();
+        // Test when sorting an empty list
+        app.displayInputCapitalWorld(a);
+    }
+
+    @Test
+    void displayInputCapitalWorldContainsNull()
+    {
+        // Create and populate the ArrayList of City objects with a null entry
+        ArrayList<InputCapitalWorld> a = new ArrayList<InputCapitalWorld>();
+//        sortCityList.add(null);
+        // Test when sorting a list containing null
+        app.displayInputCapitalWorld(a);
+    }
+
+    @Test
+    void testDisplayInputCapitalWorld() {
+        // Create and populate the ArrayList of CountriesInWorld objects
+        ArrayList<InputCapitalWorld> a = new ArrayList<InputCapitalWorld>();
+
+        // Add a sample CountriesInWorld object
+        InputCapitalWorld inputCapitalWorld = new InputCapitalWorld();
+        inputCapitalWorld.setCapital_Name("Seoul");
+        inputCapitalWorld.setCountry_Name("South Korea");
+        inputCapitalWorld.setPopulation(9981619);
+
+
+        a.add(inputCapitalWorld);
+
+        // Call the displayCountry method
+        app.displayInputCapitalWorld(a);
+
+
+    }
+
+    @Test
+    void testGetInputCapitalContinent() throws Exception {
+        // Mocking the Connection, Statement, and ResultSet
+        Connection mockConnection = mock(Connection.class);
+        Statement mockStatement = mock(Statement.class);
+        when(mockConnection.createStatement()).thenReturn(mockStatement);
+        ResultSet mockResultSet = mock(ResultSet.class);
+        when(mockStatement.executeQuery(anyString())).thenReturn(mockResultSet);
+
+        // Setting up the expected behavior for the ResultSet
+        when(mockResultSet.next())
+                .thenReturn(true)   // First entry
+                .thenReturn(true)   // Second entry
+                .thenReturn(false); // No more entries
+
+        when(mockResultSet.getString("Capital_Name")).thenReturn("Seoul").thenReturn("Jakarta");
+        when(mockResultSet.getString("Country_Name")).thenReturn("South Korea").thenReturn("Indonesia");
+        when(mockResultSet.getInt("Population")).thenReturn(9981619).thenReturn(9604900);
+
+        // When
+        ArrayList<InputCapitalWorld> result = new App().getInputCapitalWorld(mockConnection);
+
+        // Then
+        assertNotNull(result, "Result should not be null");
+        assertTrue(result.size() >= 2, "Result should contain at least two entries");
+        assertEquals("Seoul", result.get(0).getCapital_Name(), "Seoul should be the code of the first entry");
+        assertEquals("Jakarta", result.get(1).getCapital_Name(), "Jakarta should be the code of the second entry");
+
+    }
+
+    @Test
+    public void displayInputCapitalContinentNull() {
+        // Ensure app is not null before calling its methods
+        assertNotNull(app, "Capital Region should not be null");
+        app.displayInputCapitalContinent(null);
+//        ArrayList<CountriesInWorld> countries = app.getCountriesInWorld();
+//        assertNotNull(countries, "Countries list should not be null");
+    }
+
+    @Test
+    void displayInputCapitalContinentEmpty()
+    {
+        // Create and populate the ArrayList of City objects
+        ArrayList<InputCapitalContinent> a = new ArrayList<InputCapitalContinent>();
+        // Test when sorting an empty list
+        app.displayInputCapitalContinent(a);
+    }
+
+    @Test
+    void displayInputCapitalContinentContainsNull()
+    {
+        // Create and populate the ArrayList of City objects with a null entry
+        ArrayList<InputCapitalContinent> a = new ArrayList<InputCapitalContinent>();
+//        sortCityList.add(null);
+        // Test when sorting a list containing null
+        app.displayInputCapitalContinent(a);
+    }
+
+    @Test
+    void testDisplayInputCapitalContinent() {
+        // Create and populate the ArrayList of CountriesInWorld objects
+        ArrayList<InputCapitalContinent> a = new ArrayList<InputCapitalContinent>();
+
+        // Add a sample CountriesInWorld object
+        InputCapitalContinent inputCapitalContinent = new InputCapitalContinent();
+        inputCapitalContinent.setCapital_Name("Seoul");
+        inputCapitalContinent.setCountry_Name("South Korea");
+        inputCapitalContinent.setPopulation(9981619);
+
+
+        a.add(inputCapitalContinent);
+
+        // Call the displayCountry method
+        app.displayInputCapitalContinent(a);
+
+
+    }
+
+    @Test
+    void testGetInputCapitalRegion() throws Exception {
+        // Mocking the Connection, Statement, and ResultSet
+        Connection mockConnection = mock(Connection.class);
+        Statement mockStatement = mock(Statement.class);
+        when(mockConnection.createStatement()).thenReturn(mockStatement);
+        ResultSet mockResultSet = mock(ResultSet.class);
+        when(mockStatement.executeQuery(anyString())).thenReturn(mockResultSet);
+
+        // Setting up the expected behavior for the ResultSet
+        when(mockResultSet.next())
+                .thenReturn(true)   // First entry
+                .thenReturn(true)   // Second entry
+                .thenReturn(false); // No more entries
+
+        when(mockResultSet.getString("Capital_Name")).thenReturn("Seoul").thenReturn("Jakarta");
+        when(mockResultSet.getString("Country_Name")).thenReturn("South Korea").thenReturn("Indonesia");
+        when(mockResultSet.getInt("Population")).thenReturn(9981619).thenReturn(9604900);
+
+        // When
+        ArrayList<InputCapitalRegion> result = new App().getInputCapitalRegion(mockConnection);
+
+        // Then
+        assertNotNull(result, "Result should not be null");
+        assertTrue(result.size() >= 2, "Result should contain at least two entries");
+        assertEquals("Seoul", result.get(0).getCapital_Name(), "Seoul should be the code of the first entry");
+        assertEquals("Jakarta", result.get(1).getCapital_Name(), "Jakarta should be the code of the second entry");
+
+    }
+
+    @Test
+    public void displayInputCapitalRegionNull() {
+        // Ensure app is not null before calling its methods
+        assertNotNull(app, "Capital Region should not be null");
+        app.displayInputCapitalRegion(null);
+//        ArrayList<CountriesInWorld> countries = app.getCountriesInWorld();
+//        assertNotNull(countries, "Countries list should not be null");
+    }
+
+    @Test
+    void displayInputCapitalRegionEmpty()
+    {
+        // Create and populate the ArrayList of City objects
+        ArrayList<InputCapitalRegion> a = new ArrayList<InputCapitalRegion>();
+        // Test when sorting an empty list
+        app.displayInputCapitalRegion(a);
+    }
+
+    @Test
+    void displayInputCapitalRegionContainsNull()
+    {
+        // Create and populate the ArrayList of City objects with a null entry
+        ArrayList<InputCapitalRegion> a = new ArrayList<InputCapitalRegion>();
+//        sortCityList.add(null);
+        // Test when sorting a list containing null
+        app.displayInputCapitalRegion(a);
+    }
+
+    @Test
+    void testDisplayInputCapitalRegion() {
+        // Create and populate the ArrayList of CountriesInWorld objects
+        ArrayList<InputCapitalRegion> a = new ArrayList<InputCapitalRegion>();
+
+        // Add a sample CountriesInWorld object
+        InputCapitalRegion inputCapitalRegion = new InputCapitalRegion();
+        inputCapitalRegion.setCapital_Name("Seoul");
+        inputCapitalRegion.setCountry_Name("South Korea");
+        inputCapitalRegion.setPopulation(9981619);
+
+
+        a.add(inputCapitalRegion);
+
+        // Call the displayCountry method
+        app.displayInputCapitalRegion(a);
+
+
+    }
+
 
 
 
