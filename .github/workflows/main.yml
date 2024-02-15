@@ -95,7 +95,7 @@ jobs:
 
   CopyAndDeploy:
     - name: Copy Output
-      run: docker container cp com.napier.sem.app1:./tmp/reports ./
+      run: docker container cp com.napier.sem_App_app1:./tmp/reports ./
 
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@v4.2.5
