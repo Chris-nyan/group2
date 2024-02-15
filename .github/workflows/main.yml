@@ -94,11 +94,14 @@ jobs:
               ./target/*.jar
 
   CopyAndDeploy:
-    - name: Copy Output
-      run: docker container cp com.napier.sem_App_app1:./tmp/reports ./
+    name: Copy and Deploy
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Copy Output
+        run: docker container cp com.napier.sem_App_app1:./tmp/reports ./
 
-    - name: Deploy
-      uses: JamesIves/github-pages-deploy-action@v4.2.5
-      with:
-        branch: reports # The branch the action should deploy to.
-        folder: reports # The folder we are copying, format this as pretty
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4.2.5
+        with:
+          branch: reports # The branch the action should deploy to.
+          folder: reports # The folder we are copying, format this as pretty
