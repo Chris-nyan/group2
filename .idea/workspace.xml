@@ -131,7 +131,7 @@
       <recent name="com.napier.sem" />
     </key>
   </component>
-  <component name="RunManager" selected="Docker.docker-compose.yml: Compose Deployment">
+  <component name="RunManager" selected="JUnit.AppIntegration">
     <configuration name="AppIntegration" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="group2" />
       <extension name="coverage">
@@ -198,10 +198,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AppIntegration" />
         <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
         <item itemvalue="Docker.db/Dockerfile" />
         <item itemvalue="Docker.Dockerfile" />
-        <item itemvalue="JUnit.AppIntegration" />
         <item itemvalue="Docker.docker-compose.yml.db: Compose Deployment" />
       </list>
     </recent_temporary>
