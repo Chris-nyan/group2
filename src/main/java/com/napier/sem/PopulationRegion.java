@@ -14,23 +14,23 @@ public class PopulationRegion{
     /**
      *Region
      */
-    private long Total_Population;
+    private long TotalPopulation;
     /**
      * Total_Population
      */
-    private long Population_In_Cities;
+    private long PopulationInCities;
     /**
      * Population In Cities
      */
-    private long Population_Not_In_Cities;
+    private long PopulationNotInCities;
     /**
      * Population Not In Cities
      */
-    private BigDecimal Percentage_Population_In_Cities;
+    private BigDecimal PercentageInCities;
     /**
      * Percentage Population In Cities
      */
-    private BigDecimal Percentage_Population_Not_In_Cities;
+    private BigDecimal PercentageNotInCities;
     /**
      * Percentage Population Not In Cities
      */
@@ -43,43 +43,43 @@ public class PopulationRegion{
         Region = region;
     }
 
-    public long getTotal_Population() {
-        return Total_Population;
+    public long getTotalPopulation() {
+        return TotalPopulation;
     }
 
-    public void setTotal_Population(long total_Population) {
-        Total_Population = total_Population;
+    public void setTotalPopulation(long totalPopulation) {
+        TotalPopulation = totalPopulation;
     }
 
-    public long getPopulation_In_Cities() {
-        return Population_In_Cities;
+    public long getPopulationInCities() {
+        return PopulationInCities;
     }
 
-    public void setPopulation_In_Cities(long population_In_Cities) {
-        Population_In_Cities = population_In_Cities;
+    public void setPopulationInCities(long populationInCities) {
+        PopulationInCities = populationInCities;
     }
 
-    public long getPopulation_Not_In_Cities() {
-        return Population_Not_In_Cities;
+    public long getPopulationNotInCities() {
+        return PopulationNotInCities;
     }
 
-    public void setPopulation_Not_In_Cities(long population_Not_In_Cities) {
-        Population_Not_In_Cities = population_Not_In_Cities;
+    public void setPopulationNotInCities(long populationNotInCities) {
+        PopulationNotInCities = populationNotInCities;
     }
 
-    public BigDecimal getPercentage_Population_In_Cities() {
-        return Percentage_Population_In_Cities;
+    public BigDecimal getPercentageInCities() {
+        return PercentageInCities;
     }
 
-    public void setPercentage_Population_In_Cities(BigDecimal percentage_Population_In_Cities) {
-        Percentage_Population_In_Cities = percentage_Population_In_Cities;
+    public void setPercentageInCities(BigDecimal percentageInCities) {
+        PercentageInCities = percentageInCities;
     }
 
-    public BigDecimal getPercentage_Population_Not_In_Cities() {
-        return Percentage_Population_Not_In_Cities;
+    public BigDecimal getPercentageNotInCities() {
+        return PercentageNotInCities;
     }
 
-    public void setPercentage_Population_Not_In_Cities(BigDecimal percentage_Population_Not_In_Cities) {
-        Percentage_Population_Not_In_Cities = percentage_Population_Not_In_Cities;
+    public void setPercentageNotInCities(BigDecimal percentageNotInCities) {
+        PercentageNotInCities = percentageNotInCities;
     }
 }

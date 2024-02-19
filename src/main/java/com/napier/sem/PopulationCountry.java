@@ -10,7 +10,7 @@ public class PopulationCountry{
     /**
      * Population in each Country
      */
-    private String Name;
+    private String Country;
     /**
      *Name
      */
@@ -35,12 +35,12 @@ public class PopulationCountry{
      * Percentage Population Not In Cities
      */
 
-    public String getName() {
-        return Name;
+    public String getCountry() {
+        return Country;
     }
 
-    public void setName(String name) {
-        Name = name;
+    public void setCountry(String country) {
+        Country = country;
     }
 
     public long getTotal_Population() {

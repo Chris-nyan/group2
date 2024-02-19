@@ -114,18 +114,18 @@ public class App
             String strSelect =
                     " SELECT " +
                             " country.Continent," +
-                            " SUM(country.Population) AS Total_Population," +
-                            " SUM(city.Population) AS Population_In_Cities," +
-                            " SUM(country.Population) - SUM(city.Population) AS Population_Not_In_Cities," +
-                            " ROUND((SUM(city.Population) / SUM(country.Population)) * 100, 2) AS Percentage_Population_In_Cities," +
-                            " ROUND(((SUM(country.Population) - SUM(city.Population)) / SUM(country.Population)) * 100, 2) " +
-                            " AS Percentage_Population_Not_In_Cities " +
+                            " (SELECT SUM(country2.Population) FROM country country2 WHERE country2.Continent = country.Continent) AS Total_Population," +
+                            " SUM(city.Population) AS Population_In_Cities, " +
+                            " ((SELECT SUM(country3.Population) FROM country country3 WHERE country3.Continent = country.Continent) - SUM(city.Population)) AS Population_Not_In_Cities," +
+                            " CONCAT(ROUND((SUM(city.Population) / (SELECT SUM(country4.Population) FROM country country4 WHERE country4.Continent = country.Continent)) * 100, 2)) AS Percentage_Population_In_Cities," +
+                            " CONCAT(ROUND((((SELECT SUM(country5.Population) FROM country country5 WHERE country5.Continent = country.Continent) - SUM(city.Population)) / (SELECT SUM(country6.Population) FROM country country6 WHERE country6.Continent = country.Continent)) * 100, 2)) AS Percentage_Population_Not_In_Cities" +
                             " FROM " +
                             " country " +
-                            "INNER JOIN " +
-                            "    city ON country.Code = city.CountryCode\n" +
-                            "GROUP BY " +
-                            "    country.Continent ";
+                            " INNER JOIN " +
+                            "     city ON country.Code = city.CountryCode " +
+                            " GROUP BY " +
+                            " country.Continent ";
+
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Return new employee if valid.
@@ -159,17 +159,17 @@ public class App
      */
     public void displayPopulation(ArrayList<Population> populations) {
         if (populations != null && !populations.isEmpty()) {
-            System.out.println("------------------------------------------------------------------------------------------------------------------------");
+            System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
             System.out.printf("| %-25s | %-40s | %-40s | %-40s | %-40s | %-40s |\n",
                     "Continent", "TotalPopulation", "PopulationInCities", "PopulationNotInCities", "PercentagePopulationInCities", "PercentagePopulationNotInCities");
-            System.out.println("---------------------------------------------------------------------------------------------------------------------------");
+            System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 
             for (Population pol : populations) {
                 System.out.printf("| %-25s | %-40s | %-40s | %-40s | %-40s | %-40s |\n",
                         pol.getContinent(), pol.getTotal_Population(),pol.getPopulation_In_Cities(), pol.getPopulation_Not_In_Cities(), pol.getPercentage_Population_In_Cities(), pol.getPercentage_Population_Not_In_Cities());
             }
 
-            System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
         } else {
             System.out.println("No population details available");
         }
@@ -190,7 +190,19 @@ public class App
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    " SELECT country.Region, SUM(country.Population) AS Total_Population, SUM(city.Population) AS Population_In_Cities, SUM(country.Population) - SUM(city.Population) AS Population_Not_In_Cities, ROUND((SUM(city.Population) / SUM(country.Population)) * 100, 2) AS Percentage_Population_In_Cities, ROUND(((SUM(country.Population) - SUM(city.Population)) / SUM(country.Population)) * 100, 2) AS Percentage_Population_Not_In_Cities FROM country INNER JOIN city ON country.Code = city.CountryCode GROUP BY country.Region";
+                    " SELECT " +
+                            " co.Region AS Region," +
+                            " (SELECT SUM(co2.Population) FROM country co2 WHERE co2.Region = co.Region) AS TotalPopulation," +
+                            " SUM(ci.Population) AS PopulationInCities,\n" +
+                            " ((SELECT SUM(co3.Population) FROM country co3 WHERE co3.Region = co.Region) - SUM(ci.Population)) AS PopulationNotInCities,\n" +
+                            " CONCAT(ROUND((SUM(ci.Population) / (SELECT SUM(co4.Population) FROM country co4 WHERE co4.Region = co.Region)) * 100, 2)) AS PercentageInCities,\n" +
+                            " CONCAT(ROUND((((SELECT SUM(co5.Population) FROM country co5 WHERE co5.Region = co.Region) - SUM(ci.Population)) / (SELECT SUM(co6.Population) FROM country co6 WHERE co6.Region = co.Region)) * 100, 2)) AS PercentageNotInCities\n" +
+                            " FROM " +
+                            " country co  " +
+                            " INNER JOIN " +
+                            "     city ci ON co.Code = ci.CountryCode " +
+                            " GROUP BY " +
+                            " co.Region ";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Return new employee if valid.
@@ -201,11 +213,11 @@ public class App
 //
                 // Change the column names in your Java code to match the ones in the SQL query
                 pore.setRegion(rset.getString("Region"));
-                pore.setTotal_Population(rset.getLong("Total_Population"));
-                pore.setPopulation_In_Cities(rset.getLong("Population_In_Cities"));
-                pore.setPopulation_Not_In_Cities(rset.getLong("Population_Not_In_Cities"));
-                pore.setPercentage_Population_In_Cities(new BigDecimal(rset.getString("Percentage_Population_In_Cities")));
-                pore.setPercentage_Population_Not_In_Cities(new BigDecimal(rset.getString("Percentage_Population_Not_In_Cities")));
+                pore.setTotalPopulation(rset.getLong("TotalPopulation"));
+                pore.setPopulationInCities(rset.getLong("PopulationInCities"));
+                pore.setPopulationNotInCities(rset.getLong("PopulationNotInCities"));
+                pore.setPercentageInCities(new BigDecimal(rset.getString("PercentageInCities")));
+                pore.setPercentageNotInCities(new BigDecimal(rset.getString("PercentageNotInCities")));
                 // Check for null value before converting to BigDecimal
                 a.add(pore);
             }
@@ -223,17 +235,17 @@ public class App
      */
     public void displayPopulationRegion(ArrayList<PopulationRegion> populationRegions) {
         if (populationRegions != null && !populationRegions.isEmpty()) {
-            System.out.println("------------------------------------------------------------------------------------------------------------------------");
+            System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
             System.out.printf("| %-25s | %-40s | %-40s | %-40s | %-40s | %-40s |\n",
-                    "Region", "TotalPopulation", "PopulationInCities", "PopulationNotInCities", "PercentagePopulationInCities", "PercentagePopulationNotInCities");
-            System.out.println("---------------------------------------------------------------------------------------------------------------------------");
+                    "Region", "TotalPopulation", "PopulationInCities", "PopulationNotInCities", "PercentageInCities", "PercentageNotInCities");
+            System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 
             for (PopulationRegion pore : populationRegions) {
                 System.out.printf("| %-25s | %-40s | %-40s | %-40s | %-40s | %-40s |\n",
-                        pore.getRegion(), pore.getTotal_Population(),pore.getPopulation_In_Cities(), pore.getPopulation_Not_In_Cities(), pore.getPercentage_Population_In_Cities(), pore.getPercentage_Population_Not_In_Cities());
+                        pore.getRegion(), pore.getTotalPopulation(),pore.getPopulationInCities(), pore.getPopulationNotInCities(), pore.getPercentageInCities(), pore.getPercentageNotInCities());
             }
 
-            System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
         } else {
             System.out.println("No population details available");
         }
@@ -251,7 +263,19 @@ public class App
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    " SELECT country.Name, SUM(country.Population) AS Total_Population, SUM(city.Population) AS Population_In_Cities, SUM(country.Population) - SUM(city.Population) AS Population_Not_In_Cities, ROUND((SUM(city.Population) / SUM(country.Population)) * 100, 2) AS Percentage_Population_In_Cities, ROUND(((SUM(country.Population) - SUM(city.Population)) / SUM(country.Population)) * 100, 2) AS Percentage_Population_Not_In_Cities FROM country INNER JOIN city ON country.Code = city.CountryCode GROUP BY country.Name";
+                    " SELECT " +
+                            "    co.Name AS Country," +
+                            "    (SELECT SUM(co2.Population) FROM country co2 WHERE co2.Name = co.Name) AS Total_Population," +
+                            "    SUM(ci.Population) AS Population_In_Cities," +
+                            "    ((SELECT SUM(co3.Population) FROM country co3 WHERE co3.Name = co.Name) - SUM(ci.Population)) AS Population_Not_In_Cities," +
+                            "    CONCAT(ROUND((SUM(ci.Population) / (SELECT SUM(co4.Population) FROM country co4 WHERE co4.Name = co.Name)) * 100, 2)) AS Percentage_Population_In_Cities," +
+                            "    CONCAT(ROUND((((SELECT SUM(co5.Population) FROM country co5 WHERE co5.Name = co.Name) - SUM(ci.Population)) / (SELECT SUM(co6.Population) FROM country co6 WHERE co6.Name = co.Name)) * 100, 2)) AS Percentage_Population_Not_In_Cities" +
+                            "   FROM " +
+                            "   country co " +
+                            "   INNER JOIN " +
+                            "       city ci ON co.Code = ci.CountryCode " +
+                            "   GROUP BY " +
+                            "    co.Name";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Return new employee if valid.
@@ -261,7 +285,7 @@ public class App
                 PopulationCountry pocoun = new PopulationCountry();
 //
                 // Change the column names in your Java code to match the ones in the SQL query
-                pocoun.setName(rset.getString("Name"));
+                pocoun.setCountry(rset.getString("Country"));
                 pocoun.setTotal_Population(rset.getLong("Total_Population"));
                 pocoun.setPopulation_In_Cities(rset.getLong("Population_In_Cities"));
                 pocoun.setPopulation_Not_In_Cities(rset.getLong("Population_Not_In_Cities"));
@@ -284,17 +308,17 @@ public class App
      */
     public void displayPopulationCountry(ArrayList<PopulationCountry> populationCountries) {
         if (populationCountries != null && !populationCountries.isEmpty()) {
-            System.out.println("------------------------------------------------------------------------------------------------------------------------");
+            System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
             System.out.printf("| %-25s | %-40s | %-40s | %-40s | %-40s | %-40s |\n",
-                    "Name", "TotalPopulation", "PopulationInCities", "PopulationNotInCities", "PercentagePopulationInCities", "PercentagePopulationNotInCities");
-            System.out.println("---------------------------------------------------------------------------------------------------------------------------");
+                    "Country", "TotalPopulation", "PopulationInCities", "PopulationNotInCities", "PercentagePopulationInCities", "PercentagePopulationNotInCities");
+            System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 
             for (PopulationCountry pocoun : populationCountries) {
                 System.out.printf("| %-25s | %-40s | %-40s | %-40s | %-40s | %-40s |\n",
-                        pocoun.getName(), pocoun.getTotal_Population(),pocoun.getPopulation_In_Cities(), pocoun.getPopulation_Not_In_Cities(), pocoun.getPercentage_Population_In_Cities(), pocoun.getPercentage_Population_Not_In_Cities());
+                        pocoun.getCountry(), pocoun.getTotal_Population(),pocoun.getPopulation_In_Cities(), pocoun.getPopulation_Not_In_Cities(), pocoun.getPercentage_Population_In_Cities(), pocoun.getPercentage_Population_Not_In_Cities());
             }
 
-            System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
         } else {
             System.out.println("No population details available");
         }
