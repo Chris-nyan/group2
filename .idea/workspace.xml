@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a8cdd79a-4e67-4a4d-b567-2df56dbddb5d" name="Changes" comment="bug_report update">
+    <list default="true" id="a8cdd79a-4e67-4a4d-b567-2df56dbddb5d" name="Changes" comment="App Integration update">
+      <change beforePath="$PROJECT_DIR$/.github/ISSUE_TEMPLATE/bug_report.md" beforeDir="false" afterPath="$PROJECT_DIR$/.github/ISSUE_TEMPLATE/bug_report.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reports/SortCity" beforeDir="false" afterPath="$PROJECT_DIR$/reports/SortCity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/napier/sem/AppIntegration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/napier/sem/AppIntegration.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -254,7 +253,7 @@
       <workItem from="1707978115935" duration="138000" />
       <workItem from="1707978268473" duration="1823000" />
       <workItem from="1708054710810" duration="10345000" />
-      <workItem from="1708313871210" duration="5885000" />
+      <workItem from="1708313871210" duration="6899000" />
     </task>
     <task id="LOCAL-00003" summary="Unit Testing For All methods(success)">
       <option name="closed" value="true" />
@@ -448,7 +447,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708316952636</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="App Integration update">
+      <option name="closed" value="true" />
+      <created>1708321133218</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1708321133218</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -466,7 +473,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="adding feature/countries_report to develop(success)" />
     <MESSAGE value="Unit Testing For All methods(success)" />
     <MESSAGE value="Unit Testing For All methods delete disconnect(success)" />
     <MESSAGE value="Unit Testing For All methods delete disconnect(success)2" />
@@ -491,14 +497,15 @@
     <MESSAGE value="delete copy and deploy" />
     <MESSAGE value="delete copy and deploy(update)" />
     <MESSAGE value="bug_report update" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug_report update" />
+    <MESSAGE value="App Integration update" />
+    <option name="LAST_COMMIT_MESSAGE" value="App Integration update" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/group2$AppIntegration.ic" NAME="AppIntegration Coverage Results" MODIFIED="1707468936503" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.napier.sem.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/grp2$AppTest_displaySortCityWorld.ic" NAME="AppTest.displaySortCityWorld Coverage Results" MODIFIED="1707383922473" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/grp2$AppIntegration.ic" NAME="AppIntegration Coverage Results" MODIFIED="1708318851035" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/grp2$AppIntegration.ic" NAME="AppIntegration Coverage Results" MODIFIED="1708321055576" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.napier.sem.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/grp2$AppTest_testSortCityNoCities.ic" NAME="AppTest.testSortCityNoCities Coverage Results" MODIFIED="1707381594526" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
