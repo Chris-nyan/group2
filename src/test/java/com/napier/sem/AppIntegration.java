@@ -208,6 +208,157 @@ public class AppIntegration {
 
     }
 
+    @Test
+    void testSortUserInputContinent() {
+        // Assuming sortCity method returns a list of cities for testing
+        ArrayList<UserInputContinent> sortUserInputContinentList = app.getUserInputContinent(con);
+
+        // Add your assertions based on the expected results
+        assertNotNull(sortUserInputContinentList);
+        assertFalse(sortUserInputContinentList.isEmpty());
+
+        // Validate each property of the first city in the list
+        UserInputContinent firstUserInputContinent = sortUserInputContinentList.get(0);
+
+        assertEquals("CHN", firstUserInputContinent.getCode());
+        assertEquals("China", firstUserInputContinent.getName());
+        assertEquals("Eastern Asia", firstUserInputContinent.getRegion());
+        assertEquals("Asia", firstUserInputContinent.getContinent());
+        assertEquals(1277558000, firstUserInputContinent.getPopulation());
+        assertEquals(1891, firstUserInputContinent.getCapital());
+
+    }
+
+    @Test
+    void testSortUserInputRegion() {
+        // Assuming sortCity method returns a list of cities for testing
+        ArrayList<UserInputRegion> sortUserInputRegionList = app.getUserInputRegion(con);
+
+        // Add your assertions based on the expected results
+        assertNotNull(sortUserInputRegionList);
+        assertFalse(sortUserInputRegionList.isEmpty());
+
+        // Validate each property of the first city in the list
+        UserInputRegion firstUserInputRegion = sortUserInputRegionList.get(0);
+
+        assertEquals("CHN", firstUserInputRegion.getCode());
+        assertEquals("China", firstUserInputRegion.getName());
+        assertEquals("Eastern Asia", firstUserInputRegion.getRegion());
+        assertEquals("Asia", firstUserInputRegion.getContinent());
+        assertEquals(1277558000, firstUserInputRegion.getPopulation());
+        assertEquals(1891, firstUserInputRegion.getCapital());
+
+    }
+
+    @Test
+    void testSortCapitalCity() {
+        // Assuming sortCity method returns a list of cities for testing
+        ArrayList<Capitalcity> sortCapitalCityList = app.getCapitalCity(con);
+
+        // Add your assertions based on the expected results
+        assertNotNull(sortCapitalCityList);
+        assertFalse(sortCapitalCityList.isEmpty());
+
+        // Validate each property of the first city in the list
+        Capitalcity firstCapitalCity = sortCapitalCityList.get(0);
+
+        assertEquals("Seoul", firstCapitalCity.getCapital_Name());
+        assertEquals("South Korea", firstCapitalCity.getCountry_Name());
+        assertEquals(9981619, firstCapitalCity.getPopulation());
+
+
+    }
+
+    @Test
+    void testSortCapitalContinent() {
+        // Assuming sortCity method returns a list of cities for testing
+        ArrayList<CapitalContinent> sortCapitalContinentList = app.getCapitalContinent(con);
+
+        // Add your assertions based on the expected results
+        assertNotNull(sortCapitalContinentList);
+        assertFalse(sortCapitalContinentList.isEmpty());
+
+        // Validate each property of the first city in the list
+        CapitalContinent firstCapitalContinent = sortCapitalContinentList.get(0);
+
+        assertEquals("Seoul", firstCapitalContinent.getCapital_Name());
+        assertEquals("South Korea", firstCapitalContinent.getCountry_Name());
+        assertEquals(9981619, firstCapitalContinent.getPopulation());
+
+    }
+
+    @Test
+    void testSortCapitalRegion() {
+        // Assuming sortCity method returns a list of cities for testing
+        ArrayList<CapitalRegion> sortCapitalRegionList = app.getCapitalRegion(con);
+
+        // Add your assertions based on the expected results
+        assertNotNull(sortCapitalRegionList);
+        assertFalse(sortCapitalRegionList.isEmpty());
+
+        // Validate each property of the first city in the list
+        CapitalRegion firstCapitalRegion = sortCapitalRegionList.get(0);
+
+        assertEquals("Baghdad", firstCapitalRegion.getCapital_Name());
+        assertEquals("Iraq", firstCapitalRegion.getCountry_Name());
+        assertEquals(4336000, firstCapitalRegion.getPopulation());
+
+    }
+
+    @Test
+    void testInputCapitalWorld() {
+        // Assuming sortCity method returns a list of cities for testing
+        ArrayList<InputCapitalWorld> sortInputCapitalWorldList = app.getInputCapitalWorld(con);
+
+        // Add your assertions based on the expected results
+        assertNotNull(sortInputCapitalWorldList);
+        assertFalse(sortInputCapitalWorldList.isEmpty());
+
+        // Validate each property of the first city in the list
+        InputCapitalWorld firstInputCapitalWorld = sortInputCapitalWorldList.get(0);
+
+        assertEquals("Seoul", firstInputCapitalWorld.getCapital_Name());
+        assertEquals("South Korea", firstInputCapitalWorld.getCountry_Name());
+        assertEquals(9981619, firstInputCapitalWorld.getPopulation());
+
+    }
+
+    @Test
+    void testInputCapitalContinent() {
+        // Assuming sortCity method returns a list of cities for testing
+        ArrayList<InputCapitalContinent> sortInputCapitalContinentList = app.getInputCapitalContinent(con);
+
+        // Add your assertions based on the expected results
+        assertNotNull(sortInputCapitalContinentList);
+        assertFalse(sortInputCapitalContinentList.isEmpty());
+
+        // Validate each property of the first city in the list
+        InputCapitalContinent firstInputCapitalContinent = sortInputCapitalContinentList.get(0);
+
+        assertEquals("Seoul", firstInputCapitalContinent.getCapital_Name());
+        assertEquals("South Korea", firstInputCapitalContinent.getCountry_Name());
+        assertEquals(9981619, firstInputCapitalContinent.getPopulation());
+
+    }
+
+    @Test
+    void testInputCapitalRegion() {
+        // Assuming sortCity method returns a list of cities for testing
+        ArrayList<InputCapitalRegion> sortInputCapitalRegionList = app.getInputCapitalRegion(con);
+
+        // Add your assertions based on the expected results
+        assertNotNull(sortInputCapitalRegionList);
+        assertFalse(sortInputCapitalRegionList.isEmpty());
+
+        // Validate each property of the first city in the list
+        InputCapitalRegion firstInputCapitalRegion = sortInputCapitalRegionList.get(0);
+
+        assertEquals("Baghdad", firstInputCapitalRegion.getCapital_Name());
+        assertEquals("Iraq", firstInputCapitalRegion.getCountry_Name());
+        assertEquals(4336000, firstInputCapitalRegion.getPopulation());
+
+    }
+
 
     // Close the database connection after all tests are executed
     @AfterAll
