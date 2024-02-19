@@ -74,12 +74,12 @@ public class App
         app.displayContinent(continent, "continent.md");
         app.displayRegion(regions, "Region.md");
         app.displayUserInputWorld(userInputWorlds,"UserInputWorld.md");
+        app.displayUserInputContinent(userInputContinent,"UserInputContinent");
+        app.displayUserInputRegion(userInputRegion,"UserInputRegion");
         app.displaySortCity(sortCity,"SortCity");
         app.displaySortCityWorld(sortCityWorld,"SortCityWorld");
         app.displaySortCityRegion(sortCityRegion, "SortCityRegion");
         app.displaySortCityCountry(sortCityCountry,"SortCityCountry");
-        app.displayUserInputContinent(userInputContinent,"UserInputContinent");
-        app.displayUserInputRegion(userInputRegion,"UserInputRegion");
         app.displayCapital(capitalcities,"CapitalCities");
         app.displayCapitalContinent(capitalContinents,"CapitalContinent");
         app.displayCapitalRegion(capitalRegions,"CapitalRegion");
@@ -192,7 +192,9 @@ public class App
     public void displaySortCityWorld(ArrayList<CityWorld> sortCitiesWorld, String SortCityWorld) {
         if (sortCitiesWorld != null && !sortCitiesWorld.isEmpty()) {
             System.out.println("Population of the cities around the world sorting from largest to smallest");
+            System.out.println("----------------------------------------------------------------------------------------------------------");
             System.out.printf("| %-25s | %-25s | %-25s | %-25s |\n", "Name", "Country Name", "District", "Population");
+            System.out.println("----------------------------------------------------------------------------------------------------------");
 
             for (CityWorld sortCityWorld : sortCitiesWorld) {
                 System.out.printf("| %-25s | %-25s | %-25s | %-25d |\n",
@@ -236,8 +238,11 @@ public class App
     }
     public void displaySortCityRegion(ArrayList<CityRegion> sortCitiesRegion, String SortCityRegion) {
         if (sortCitiesRegion != null && !sortCitiesRegion.isEmpty()) {
+            System.out.println("----------------------------------------------------------------------------------------------------------");
             System.out.println("Population of the cities in a region called Middle East sorting from largest to smallest");
+            System.out.println("----------------------------------------------------------------------------------------------------------");
             System.out.printf("| %-25s | %-25s | %-25s | %-25s |\n", "Name", "Country Name", "District", "Population");
+            System.out.println("----------------------------------------------------------------------------------------------------------");
 
             for (CityRegion sortCityRegion : sortCitiesRegion) {
                 System.out.printf("| %-25s | %-25s | %-25s | %-25d |\n",
@@ -282,7 +287,9 @@ public class App
     public void displaySortCityCountry(ArrayList<CityCountry> sortCitiesCountry, String SortCityCountry) {
         if (sortCitiesCountry != null && !sortCitiesCountry.isEmpty()) {
             System.out.println("Population of the cities in a country called Myanmar sorting from largest to smallest");
+            System.out.println("----------------------------------------------------------------------------------------------------------");
             System.out.printf("| %-25s | %-25s | %-25s | %-25s |\n", "Name", "Country Name", "District", "Population");
+            System.out.println("----------------------------------------------------------------------------------------------------------");
 
             for (CityCountry sortCityCountry : sortCitiesCountry) {
                 System.out.printf("| %-25s | %-25s | %-25s | %-25d |\n",
@@ -377,17 +384,17 @@ public class App
     public void displayCountry(ArrayList<CountriesInWorld> countries, String Country) {
         if (countries != null && !countries.isEmpty()) {
             System.out.println("All the countries in the world organized by largest population to smallest");
-            System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------");
             System.out.printf("| %-5s | %-40s | %-30s | %-20s | %-15s | %-10s | \n",
                     "Code", "Country Name", "Region", "Continent", "Population", "Capital");
-            System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------");
 
             for (CountriesInWorld coun : countries) {
                 System.out.printf("| %-5s | %-40s | %-30s | %-20s | %-15s | %-10s | \n",
                         coun.getCode(), coun.getName(), coun.getRegion(), coun.getContinent(), coun.getPopulation(), coun.getCapital());
             }
 
-            System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
+            System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------\n");
         } else {
             System.out.println("No country details available");
         }
@@ -436,17 +443,17 @@ public ArrayList<Continent> getContinent(Connection con)
     public void displayContinent(ArrayList<Continent> continents, String Continent) {
         if (continents != null && !continents.isEmpty()) {
             System.out.println("All the countries in a continent organized by largest population to smallest");
-            System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------");
             System.out.printf("| %-5s | %-20s | %-30s | %-10s | %-15s | %-10s |\n",
                     "Code", "Name", "Region", "Continent", "Population", "Capital");
-            System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------");
 
             for (Continent continent : continents) {
                 System.out.printf("| %-5s | %-20s | %-30s | %-10s | %-15s | %-10s |\n",
                         continent.getCode(), continent.getName(), continent.getRegion(), continent.getContinent(), continent.getPopulation(), continent.getCapital());
             }
 
-            System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
+            System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------\n");
         } else {
             System.out.println("No continent details available");
         }
@@ -495,17 +502,17 @@ public ArrayList<Continent> getContinent(Connection con)
     public void displayRegion(ArrayList<Region> regions, String Region) {
         if (regions != null && !regions.isEmpty()) {
             System.out.println("All the countries in Region organized by largest population to smallest");
-            System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------");
             System.out.printf("| %-5s | %-20s | %-30s | %-10s | %-15s | %-10s |\n",
                     "Code", "Name", "Region", "Continent", "Population", "Capital");
-            System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------");
 
             for (Region region : regions) {
                 System.out.printf("| %-5s | %-20s | %-30s | %-10s | %-15s | %-10s |\n",
                         region.getCode(), region.getName(), region.getRegion(), region.getContinent(), region.getPopulation(), region.getCapital());
             }
 
-            System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
+            System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------\n");
         } else {
             System.out.println("No Region details available");
         }
@@ -555,17 +562,17 @@ public ArrayList<Continent> getContinent(Connection con)
     public void displayUserInputWorld(ArrayList<UserInputWorld> userInputWorlds, String UserInputWorld) {
         if (userInputWorlds != null && !userInputWorlds.isEmpty()) {
             System.out.println("The top N populated countries in the world where N is provided by the user");
-            System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------");
             System.out.printf("| %-5s | %-20s | %-30s | %-10s | %-15s | %-10s |\n",
                     "Code", "Country Name", "Region", "Continent", "Population","Capital");
-            System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------");
 
             for (UserInputWorld userInputWorld : userInputWorlds) {
                 System.out.printf("| %-5s | %-20s | %-30s | %-10s | %-15s | %-10s |\n",
                         userInputWorld.getCode(), userInputWorld.getName(), userInputWorld.getRegion(), userInputWorld.getContinent(), userInputWorld.getPopulation(), userInputWorld.getCapital());
             }
 
-            System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
+            System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------\n");
         } else {
             System.out.println("No Population in world by users details available");
         }
@@ -614,17 +621,17 @@ public ArrayList<Continent> getContinent(Connection con)
     public void displayUserInputContinent(ArrayList<UserInputContinent> userInputContinents, String UserInputContinent) {
         if (userInputContinents != null && !userInputContinents.isEmpty()) {
             System.out.println("The top N populated countries in the Continent where N is provided by the user");
-            System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------");
             System.out.printf("| %-5s | %-20s | %-30s | %-10s | %-15s | %-10s |\n",
                     "Code", "Country Name", "Region", "Continent", "Population", "Capital");
-            System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------");
 
             for (UserInputContinent userInputContinent : userInputContinents) {
                 System.out.printf("| %-5s | %-20s | %-30s | %-10s | %-15s | %-10s |\n",
                         userInputContinent.getCode(), userInputContinent.getName(), userInputContinent.getRegion(), userInputContinent.getContinent(), userInputContinent.getPopulation(), userInputContinent.getCapital());
             }
 
-            System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
+            System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------\n");
         } else {
             System.out.println("No Population in continent by users details available");
         }
@@ -672,17 +679,17 @@ public ArrayList<Continent> getContinent(Connection con)
     public void displayUserInputRegion(ArrayList<UserInputRegion> userInputRegions, String UserInputRegion) {
         if (userInputRegions != null && !userInputRegions.isEmpty()) {
             System.out.println("The top N populated countries in the Region where N is provided by the user");
-            System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------");
             System.out.printf("| %-5s | %-20s | %-30s | %-10s | %-15s | %-10s |\n",
                     "Code", "Country Name", "Region", "Continent", "Population", "Capital");
-            System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------");
 
             for (UserInputRegion userInputRegion : userInputRegions) {
                 System.out.printf("| %-5s | %-20s | %-30s | %-10s | %-15s | %-10s |\n",
                         userInputRegion.getCode(), userInputRegion.getName(), userInputRegion.getRegion(), userInputRegion.getContinent(), userInputRegion.getPopulation(), userInputRegion.getCapital());
             }
 
-            System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
+            System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------\n");
         } else {
             System.out.println("No Population in continent by users details available");
         }

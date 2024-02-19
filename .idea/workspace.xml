@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a8cdd79a-4e67-4a4d-b567-2df56dbddb5d" name="Changes" comment="App Integration update1">
+    <list default="true" id="a8cdd79a-4e67-4a4d-b567-2df56dbddb5d" name="Changes" comment="App Integration update changing bug-report">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/napier/sem/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/napier/sem/App.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -252,7 +253,7 @@
       <workItem from="1707978115935" duration="138000" />
       <workItem from="1707978268473" duration="1823000" />
       <workItem from="1708054710810" duration="10345000" />
-      <workItem from="1708313871210" duration="7467000" />
+      <workItem from="1708313871210" duration="9314000" />
     </task>
     <task id="LOCAL-00003" summary="Unit Testing For All methods(success)">
       <option name="closed" value="true" />
@@ -462,7 +463,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708324315055</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="App Integration update changing bug-report">
+      <option name="closed" value="true" />
+      <created>1708324836123</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1708324836123</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -480,7 +489,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Unit Testing For All methods delete disconnect(success)" />
     <MESSAGE value="Unit Testing For All methods delete disconnect(success)2" />
     <MESSAGE value="Updating in main.yml" />
     <MESSAGE value="Updated AppTest" />
@@ -505,7 +513,8 @@
     <MESSAGE value="bug_report update" />
     <MESSAGE value="App Integration update" />
     <MESSAGE value="App Integration update1" />
-    <option name="LAST_COMMIT_MESSAGE" value="App Integration update1" />
+    <MESSAGE value="App Integration update changing bug-report" />
+    <option name="LAST_COMMIT_MESSAGE" value="App Integration update changing bug-report" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/group2$AppIntegration.ic" NAME="AppIntegration Coverage Results" MODIFIED="1707468936503" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
