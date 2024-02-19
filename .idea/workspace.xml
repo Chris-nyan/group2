@@ -4,9 +4,39 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a8cdd79a-4e67-4a4d-b567-2df56dbddb5d" name="Changes" comment="App Integration update changing bug-report">
+    <list default="true" id="a8cdd79a-4e67-4a4d-b567-2df56dbddb5d" name="Changes" comment="App Integration update changing format">
+      <change afterPath="$PROJECT_DIR$/reports/CapitalContinent.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reports/CapitalRegionOutput.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reports/CapitalWorldOutput.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reports/CityCountry.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reports/CityRegion.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reports/CityWorldOutput.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reports/ContinentCountryOutput.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reports/CountriesInWorld.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reports/InputCapitalContinentOutput.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reports/InputCapitalRegionOutput.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reports/InputCapitalWorldOutput.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reports/RegionContryOutput.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reports/UserInputContinentOutput.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reports/UserInputRegionOutput.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reports/UserInputWorld.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reports/img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reports/img_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reports/img_10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reports/img_11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reports/img_12.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reports/img_13.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reports/img_14.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reports/img_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reports/img_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reports/img_4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reports/img_5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reports/img_6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reports/img_7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reports/img_8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reports/img_9.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/napier/sem/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/napier/sem/App.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +87,7 @@
     "Application.App.executor": "Run",
     "Docker.Dockerfile.executor": "Run",
     "Docker.db/Dockerfile.executor": "Run",
+    "Docker.docker-compose.yml.app: Compose Deployment.executor": "Run",
     "Docker.docker-compose.yml.db: Compose Deployment.executor": "Run",
     "Docker.docker-compose.yml: Compose Deployment.executor": "Run",
     "JUnit.AppIntegration.executor": "Coverage",
@@ -132,7 +163,7 @@
       <recent name="com.napier.sem" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Docker.docker-compose.yml: Compose Deployment">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.napier.sem.App" />
       <module name="group2" />
@@ -142,21 +173,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AppIntegration" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="group2" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.napier.sem.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.napier.sem" />
-      <option name="MAIN_CLASS_NAME" value="com.napier.sem.AppIntegration" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -197,13 +213,26 @@
       </deployment>
       <method v="2" />
     </configuration>
+    <configuration name="docker-compose.yml.app: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="app" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
         <item itemvalue="Docker.db/Dockerfile" />
         <item itemvalue="Docker.Dockerfile" />
+        <item itemvalue="Docker.docker-compose.yml.app: Compose Deployment" />
         <item itemvalue="Application.App" />
-        <item itemvalue="JUnit.AppIntegration" />
       </list>
     </recent_temporary>
   </component>
@@ -253,7 +282,7 @@
       <workItem from="1707978115935" duration="138000" />
       <workItem from="1707978268473" duration="1823000" />
       <workItem from="1708054710810" duration="10345000" />
-      <workItem from="1708313871210" duration="9314000" />
+      <workItem from="1708313871210" duration="11770000" />
     </task>
     <task id="LOCAL-00003" summary="Unit Testing For All methods(success)">
       <option name="closed" value="true" />
@@ -471,7 +500,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708324836123</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="App Integration update changing format">
+      <option name="closed" value="true" />
+      <created>1708326693769</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1708326693769</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -489,7 +526,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Unit Testing For All methods delete disconnect(success)2" />
     <MESSAGE value="Updating in main.yml" />
     <MESSAGE value="Updated AppTest" />
     <MESSAGE value="Dockerfile and unit test updated" />
@@ -514,7 +550,8 @@
     <MESSAGE value="App Integration update" />
     <MESSAGE value="App Integration update1" />
     <MESSAGE value="App Integration update changing bug-report" />
-    <option name="LAST_COMMIT_MESSAGE" value="App Integration update changing bug-report" />
+    <MESSAGE value="App Integration update changing format" />
+    <option name="LAST_COMMIT_MESSAGE" value="App Integration update changing format" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/group2$AppIntegration.ic" NAME="AppIntegration Coverage Results" MODIFIED="1707468936503" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
