@@ -4,7 +4,9 @@ package com.napier.sem;
 import java.sql.*;
 import java.util.ArrayList;
 
-
+/**
+ * Main function where it calls out all of the features and run in it
+ */
 public class App {
     private Connection con = null;
 
@@ -56,10 +58,19 @@ public class App {
          */
         ArrayList<TopCity> sortCityTopRegion = app.sortCityTopRegion();
         app.displaySortCityTopRegion(sortCityTopRegion);
+        /**
+         * Displaying for top 5 populated cities in a district called England
+         */
+        ArrayList<TopCity> sortCityTopDistrict = app.sortCityTopDistrict();
+        app.displaySortCityTopDistrict(sortCityTopDistrict);
 
         app.disconnect();
     }
 
+    /**
+     * Sorting cities in a continent called "Asia"
+     * @return Sorting result of cities based on a continent
+     */
     public ArrayList<City> sortCity() {
         ArrayList<City> sortCityList = new ArrayList<>();
         String query = "SELECT city.Name, country.Name AS country_name, city.Population, city.District, country.Continent " +
@@ -89,6 +100,10 @@ public class App {
         return null;
     }
 
+    /**
+     * Displaying sorted cities for a continent called Asia
+     * @param sortCities
+     */
     public void displaySortCity(ArrayList<City> sortCities) {
         if (sortCities != null && !sortCities.isEmpty()) {
             System.out.println("Population of the cities in a continent, Asia, sorting from largest to smallest");
@@ -134,6 +149,11 @@ public class App {
         }
         return null;
     }
+
+    /**
+     * Displaying cities all around the world
+     * @param sortCitiesWorld
+     */
     public void displaySortCityWorld(ArrayList<CityWorld> sortCitiesWorld) {
         if (sortCitiesWorld != null && !sortCitiesWorld.isEmpty()) {
             System.out.println("Population of the cities around the world sorting from largest to smallest");
@@ -463,11 +483,50 @@ public class App {
         }
     }
 
+    /**
+     *  The top 5 populated cities in a district called England
+     */
+    public ArrayList<TopCity> sortCityTopDistrict() {
+        ArrayList<TopCity> sortCityTopDistrictList = new ArrayList<TopCity>();
+        String query = "SELECT city.Name, country.Name AS country_name, city.Population, city.District " +
+                "FROM city " +
+                "INNER JOIN country ON city.CountryCode = country.Code " +
+                "WHERE city.District = 'England'" +
+                "ORDER BY city.Population DESC LIMIT 5";
+        try {
+            Statement ps = con.createStatement();
+            ResultSet rs = ps.executeQuery(query);
 
+            while (rs.next()) {
+                TopCity sortCityTopDistrict = new TopCity();
+                sortCityTopDistrict.setCity_name(rs.getString("Name"));
+                sortCityTopDistrict.setCountry_name(rs.getString("country_name"));
+                sortCityTopDistrict.setDistrict(rs.getString("District"));
+                sortCityTopDistrict.setPopulation(rs.getInt("Population"));
+                sortCityTopDistrictList.add(sortCityTopDistrict);
+            }
+            return sortCityTopDistrictList;
 
+        } catch (Exception e) {
+            System.out.println("Error on sort city on the world");
+            e.printStackTrace();
+        }
+        return null;
+    }
+    public void displaySortCityTopDistrict(ArrayList<TopCity> sortCitiesTopDistrict) {
+        if (sortCitiesTopDistrict != null && !sortCitiesTopDistrict.isEmpty()) {
+            System.out.println("Population of the top 5 populated cities in a district called England sorting from largest to smallest");
+            System.out.printf("| %-25s | %-25s | %-25s | %-25s |\n", "Name", "Country Name", "District", "Population");
 
-
-
+            for (TopCity sortCityTopDistrict : sortCitiesTopDistrict) {
+                System.out.printf("| %-25s | %-25s | %-25s | %-25d |\n",
+                        sortCityTopDistrict.getCity_name(), sortCityTopDistrict.getCountry_name(), sortCityTopDistrict.getDistrict(), sortCityTopDistrict.getPopulation());
+            }
+            System.out.println("----------------------------------------------------------------------------------------------------------");
+        } else {
+            System.out.println("No cities to display.");
+        }
+    }
     public void connect() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");

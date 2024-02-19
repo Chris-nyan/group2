@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a8cdd79a-4e67-4a4d-b567-2df56dbddb5d" name="Changes" comment="Features developed 1. cities population(continent), (region), (world)">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/napier/sem/CityDistrict.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/napier/sem/TopCity.java" afterDir="false" />
+    <list default="true" id="a8cdd79a-4e67-4a4d-b567-2df56dbddb5d" name="Changes" comment="top populated cities features developed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/napier/sem/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/napier/sem/App.java" afterDir="false" />
     </list>
@@ -170,7 +168,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707289715142</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="top populated cities features developed">
+      <option name="closed" value="true" />
+      <created>1708332693465</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1708332693465</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -180,6 +186,7 @@
     <MESSAGE value="popular countries in world and continent" />
     <MESSAGE value="commit to push merge into git" />
     <MESSAGE value="Features developed 1. cities population(continent), (region), (world)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Features developed 1. cities population(continent), (region), (world)" />
+    <MESSAGE value="top populated cities features developed" />
+    <option name="LAST_COMMIT_MESSAGE" value="top populated cities features developed" />
   </component>
 </project>
