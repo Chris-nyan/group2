@@ -8,31 +8,6 @@ import java.util.ArrayList;
 public class App
 {
 
-    public static void main(String[] args)
-    {
-        // Create new Application
-        App a = new App();
-        // Connect to database
-        a.connect();
-
-        // Retrieve population in continent details
-        ArrayList<Population> population = a.getPopulation();
-
-        //Retrieve population in region details
-        ArrayList<PopulationRegion> population_region = a.getPopulationRegion();
-
-        //Retrieve population in country details
-        ArrayList<PopulationCountry> population_country = a.getPopulationCountry();
-
-        // Display result
-        a.displayPopulation(population);
-        a.displayPopulationRegion(population_region);
-        a.displayPopulationCountry(population_country);
-
-        // Disconnect from database
-        a.disconnect();
-
-
     /**
             * Connection to MySQL database.
      */
@@ -90,6 +65,15 @@ public class App
         //Retrieve continent details
         ArrayList<InputCapitalRegion> inputCapitalRegions = app.getInputCapitalRegion(con);
 
+        // Retrieve population in continent details
+        ArrayList<Population> population = app.getPopulation(con);
+
+        //Retrieve population in region details
+        ArrayList<PopulationRegion> population_region = app.getPopulationRegion(con);
+
+        //Retrieve population in country details
+        ArrayList<PopulationCountry> population_country = app.getPopulationCountry(con);
+
         // Display result
         app.displayCountry(country);
         app.displayContinent(continent);
@@ -107,6 +91,9 @@ public class App
         app.displayInputCapitalWorld(inputCapitalWorlds);
         app.displayInputCapitalContinent(inputCapitalContinents);
         app.displayInputCapitalRegion(inputCapitalRegions);
+        app.displayPopulation(population);
+        app.displayPopulationRegion(population_region);
+        app.displayPopulationCountry(population_country);
 
 
         app.disconnect(con);
@@ -1057,7 +1044,7 @@ public ArrayList<Continent> getContinent(Connection con)
     /**
      * Population of people who living in cities and people who not living in cities in each continent
      * */
-    public ArrayList<Population> getPopulation()
+    public ArrayList<Population> getPopulation(Connection con)
     {
         ArrayList<Population> a = new ArrayList<Population>();
         try
@@ -1135,7 +1122,7 @@ public ArrayList<Continent> getContinent(Connection con)
     /**
      * Population of people who living in cities and people who not living in cities in each continent
      * */
-    public ArrayList<PopulationRegion> getPopulationRegion()
+    public ArrayList<PopulationRegion> getPopulationRegion(Connection con)
     {
         ArrayList<PopulationRegion> a = new ArrayList<PopulationRegion>();
         try
@@ -1196,7 +1183,7 @@ public ArrayList<Continent> getContinent(Connection con)
     /**
      * Population of people who living in cities and people who not living in cities in each country
      * */
-    public ArrayList<PopulationCountry> getPopulationCountry()
+    public ArrayList<PopulationCountry> getPopulationCountry(Connection con)
     {
         ArrayList<PopulationCountry> a = new ArrayList<PopulationCountry>();
         try
@@ -1253,14 +1240,14 @@ public ArrayList<Continent> getContinent(Connection con)
             System.out.println("No population details available");
         }
     }
-}
-
-
-
-
-
-
 
     public void setConnection(Connection mockConnection) {
     }
 }
+
+
+
+
+
+
+
