@@ -107,7 +107,7 @@ public class AppTest {
     public void displaySortCityNull() {
         // Ensure app is not null before calling its methods
         assertNotNull(app, "App should not be null");
-        app.displaySortCity(null, "SortCity");
+        app.displaySortCity(null, "sortCity");
 //        ArrayList<CountriesInWorld> countries = app.getCountriesInWorld();
 //        assertNotNull(countries, "Countries list should not be null");
     }
@@ -118,7 +118,7 @@ public class AppTest {
         // Create and populate the ArrayList of City objects
         ArrayList<City> sortCityList = new ArrayList<>();
         // Test when sorting an empty list
-        app.displaySortCity(sortCityList, "SortCity");
+        app.displaySortCity(sortCityList, "sortCity");
     }
 
     @Test
@@ -128,7 +128,7 @@ public class AppTest {
         ArrayList<City> sortCityList = new ArrayList<>();
 //        sortCityList.add(null);
         // Test when sorting a list containing null
-        app.displaySortCity(sortCityList, "SortCity");
+        app.displaySortCity(sortCityList, "sortCity");
     }
 
     @Test
@@ -146,7 +146,7 @@ public class AppTest {
         cities.add(city);
 
         // Call the displaySortCity method
-        app.displaySortCity(cities, "SortCity");
+        app.displaySortCity(cities, "sortCity");
     }
 
     @Test

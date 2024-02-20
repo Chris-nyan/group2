@@ -6,6 +6,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
+import java.math.BigDecimal;
+
 //importing Arraylist for using array list in cities
 
 public class App
@@ -78,22 +80,23 @@ public class App
         ArrayList<PopulationCountry> population_country = app.getPopulationCountry(con);
 
         // Display result
-        app.displayCountry(country);
-        app.displayContinent(continent);
-        app.displayRegion(regions);
-        app.displayUserInputWorld(userInputWorlds);
-        app.displaySortCity(sortCity);
-        app.displaySortCityWorld(sortCityWorld);
-        app.displaySortCityRegion(sortCityRegion);
-        app.displaySortCityCountry(sortCityCountry);
-        app.displayUserInputContinent(userInputContinent);
-        app.displayUserInputRegion(userInputRegion);
-        app.displayCapital(capitalcities);
-        app.displayCapitalContinent(capitalContinents);
-        app.displayCapitalRegion(capitalRegions);
-        app.displayInputCapitalWorld(inputCapitalWorlds);
-        app.displayInputCapitalContinent(inputCapitalContinents);
-        app.displayInputCapitalRegion(inputCapitalRegions);
+        // Display result
+        app.displayCountry(country, "country.md");
+        app.displayContinent(continent, "continent.md");
+        app.displayRegion(regions, "Region.md");
+        app.displayUserInputWorld(userInputWorlds,"UserInputWorld.md");
+        app.displayUserInputContinent(userInputContinent,"UserInputContinent");
+        app.displayUserInputRegion(userInputRegion,"UserInputRegion");
+        app.displaySortCity(sortCity,"sortCity");
+        app.displaySortCityWorld(sortCityWorld,"SortCityWorld");
+        app.displaySortCityRegion(sortCityRegion, "SortCityRegion");
+        app.displaySortCityCountry(sortCityCountry,"SortCityCountry");
+        app.displayCapital(capitalcities,"CapitalCities");
+        app.displayCapitalContinent(capitalContinents,"CapitalContinent");
+        app.displayCapitalRegion(capitalRegions,"CapitalRegion");
+        app.displayInputCapitalWorld(inputCapitalWorlds,"InputCapitalWorld");
+        app.displayInputCapitalContinent(inputCapitalContinents,"InputCapitalContinent");
+        app.displayInputCapitalRegion(inputCapitalRegions,"InputCapitalRegion");
         app.displayPopulation(population);
         app.displayPopulationRegion(population_region);
         app.displayPopulationCountry(population_country);
@@ -133,14 +136,14 @@ public class App
         return null;
     }
 
-    public void displaySortCity(ArrayList<City> sortCities) {
+    public void displaySortCity(ArrayList<City> sortCities, String sortCity) {
         if (sortCities != null && !sortCities.isEmpty()) {
             try {
                 // Create the reports directory if it doesn't exist
                 new File("./reports/").mkdir();
 
                 // Create a BufferedWriter for writing to the file
-                BufferedWriter writer = new BufferedWriter(new FileWriter(new File("./reports/" + SortCity)));
+                BufferedWriter writer = new BufferedWriter(new FileWriter(new File("./reports/" + sortCity)));
 
                 // Write header to the file
                 writer.write("Population of the cities in a continent, Asia, sorting from largest to smallest\n");
@@ -149,18 +152,18 @@ public class App
                 writer.write("----------------------------------------------------------------------------------------------------------\n");
 
                 // Loop over all cities in the list
-                for (City sortCity : sortCities) {
+                for (City SortCity : sortCities) {
                     if (sortCity == null)
                         continue;
 
                     // Write city information to the file
                     writer.write(String.format("| %-25s | %-25s | %-15d | %-25s | %-15s |\n",
-                            sortCity.getName(), sortCity.getCountryName(), sortCity.getPopulation(), sortCity.getDistrict(), sortCity.getContinent()));
+                            SortCity.getName(), SortCity.getCountryName(), SortCity.getPopulation(), SortCity.getDistrict(), SortCity.getContinent()));
                 }
 
                 // Close the BufferedWriter
                 writer.close();
-                System.out.println("File created successfully: " + SortCity);
+                System.out.println("File created successfully: " + sortCity);
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (Exception e) {
@@ -170,6 +173,8 @@ public class App
             System.out.println("No cities found.");
         }
     }
+
+
 
     /**
      * Sorting cities ON THE WORLD according to population
@@ -1130,13 +1135,14 @@ public ArrayList<Continent> getContinent(Connection con)
      */
     public void displayPopulation(ArrayList<Population> populations) {
         if (populations != null && !populations.isEmpty()) {
-            System.out.println("------------------------------------------------------------------------------------------------------------------------");
-            System.out.printf("| %-25s | %-40s | %-40s | %-40s | %-40s | %-40s |\n",
+            System.out.println("The population of people, people living in cities, and people not living in cities in each continent.");
+            System.out.println("------------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.printf("| %-25s | %-30s | %-30s | %-20s | %-20s | %-20s |\n",
                     "Continent", "TotalPopulation", "PopulationInCities", "PopulationNotInCities", "PercentagePopulationInCities", "PercentagePopulationNotInCities");
-            System.out.println("---------------------------------------------------------------------------------------------------------------------------");
+            System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------");
 
             for (Population pol : populations) {
-                System.out.printf("| %-25s | %-40s | %-40s | %-40s | %-40s | %-40s |\n",
+                System.out.printf("| %-25s | %-30s | %-30s | %-20s | %-20s | %-20s |\n",
                         pol.getContinent(), pol.getTotal_Population(),pol.getPopulation_In_Cities(), pol.getPopulation_Not_In_Cities(), pol.getPercentage_Population_In_Cities(), pol.getPercentage_Population_Not_In_Cities());
             }
 
@@ -1194,13 +1200,14 @@ public ArrayList<Continent> getContinent(Connection con)
      */
     public void displayPopulationRegion(ArrayList<PopulationRegion> populationRegions) {
         if (populationRegions != null && !populationRegions.isEmpty()) {
+            System.out.println("The population of people, people living in cities, and people not living in cities in each region.");
             System.out.println("------------------------------------------------------------------------------------------------------------------------");
-            System.out.printf("| %-25s | %-40s | %-40s | %-40s | %-40s | %-40s |\n",
+            System.out.printf("| %-25s | %-30s | %-30s | %-20s | %-20s | %-20s |\n",
                     "Region", "TotalPopulation", "PopulationInCities", "PopulationNotInCities", "PercentagePopulationInCities", "PercentagePopulationNotInCities");
             System.out.println("---------------------------------------------------------------------------------------------------------------------------");
 
             for (PopulationRegion pore : populationRegions) {
-                System.out.printf("| %-25s | %-40s | %-40s | %-40s | %-40s | %-40s |\n",
+                System.out.printf("| %-25s | %-30s | %-30s | %-20s | %-20s | %-20s |\n",
                         pore.getRegion(), pore.getTotal_Population(),pore.getPopulation_In_Cities(), pore.getPopulation_Not_In_Cities(), pore.getPercentage_Population_In_Cities(), pore.getPercentage_Population_Not_In_Cities());
             }
 
@@ -1255,13 +1262,14 @@ public ArrayList<Continent> getContinent(Connection con)
      */
     public void displayPopulationCountry(ArrayList<PopulationCountry> populationCountries) {
         if (populationCountries != null && !populationCountries.isEmpty()) {
+            System.out.println("The population of people, people living in cities, and people not living in cities in each country.");
             System.out.println("------------------------------------------------------------------------------------------------------------------------");
-            System.out.printf("| %-25s | %-40s | %-40s | %-40s | %-40s | %-40s |\n",
+            System.out.printf("| %-25s | %-30s | %-30s | %-20s | %-20s | %-20s |\n",
                     "Name", "TotalPopulation", "PopulationInCities", "PopulationNotInCities", "PercentagePopulationInCities", "PercentagePopulationNotInCities");
             System.out.println("---------------------------------------------------------------------------------------------------------------------------");
 
             for (PopulationCountry pocoun : populationCountries) {
-                System.out.printf("| %-25s | %-40s | %-40s | %-40s | %-40s | %-40s |\n",
+                System.out.printf("| %-25s | %-30s | %-30s | %-20s | %-20s | %-20s |\n",
                         pocoun.getName(), pocoun.getTotal_Population(),pocoun.getPopulation_In_Cities(), pocoun.getPopulation_Not_In_Cities(), pocoun.getPercentage_Population_In_Cities(), pocoun.getPercentage_Population_Not_In_Cities());
             }
 
