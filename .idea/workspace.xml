@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a8cdd79a-4e67-4a4d-b567-2df56dbddb5d" name="Changes" comment="top populated cities features developed">
+    <list default="true" id="a8cdd79a-4e67-4a4d-b567-2df56dbddb5d" name="Changes" comment="top populated cities for district developed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/napier/sem/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/napier/sem/App.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +20,12 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Bhone Wint Nyan &lt;40667673@live.napier.ac.uk&gt;" />
+        <option value="Bhone Wint Nyan &lt;bhonewintnyan17@gmail.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="KubernetesApiProvider">{
@@ -176,7 +181,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708332693465</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="top populated cities for district developed">
+      <option name="closed" value="true" />
+      <created>1708334854159</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1708334854159</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -187,6 +200,7 @@
     <MESSAGE value="commit to push merge into git" />
     <MESSAGE value="Features developed 1. cities population(continent), (region), (world)" />
     <MESSAGE value="top populated cities features developed" />
-    <option name="LAST_COMMIT_MESSAGE" value="top populated cities features developed" />
+    <MESSAGE value="top populated cities for district developed" />
+    <option name="LAST_COMMIT_MESSAGE" value="top populated cities for district developed" />
   </component>
 </project>

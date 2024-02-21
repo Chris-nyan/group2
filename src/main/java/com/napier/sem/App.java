@@ -17,27 +17,27 @@ public class App {
          * Displaying for sorting based on continent
          */
         ArrayList<City> sortCity = app.sortCity();
-//        app.displaySortCity(sortCity);
+        app.displaySortCity(sortCity);
         /**
          * Displaying for sorting based on world
          */
         ArrayList<CityWorld> sortCityWorld = app.sortCityWorld();
-//        app.displaySortCityWorld(sortCityWorld);
+        app.displaySortCityWorld(sortCityWorld);
         /**
          * Displaying for sorting based on Region
          */
         ArrayList<CityRegion> sortCityRegion = app.sortCityRegion();
-//        app.displaySortCityRegion(sortCityRegion);
+        app.displaySortCityRegion(sortCityRegion);
         /**
          * Displaying for sorting based on Country
          */
         ArrayList<CityCountry> sortCityCountry = app.sortCityCountry();
-//        app.displaySortCityCountry(sortCityCountry);
+        app.displaySortCityCountry(sortCityCountry);
         /**
          * Displaying for sorting based on district
          */
         ArrayList<CityDistrict> sortCityDistrict = app.sortCityDistrict();
-//        app.displaySortCityDistrict(sortCityDistrict);
+        app.displaySortCityDistrict(sortCityDistrict);
         /**
          * Displaying for top 5 populated cities on the world
          */
