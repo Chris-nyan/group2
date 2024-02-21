@@ -7,8 +7,6 @@
     <list default="true" id="a8cdd79a-4e67-4a4d-b567-2df56dbddb5d" name="Changes" comment="App Integration update changing format">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/reports/SortCity" beforeDir="false" afterPath="$PROJECT_DIR$/reports/SortCity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/napier/sem/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/napier/sem/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/napier/sem/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/napier/sem/AppTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +133,7 @@
       <recent name="com.napier.sem" />
     </key>
   </component>
-  <component name="RunManager" selected="Docker.docker-compose.yml: Compose Deployment">
+  <component name="RunManager">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.napier.sem.App" />
       <module name="group2" />
@@ -539,7 +537,7 @@
       <FILTER>com.napier.sem.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/grp2$AppTest_testDisplayCountry.ic" NAME="AppTest.testDisplayCountry Coverage Results" MODIFIED="1707401880714" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/grp2$AppTest.ic" NAME="AppTest Coverage Results" MODIFIED="1708324650706" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/grp2$AppTest.ic" NAME="AppTest Coverage Results" MODIFIED="1708490644990" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.napier.sem.*</FILTER>
     </SUITE>
   </component>
