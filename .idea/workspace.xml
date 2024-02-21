@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a8cdd79a-4e67-4a4d-b567-2df56dbddb5d" name="Changes" comment="App Integration update changing format">
+    <list default="true" id="a8cdd79a-4e67-4a4d-b567-2df56dbddb5d" name="Changes" comment="merge release to develop">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reports/SortCity" beforeDir="false" afterPath="$PROJECT_DIR$/reports/SortCity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/napier/sem/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/napier/sem/AppTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,90 +52,94 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.App.executor&quot;: &quot;Run&quot;,
-    &quot;Docker.Dockerfile.executor&quot;: &quot;Run&quot;,
-    &quot;Docker.db/Dockerfile.executor&quot;: &quot;Run&quot;,
-    &quot;Docker.docker-compose.yml.app: Compose Deployment.executor&quot;: &quot;Run&quot;,
-    &quot;Docker.docker-compose.yml.db: Compose Deployment.executor&quot;: &quot;Run&quot;,
-    &quot;Docker.docker-compose.yml: Compose Deployment.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AppIntegration.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.AppIntegration.testSortCity.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AppIntegration.testSortCityCountry.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AppIntegration.testSortCityRegion.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AppIntegration.testSortCityWorld.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AppIntegration.testSortContinent.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AppIntegration.testSortCountriesInWorld.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AppIntegration.testSortRegion.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AppIntegration.testSortUserInputWorld.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AppTest (1).executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AppTest.disconnectNoConnection.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AppTest.disconnectSuccess.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AppTest.displayCapitalCityContainsNull.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AppTest.displayCapitalCityEmpty.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AppTest.displayCapitalCityNull.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AppTest.displayContinentEmpty.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AppTest.displayContinentNull.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AppTest.displayContinentTestContainsNull.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AppTest.displayCountriesInWorldEmpty.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AppTest.displayCountriesInWorldNull.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AppTest.displayCountriesInWorldTestContainsNull.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AppTest.displayRegionNull.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AppTest.displaySortCity.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AppTest.displaySortCityCountry.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AppTest.displaySortCityWorld.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.AppTest.displayUserContinentContainsNull.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AppTest.displayUserContinentEmpty.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AppTest.displayUserContinentNull.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AppTest.displayUserWorldNull.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AppTest.displaycitiesTestContainsNull.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AppTest.displaysortCityNull.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AppTest.displaysortCityWorldNull.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AppTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.AppTest.printSalariesTestContainsNull.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AppTest.sortCityNull.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AppTest.testConnect.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AppTest.testDisplayCapitalCity.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AppTest.testDisplayContinent.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AppTest.testDisplayCountry.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.AppTest.testDisplayUserContinent.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AppTest.testGetCapitalCity.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AppTest.testGetContinent.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AppTest.testGetCountriesInWorld.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AppTest.testGetRegion.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AppTest.testGetUserInputContinent.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AppTest.testGetUserInputWorld.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AppTest.testSortCityCountry.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AppTest.testSortCityNoCities.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.AppTest.testSortCityRegion.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AppTest.testSortCityWithCities.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AppTest.testSortCityWithData.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AppTest.testSortCityWithDifferentPopulationSizes.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AppTest.testsortCityNull.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.group2 [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.group2 [compile].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.group2 [package].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.App.executor": "Run",
+    "Docker.Dockerfile.executor": "Run",
+    "Docker.db/Dockerfile.executor": "Run",
+    "Docker.docker-compose.yml.app: Compose Deployment.executor": "Run",
+    "Docker.docker-compose.yml.db: Compose Deployment.executor": "Run",
+    "Docker.docker-compose.yml: Compose Deployment.executor": "Run",
+    "JUnit.AppIntegration.executor": "Coverage",
+    "JUnit.AppIntegration.testSortCity.executor": "Run",
+    "JUnit.AppIntegration.testSortCityCountry.executor": "Run",
+    "JUnit.AppIntegration.testSortCityRegion.executor": "Run",
+    "JUnit.AppIntegration.testSortCityWorld.executor": "Run",
+    "JUnit.AppIntegration.testSortContinent.executor": "Run",
+    "JUnit.AppIntegration.testSortCountriesInWorld.executor": "Run",
+    "JUnit.AppIntegration.testSortRegion.executor": "Run",
+    "JUnit.AppIntegration.testSortUserInputWorld.executor": "Run",
+    "JUnit.AppTest (1).executor": "Run",
+    "JUnit.AppTest.disconnectNoConnection.executor": "Run",
+    "JUnit.AppTest.disconnectSuccess.executor": "Run",
+    "JUnit.AppTest.displayCapitalCityContainsNull.executor": "Run",
+    "JUnit.AppTest.displayCapitalCityEmpty.executor": "Run",
+    "JUnit.AppTest.displayCapitalCityNull.executor": "Run",
+    "JUnit.AppTest.displayContinentEmpty.executor": "Run",
+    "JUnit.AppTest.displayContinentNull.executor": "Run",
+    "JUnit.AppTest.displayContinentTestContainsNull.executor": "Run",
+    "JUnit.AppTest.displayCountriesInWorldEmpty.executor": "Run",
+    "JUnit.AppTest.displayCountriesInWorldNull.executor": "Run",
+    "JUnit.AppTest.displayCountriesInWorldTestContainsNull.executor": "Run",
+    "JUnit.AppTest.displayPopulationContainsNull.executor": "Run",
+    "JUnit.AppTest.displayPopulationEmpty.executor": "Run",
+    "JUnit.AppTest.displayPopulationNull.executor": "Run",
+    "JUnit.AppTest.displayRegionNull.executor": "Run",
+    "JUnit.AppTest.displaySortCity.executor": "Run",
+    "JUnit.AppTest.displaySortCityCountry.executor": "Run",
+    "JUnit.AppTest.displaySortCityWorld.executor": "Coverage",
+    "JUnit.AppTest.displayUserContinentContainsNull.executor": "Run",
+    "JUnit.AppTest.displayUserContinentEmpty.executor": "Run",
+    "JUnit.AppTest.displayUserContinentNull.executor": "Run",
+    "JUnit.AppTest.displayUserWorldNull.executor": "Run",
+    "JUnit.AppTest.displaycitiesTestContainsNull.executor": "Run",
+    "JUnit.AppTest.displaysortCityNull.executor": "Run",
+    "JUnit.AppTest.displaysortCityWorldNull.executor": "Run",
+    "JUnit.AppTest.executor": "Coverage",
+    "JUnit.AppTest.printSalariesTestContainsNull.executor": "Run",
+    "JUnit.AppTest.sortCityNull.executor": "Run",
+    "JUnit.AppTest.testConnect.executor": "Run",
+    "JUnit.AppTest.testDisplayCapitalCity.executor": "Run",
+    "JUnit.AppTest.testDisplayContinent.executor": "Run",
+    "JUnit.AppTest.testDisplayCountry.executor": "Coverage",
+    "JUnit.AppTest.testDisplayPopulation.executor": "Run",
+    "JUnit.AppTest.testDisplayUserContinent.executor": "Run",
+    "JUnit.AppTest.testGetCapitalCity.executor": "Run",
+    "JUnit.AppTest.testGetContinent.executor": "Run",
+    "JUnit.AppTest.testGetCountriesInWorld.executor": "Run",
+    "JUnit.AppTest.testGetPopulation.executor": "Run",
+    "JUnit.AppTest.testGetRegion.executor": "Run",
+    "JUnit.AppTest.testGetUserInputContinent.executor": "Run",
+    "JUnit.AppTest.testGetUserInputWorld.executor": "Run",
+    "JUnit.AppTest.testSortCityCountry.executor": "Run",
+    "JUnit.AppTest.testSortCityNoCities.executor": "Coverage",
+    "JUnit.AppTest.testSortCityRegion.executor": "Run",
+    "JUnit.AppTest.testSortCityWithCities.executor": "Run",
+    "JUnit.AppTest.testSortCityWithData.executor": "Run",
+    "JUnit.AppTest.testSortCityWithDifferentPopulationSizes.executor": "Run",
+    "JUnit.AppTest.testsortCityNull.executor": "Run",
+    "Maven.group2 [clean].executor": "Run",
+    "Maven.group2 [compile].executor": "Run",
+    "Maven.group2 [package].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.napier.sem" />
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.napier.sem.App" />
+    <configuration name="AppTest.displayPopulationContainsNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="group2" />
       <extension name="coverage">
         <pattern>
@@ -143,17 +147,77 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.napier.sem" />
+      <option name="MAIN_CLASS_NAME" value="com.napier.sem.AppTest" />
+      <option name="METHOD_NAME" value="displayPopulationContainsNull" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
-      <deployment type="dockerfile">
-        <settings>
-          <option name="sourceFilePath" value="Dockerfile" />
-        </settings>
-      </deployment>
-      <method v="2" />
+    <configuration name="AppTest.displayPopulationEmpty" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="group2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.napier.sem.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.napier.sem" />
+      <option name="MAIN_CLASS_NAME" value="com.napier.sem.AppTest" />
+      <option name="METHOD_NAME" value="displayPopulationEmpty" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AppTest.displayPopulationNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="group2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.napier.sem.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.napier.sem" />
+      <option name="MAIN_CLASS_NAME" value="com.napier.sem.AppTest" />
+      <option name="METHOD_NAME" value="displayPopulationNull" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AppTest.testDisplayPopulation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="group2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.napier.sem.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.napier.sem" />
+      <option name="MAIN_CLASS_NAME" value="com.napier.sem.AppTest" />
+      <option name="METHOD_NAME" value="testDisplayPopulation" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AppTest.testGetPopulation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="group2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.napier.sem.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.napier.sem" />
+      <option name="MAIN_CLASS_NAME" value="com.napier.sem.AppTest" />
+      <option name="METHOD_NAME" value="testGetPopulation" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
       <deployment type="docker-compose.yml">
@@ -167,42 +231,13 @@
       </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="db/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
-      <deployment type="dockerfile">
-        <settings>
-          <option name="sourceFilePath" value="db/Dockerfile" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
-    <configuration name="docker-compose.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="sourceFilePath" value="docker-compose.yml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
-    <configuration name="docker-compose.yml.app: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="services">
-            <list>
-              <option value="app" />
-            </list>
-          </option>
-          <option name="sourceFilePath" value="docker-compose.yml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
-        <item itemvalue="Docker.db/Dockerfile" />
-        <item itemvalue="Docker.Dockerfile" />
-        <item itemvalue="Docker.docker-compose.yml.app: Compose Deployment" />
-        <item itemvalue="Application.App" />
+        <item itemvalue="JUnit.AppTest.testGetPopulation" />
+        <item itemvalue="JUnit.AppTest.testDisplayPopulation" />
+        <item itemvalue="JUnit.AppTest.displayPopulationContainsNull" />
+        <item itemvalue="JUnit.AppTest.displayPopulationEmpty" />
+        <item itemvalue="JUnit.AppTest.displayPopulationNull" />
       </list>
     </recent_temporary>
   </component>
@@ -478,7 +513,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708326693769</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="merge release to develop">
+      <option name="closed" value="true" />
+      <created>1708495425160</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1708495425160</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -496,7 +539,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updating in main.yml" />
     <MESSAGE value="Updated AppTest" />
     <MESSAGE value="Dockerfile and unit test updated" />
     <MESSAGE value="dependencies updated" />
@@ -521,7 +563,8 @@
     <MESSAGE value="App Integration update1" />
     <MESSAGE value="App Integration update changing bug-report" />
     <MESSAGE value="App Integration update changing format" />
-    <option name="LAST_COMMIT_MESSAGE" value="App Integration update changing format" />
+    <MESSAGE value="merge release to develop" />
+    <option name="LAST_COMMIT_MESSAGE" value="merge release to develop" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/group2$AppIntegration.ic" NAME="AppIntegration Coverage Results" MODIFIED="1707468936503" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
@@ -537,7 +580,7 @@
       <FILTER>com.napier.sem.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/grp2$AppTest_testDisplayCountry.ic" NAME="AppTest.testDisplayCountry Coverage Results" MODIFIED="1707401880714" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/grp2$AppTest.ic" NAME="AppTest Coverage Results" MODIFIED="1708490644990" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/grp2$AppTest.ic" NAME="AppTest Coverage Results" MODIFIED="1708501009387" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.napier.sem.*</FILTER>
     </SUITE>
   </component>
