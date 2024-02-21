@@ -1,39 +1,41 @@
 package com.napier.sem;
 
 public class Language {
-    private String language;
-    private int totalPopulation;
-    private double percentWorld, percentNonWorld;
+    private String Language;
+    private int TotalPopulation;
+    private double PercentageOfWorldPopulation;
+
+    private double percentNotInWorld;
 
     public String getLanguage() {
-        return language;
+        return Language;
     }
 
     public void setLanguage(String language) {
-        this.language = language;
+        Language = language;
     }
 
     public int getTotalPopulation() {
-        return totalPopulation;
+        return TotalPopulation;
     }
 
     public void setTotalPopulation(int totalPopulation) {
-        this.totalPopulation = totalPopulation;
+        TotalPopulation = totalPopulation;
     }
 
-    public double getPercentWorld() {
-        return percentWorld;
+    public double getPercentageOfWorldPopulation() {
+        return PercentageOfWorldPopulation;
     }
 
-    public void setPercentWorld(double percentWorld) {
-        this.percentWorld = percentWorld;
+    public void setPercentageOfWorldPopulation(double percentageOfWorldPopulation) {
+        PercentageOfWorldPopulation = percentageOfWorldPopulation;
     }
 
-    public double getPercentNonWorld() {
-        return percentNonWorld;
+    public double getPercentNotInWorld() {
+        return percentNotInWorld;
     }
 
-    public void setPercentNonWorld(double percentNonWorld) {
-        this.percentNonWorld = percentNonWorld;
+    public void setPercentNotInWorld(double percentNotInWorld) {
+        this.percentNotInWorld = percentNotInWorld;
     }
 }
