@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a8cdd79a-4e67-4a4d-b567-2df56dbddb5d" name="Changes" comment="Merging countries, capitalcity" />
+    <list default="true" id="a8cdd79a-4e67-4a4d-b567-2df56dbddb5d" name="Changes" comment="merging with develop(update language branch)" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -129,7 +129,7 @@
       <recent name="com.napier.sem" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Docker.docker-compose.yml: Compose Deployment">
     <configuration name="AppIntegration" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="group2" />
       <extension name="coverage">
@@ -346,7 +346,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708450804124</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="merging with develop(update language branch)">
+      <option name="closed" value="true" />
+      <created>1708579121570</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1708579121570</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -380,7 +388,8 @@
     <MESSAGE value="User Input Continent and Region and table format update(adding capital)" />
     <MESSAGE value="Merging countries, capitalcity" />
     <MESSAGE value="merging population branch" />
-    <option name="LAST_COMMIT_MESSAGE" value="merging population branch" />
+    <MESSAGE value="merging with develop(update language branch)" />
+    <option name="LAST_COMMIT_MESSAGE" value="merging with develop(update language branch)" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/group2$AppIntegration.ic" NAME="AppIntegration Coverage Results" MODIFIED="1707468936503" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
