@@ -118,6 +118,15 @@ public class App
         ArrayList<CountryPopulation> countryPopulations = app.sortCountryPopulation(con);
 
         ArrayList<TotalPopulation> totalPopulations = app.sortTotalPopulation(con);
+//        if ( totalPopulations != null)
+//        {
+//            System.out.println("no null");
+//        } else if ( !totalPopulations.isEmpty())
+//        {
+//            System.out.print("no empty");
+//        } else {
+//            System.out.print("is empty");
+//        }
 
         ArrayList<TotalContinent> totalContinents = app.sortTotalContinent(con);
 
@@ -1779,7 +1788,6 @@ public class App
         }
     }
 
-
     public ArrayList<TotalPopulation> sortTotalPopulation(Connection con){
         ArrayList<TotalPopulation> sortTotalPopulationList = new ArrayList<>();
 
@@ -1790,8 +1798,9 @@ public class App
 
             while (rset.next()){
                 TotalPopulation sortTotal = new TotalPopulation();
-                sortTotal.setTotalPopulation(rset.getInt("totalPopulation"));
+                sortTotal.setTotalPopulation(rset.getLong("totalPopulation"));
                 sortTotalPopulationList.add(sortTotal);
+
             }
             return sortTotalPopulationList;
         }catch (Exception e){
@@ -1825,13 +1834,13 @@ public class App
         ArrayList<TotalContinent> sortTotalContinentList = new ArrayList<>();
         try{
             Statement stmt = con.createStatement();
-            String strSelect = " SELECT Continent, SUM(Population) AS total_population FROM country GROUP BY Continent ";
+            String strSelect = " SELECT Continent, SUM(Population) AS total_population FROM country GROUP BY Continent";
             ResultSet rset = stmt.executeQuery(strSelect);
 
             while (rset.next()){
                 TotalContinent sortTotalContinent = new TotalContinent();
                 sortTotalContinent.setContinent(rset.getString("Continent"));
-                sortTotalContinent.setTotal_population(rset.getInt("total_population"));
+                sortTotalContinent.setTotal_population(rset.getLong("Total_Population"));
                 sortTotalContinentList.add(sortTotalContinent);
             }
             return sortTotalContinentList;

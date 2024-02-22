@@ -2,7 +2,7 @@ package com.napier.sem;
 
 public class TotalContinent {
     private String Continent;
-    private int total_population;
+    private long total_population;
 
     public String getContinent() {
         return Continent;
@@ -12,11 +12,11 @@ public class TotalContinent {
         Continent = continent;
     }
 
-    public int getTotal_population() {
+    public long getTotal_population() {
         return total_population;
     }
 
-    public void setTotal_population(int total_population) {
+    public void setTotal_population(long total_population) {
         this.total_population = total_population;
     }
 }

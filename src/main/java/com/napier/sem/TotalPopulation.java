@@ -1,13 +1,13 @@
 package com.napier.sem;
 
 public class TotalPopulation {
-    private int totalPopulation;
+    private long totalPopulation;
 
-    public int getTotalPopulation() {
+    public long getTotalPopulation() {
         return totalPopulation;
     }
 
-    public void setTotalPopulation(int totalPopulation) {
+    public void setTotalPopulation(long totalPopulation) {
         this.totalPopulation = totalPopulation;
     }
 }
