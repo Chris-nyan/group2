@@ -18,6 +18,7 @@ Steps to reproduce the behavior:
 **Expected behavior**
 Getting the suitable condition with no error in 'IntelliJ' from choosing the 'JDK version 17'
 
+
 **Desktop (please complete the following information):**
 - Browser [e.g. chrome]
 - Version [e.g. 22]
@@ -37,6 +38,9 @@ Steps to reproduce the behavior:
 **Expected behavior**
 Getting the suitable situation with no error for changing 'JDK' version in pom.xml and main.yml
 
+**ScreenShot**
+![img_2.png](img_2.png)
+
 **Desktop (please complete the following information):**
  - Browser [e.g. chrome]
  - Version [e.g. 22]
@@ -54,6 +58,10 @@ Steps to reproduce the behavior:
 
 **Expected behavior**
 Getting the suitable situation with no error for changing 'JDK' version in pom.xml and main.yml
+
+**ScreenShot**
+![img.png](img.png)
+![img_1.png](img_1.png)
 
 **Desktop (please complete the following information):**
 - Browser [e.g. chrome]

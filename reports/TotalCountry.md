@@ -1,0 +1,1 @@
+![img_27.png](img_27.png)
