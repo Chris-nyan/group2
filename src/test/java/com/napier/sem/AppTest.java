@@ -60,7 +60,7 @@ public class AppTest {
 //        // You can add additional assertions based on the behavior of your connect method
 //    }
 
-//    @Test
+    //    @Test
 //     void connect() {
 //        app.connect();
 //    }
@@ -547,35 +547,35 @@ public class AppTest {
 
     }
 
-        @Test
-        void testGetRegion() throws Exception {
-            // Mocking the Connection, Statement, and ResultSet
-            Connection mockConnection = mock(Connection.class);
-            Statement mockStatement = mock(Statement.class);
-            when(mockConnection.createStatement()).thenReturn(mockStatement);
-            ResultSet mockResultSet = mock(ResultSet.class);
-            when(mockStatement.executeQuery(anyString())).thenReturn(mockResultSet);
+    @Test
+    void testGetRegion() throws Exception {
+        // Mocking the Connection, Statement, and ResultSet
+        Connection mockConnection = mock(Connection.class);
+        Statement mockStatement = mock(Statement.class);
+        when(mockConnection.createStatement()).thenReturn(mockStatement);
+        ResultSet mockResultSet = mock(ResultSet.class);
+        when(mockStatement.executeQuery(anyString())).thenReturn(mockResultSet);
 
-            // Setting up the expected behavior for the ResultSet
-            when(mockResultSet.next())
-                    .thenReturn(true)   // First region
-                    .thenReturn(true)   // Second region
-                    .thenReturn(false); // No more regions
+        // Setting up the expected behavior for the ResultSet
+        when(mockResultSet.next())
+                .thenReturn(true)   // First region
+                .thenReturn(true)   // Second region
+                .thenReturn(false); // No more regions
 
-            when(mockResultSet.getString("Code")).thenReturn("CHN").thenReturn("JPN");
-            when(mockResultSet.getString("Name")).thenReturn("China").thenReturn("Japan");
-            when(mockResultSet.getString("Region")).thenReturn("Eastern Asia").thenReturn("Eastern Asia");
-            when(mockResultSet.getString("Continent")).thenReturn("Asia").thenReturn("Asia");
-            when(mockResultSet.getInt("Population")).thenReturn(1277558000).thenReturn(126714000);
+        when(mockResultSet.getString("Code")).thenReturn("CHN").thenReturn("JPN");
+        when(mockResultSet.getString("Name")).thenReturn("China").thenReturn("Japan");
+        when(mockResultSet.getString("Region")).thenReturn("Eastern Asia").thenReturn("Eastern Asia");
+        when(mockResultSet.getString("Continent")).thenReturn("Asia").thenReturn("Asia");
+        when(mockResultSet.getInt("Population")).thenReturn(1277558000).thenReturn(126714000);
 
-            // When
-            ArrayList<Region> result = new App().getRegion(mockConnection);
+        // When
+        ArrayList<Region> result = new App().getRegion(mockConnection);
 
-            // Then
-            assertNotNull(result, "Result should not be null");
-            assertTrue(result.size() >= 2, "Result should contain at least two regions");
-            assertEquals("CHN", result.get(0).getCode(), "CHN should be the code of the first region");
-            assertEquals("JPN", result.get(1).getCode(), "JPN should be the code of the second region");
+        // Then
+        assertNotNull(result, "Result should not be null");
+        assertTrue(result.size() >= 2, "Result should contain at least two regions");
+        assertEquals("CHN", result.get(0).getCode(), "CHN should be the code of the first region");
+        assertEquals("JPN", result.get(1).getCode(), "JPN should be the code of the second region");
 
     }
 
@@ -658,7 +658,7 @@ public class AppTest {
         assertEquals("CHN", result.get(0).getCode(), "CHN should be the code of the first entry");
         assertEquals("IND", result.get(1).getCode(), "IND should be the code of the second entry");
 
-}
+    }
 
     @Test
     public void displayUserWorldNull() {

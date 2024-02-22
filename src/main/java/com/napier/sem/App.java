@@ -109,6 +109,31 @@ public class App
          */
         ArrayList<TopCity> sortCityTopDistrict = app.sortCityTopDistrict(con);
 
+        ArrayList<TotalRegion> totalRegions = app.sortTotalRegion(con);
+
+        ArrayList<DistrictPopulation> districtPopulations = app.sortDistrictPopulation(con);
+
+        ArrayList<CityPopulation> cityPopulations = app.sortCityPopulation(con);
+
+        ArrayList<CountryPopulation> countryPopulations = app.sortCountryPopulation(con);
+
+        ArrayList<TotalPopulation> totalPopulations = app.sortTotalPopulation(con);
+//        if ( totalPopulations != null)
+//        {
+//            System.out.println("no null");
+//        } else if ( !totalPopulations.isEmpty())
+//        {
+//            System.out.print("no empty");
+//        } else {
+//            System.out.print("is empty");
+//        }
+
+        ArrayList<TotalContinent> totalContinents = app.sortTotalContinent(con);
+
+        ArrayList<Language> languages = app.sortLanguage(con);
+
+
+
         // Display result
         // Display result
         app.displayCountry(country, "country.md");
@@ -136,11 +161,18 @@ public class App
         app.displaySortCityTopCountry(sortCityTopCountry);
         app.displaySortCityTopRegion(sortCityTopRegion);
         app.displaySortCityTopDistrict(sortCityTopDistrict);
+        app.displayTotalRegion(totalRegions);
+        app.displayDistrictPopulation(districtPopulations);
+        app.displayCityPopulation(cityPopulations);
+        app.displayCountryPopulation(countryPopulations);
+        app.displayTotalPopulation(totalPopulations);
+        app.displayTotalContinent(totalContinents);
+        app.displayLanguage(languages);
 
 
         app.disconnect(con);
     }
-//sortCity
+    //sortCity
     public ArrayList<City> sortCity(Connection con) {
 
 
@@ -1573,10 +1605,11 @@ public class App
     public void displaySortCityTopDistrict(ArrayList<TopCity> sortCitiesTopDistrict) {
         if (sortCitiesTopDistrict != null && !sortCitiesTopDistrict.isEmpty()) {
             System.out.println("Population of the top 5 populated cities in a district called England sorting from largest to smallest");
-            System.out.printf("| %-25s | %-25s | %-25s | %-25s |\n", "Name", "Country Name", "District", "Population");
+            System.out.printf("| %-25s | %-25s | %-25s | %-25s |\n",
+                    "Name", "Country Name", "District", "Population");
 
             for (TopCity sortCityTopDistrict : sortCitiesTopDistrict) {
-                System.out.printf("| %-25s | %-25s | %-25s | %-25d |\n",
+                System.out.printf("| %-25s | %-25s | %-25s | %-25s |\n",
                         sortCityTopDistrict.getCity_name(), sortCityTopDistrict.getCountry_name(), sortCityTopDistrict.getDistrict(), sortCityTopDistrict.getPopulation());
             }
             System.out.println("----------------------------------------------------------------------------------------------------------");
@@ -1584,6 +1617,314 @@ public class App
             System.out.println("No cities to display.");
         }
     }
+    public ArrayList<TotalRegion> sortTotalRegion(Connection con){
+        ArrayList<TotalRegion> sortTotalRegionList = new ArrayList<>();
+        try{
+
+            Statement stmt = con.createStatement();
+            String strSelect = "SELECT Region, SUM(Population) AS region_total_population " +
+                    " FROM country WHERE Region= 'Middle East' GROUP BY Region ";
+
+        ResultSet rset = stmt.executeQuery(strSelect);
+            while (rset.next()){
+                TotalRegion sortRegion = new TotalRegion();
+                sortRegion.setRegion(rset.getString("Region"));
+                sortRegion.setTotalPopulation(rset.getInt("region_total_population"));
+                sortTotalRegionList.add(sortRegion);
+            }
+            return sortTotalRegionList;
+        }catch (Exception e){
+            System.out.println("Error");
+        }
+        return null;
+    }
+
+    public void displayTotalRegion(ArrayList<TotalRegion> totalRegions) {
+        if (totalRegions != null && !totalRegions.isEmpty()) {
+            System.out.println("Display the total Region of population");
+            System.out.println("--------------------------------------------------------");
+            System.out.printf("| %-25s |  %-25s |\n",
+                    "Region", "Population");
+            System.out.println("---------------------------------------------------------");
+
+            for (TotalRegion totalRegion : totalRegions) {
+                System.out.printf("| %-25s |  %-25s |\n",
+                        totalRegion.getRegion(),
+                        totalRegion.getTotalPopulation());
+            }
+
+            System.out.println("-----------------------------------------------------------");
+        } else {
+            System.out.println("No total Region details available");
+        }
+    }
+
+
+    public ArrayList<DistrictPopulation> sortDistrictPopulation(Connection con){
+        ArrayList<DistrictPopulation> sortDistrictList = new ArrayList<>();
+        try{
+
+            Statement stmt = con.createStatement();
+            String strSelect = "SELECT city.District, SUM(Population) AS population FROM city WHERE District = 'England' ";
+            ResultSet rset = stmt.executeQuery(strSelect);
+
+
+            while (rset.next()){
+                DistrictPopulation sortDistrict = new DistrictPopulation();
+                sortDistrict.setDistrict(rset.getString("District"));
+                sortDistrict.setPopulation(rset.getInt("population"));
+                sortDistrictList.add(sortDistrict);
+            }
+            return sortDistrictList;
+        }catch (Exception e){
+            System.out.println("Error");
+        }
+        return null;
+    }
+
+    public void displayDistrictPopulation(ArrayList<DistrictPopulation> districts) {
+        if (districts != null && !districts.isEmpty()) {
+            System.out.println("Display the District of Population");
+            System.out.println("---------------------------------------------------------");
+            System.out.printf("| %-25s |  %-25s | \n",
+                    "District", "Population");
+            System.out.println("---------------------------------------------------------");
+
+            for (DistrictPopulation district : districts) {
+                System.out.printf("| %-25s |  %-25s |\n",
+                        district.getDistrict(),
+                        district.getPopulation());
+            }
+
+            System.out.println("----------------------------------------------------------");
+        } else {
+            System.out.println("No total Disctrict details available");
+        }
+    }
+
+
+    public ArrayList<CityPopulation> sortCityPopulation(Connection con){
+        ArrayList<CityPopulation> sortCityList = new ArrayList<>();
+        try{
+            Statement stmt = con.createStatement();
+            String strSelect = "SELECT city.Name, SUM(Population) AS population FROM city WHERE Name= 'Kabul' ";
+
+            ResultSet rset = stmt.executeQuery(strSelect);
+
+
+            while (rset.next()){
+                CityPopulation sortCity = new CityPopulation();
+                sortCity.setName(rset.getString("Name"));
+                sortCity.setPopulation(rset.getInt("population"));
+                sortCityList.add(sortCity);
+            }
+            return sortCityList;
+        }catch (Exception e){
+            System.out.println("Error");
+        }
+        return null;
+    }
+
+    public void displayCityPopulation(ArrayList<CityPopulation> cities) {
+        if (cities != null && !cities.isEmpty()) {
+            System.out.println("Display the city Population");
+            System.out.println("----------------------------------------------------------");
+            System.out.printf("| %-25s |  %-25s |\n",
+                    "City", "Population");
+            System.out.println("----------------------------------------------------------");
+
+            for (CityPopulation city : cities) {
+                System.out.printf("| %-25s |  %-25s |\n",
+                        city.getName(),
+                        city.getPopulation());
+            }
+
+            System.out.println("----------------------------------------------------------");
+        } else {
+            System.out.println("No City population details available");
+        }
+    }
+
+
+    public ArrayList<CountryPopulation> sortCountryPopulation(Connection con){
+        ArrayList<CountryPopulation> sortCountryPopulationList = new ArrayList<>();
+
+        try{
+
+            Statement stmt = con.createStatement();
+            String strSelect = "SELECT Name, Population FROM country WHERE Name= 'Bahamas' ";
+            ResultSet rset = stmt.executeQuery(strSelect);
+
+            while (rset.next()){
+                CountryPopulation sortCountry = new CountryPopulation();
+                sortCountry.setName(rset.getString("Name"));
+                sortCountry.setPopulation(rset.getInt("Population"));
+                sortCountryPopulationList.add(sortCountry);
+            }
+            return sortCountryPopulationList;
+        }catch (Exception e){
+            System.out.println("Error");
+        }
+        return null;
+    }
+
+    public void displayCountryPopulation(ArrayList<CountryPopulation> countryPopulations) {
+        if (countryPopulations != null && !countryPopulations.isEmpty()) {
+            System.out.println("Display the country Population");
+            System.out.println("-------------------------------------------------------------------");
+            System.out.printf("| %-30s |  %-30s | \n",
+                    "Country", "total_population");
+            System.out.println("-------------------------------------------------------------------");
+
+            for (CountryPopulation countryPopulation : countryPopulations) {
+                System.out.printf("| %-30s |  %-30s |\n",
+                        countryPopulation.getName(),
+                        countryPopulation.getPopulation());
+            }
+
+            System.out.println("--------------------------------------------------------------------");
+        } else {
+            System.out.println("No Country population details available");
+        }
+    }
+
+    public ArrayList<TotalPopulation> sortTotalPopulation(Connection con){
+        ArrayList<TotalPopulation> sortTotalPopulationList = new ArrayList<>();
+
+        try{
+            Statement stmt = con.createStatement();
+            String strSelect = " SELECT SUM(country.Population) AS totalPopulation FROM country ";
+            ResultSet rset = stmt.executeQuery(strSelect);
+
+            while (rset.next()){
+                TotalPopulation sortTotal = new TotalPopulation();
+                sortTotal.setTotalPopulation(rset.getLong("totalPopulation"));
+                sortTotalPopulationList.add(sortTotal);
+
+            }
+            return sortTotalPopulationList;
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            System.out.println("Error");
+            return null;
+        }
+
+    }
+
+    public void displayTotalPopulation(ArrayList<TotalPopulation> totalPopulations) {
+        if (totalPopulations != null && !totalPopulations.isEmpty()) {
+            System.out.println("Display the Total Population of the world");
+            System.out.println("---------------------------------------------------------------------------------------");
+            System.out.printf("| %-40s | \n",
+                    "totalPopulation");
+            System.out.println("---------------------------------------------------------------------------------------");
+
+            for (TotalPopulation totalPopulation : totalPopulations) {
+                System.out.printf("| %-40d | \n",
+                        totalPopulation.getTotalPopulation());
+            }
+
+            System.out.println("----------------------------------------------------------------------------------------");
+        } else {
+            System.out.println("No total population details available");
+        }
+    }
+
+    public ArrayList<TotalContinent> sortTotalContinent(Connection con){
+        ArrayList<TotalContinent> sortTotalContinentList = new ArrayList<>();
+        try{
+            Statement stmt = con.createStatement();
+            String strSelect = " SELECT Continent, SUM(Population) AS total_population FROM country GROUP BY Continent";
+            ResultSet rset = stmt.executeQuery(strSelect);
+
+            while (rset.next()){
+                TotalContinent sortTotalContinent = new TotalContinent();
+                sortTotalContinent.setContinent(rset.getString("Continent"));
+                sortTotalContinent.setTotal_population(rset.getLong("Total_Population"));
+                sortTotalContinentList.add(sortTotalContinent);
+            }
+            return sortTotalContinentList;
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            System.out.println("Error");
+            return null;
+        }
+    }
+
+    public void displayTotalContinent(ArrayList<TotalContinent> totalContinents) {
+        if (totalContinents != null && !totalContinents.isEmpty()) {
+            System.out.println("Display the Continent of Population");
+            System.out.println("---------------------------------------------------------------------------------------");
+            System.out.printf("| %-25s |  %-25s | \n",
+                    "Continent", "total_population");
+            System.out.println("---------------------------------------------------------------------------------------");
+
+            for (TotalContinent totalContinent : totalContinents) {
+                System.out.printf("| %-25s |  %-25s | \n",
+                       totalContinent.getContinent(), totalContinent.getTotal_population());
+
+            }
+
+            System.out.println("----------------------------------------------------------------------------------------");
+        } else {
+            System.out.println("No total continent details available");
+        }
+    }
+
+
+
+    public ArrayList<Language> sortLanguage(Connection con) {
+
+
+        ArrayList<Language> sortLanguageList = new ArrayList<>();
+
+        try {
+            Statement stmt = con.createStatement();
+            String strSelect = " SELECT cl.Language AS Language,SUM(c.Population) " +
+                    " AS TotalPopulation,ROUND((SUM(c.Population) / (SELECT SUM(Population) " +
+                    " FROM country)) * 100, 2) AS PercentageOfWorldPopulation, 100 - ROUND((SUM(c.Population) / (SELECT SUM(Population)" +
+                    " FROM country)) * 100, 2) AS PercentageNotInWorld " +
+                    " FROM countrylanguage cl JOIN country c ON cl.CountryCode = c.Code " +
+                    " GROUP BY cl.Language ORDER BY TotalPopulation DESC ";
+            ResultSet rset = stmt.executeQuery(strSelect);
+
+            while (rset.next()) {
+                Language sortLanguage = new Language();
+                sortLanguage.setLanguage(rset.getString("Language"));
+                sortLanguage.setTotalPopulation(rset.getInt("TotalPopulation"));
+                sortLanguage.setPercentageOfWorldPopulation(rset.getDouble("PercentageOfWorldPopulation"));
+                sortLanguage.setPercentNotInWorld(rset.getDouble("PercentageNotInWorld"));
+                sortLanguageList.add(sortLanguage);
+            }
+            return sortLanguageList;
+
+        } catch (Exception e) {
+            System.out.println("Error on sort city");
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public void displayLanguage(ArrayList<Language> languages) {
+        if (languages != null && !languages.isEmpty()) {
+            System.out.println("All the language in the world orginze by largest to smallest");
+            System.out.println("----------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.printf("| %-25s |  %-25s |  %-30s | %-40s | \n",
+                    "language", "total_population", "percent_of_world_population", "percent_of_not_in_world_population");
+            System.out.println("----------------------------------------------------------------------------------------------------------------------------------------");
+
+            for (Language language : languages) {
+                System.out.printf("| %-25s |  %-25s |  %-30s |  %-40s | \n",
+                        language.getLanguage(), language.getTotalPopulation(), language.getPercentageOfWorldPopulation(), language.getPercentNotInWorld());
+            }
+
+            System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------");
+        } else {
+            System.out.println("No Language details available");
+        }
+    }
+
+
     public void setConnection(Connection mockConnection) {
     }
 }
