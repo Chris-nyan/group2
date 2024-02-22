@@ -1814,17 +1814,17 @@ public class App
     public void displayTotalPopulation(ArrayList<TotalPopulation> totalPopulations) {
         if (totalPopulations != null && !totalPopulations.isEmpty()) {
             System.out.println("Display the Total Population of the world");
-            System.out.println("---------------------------------------------------------------------------------------");
+            System.out.println("-------------------------------------------");
             System.out.printf("| %-40s | \n",
                     "totalPopulation");
-            System.out.println("---------------------------------------------------------------------------------------");
+            System.out.println("-------------------------------------------");
 
             for (TotalPopulation totalPopulation : totalPopulations) {
                 System.out.printf("| %-40d | \n",
                         totalPopulation.getTotalPopulation());
             }
 
-            System.out.println("----------------------------------------------------------------------------------------");
+            System.out.println("--------------------------------------------");
         } else {
             System.out.println("No total population details available");
         }
@@ -1854,10 +1854,10 @@ public class App
     public void displayTotalContinent(ArrayList<TotalContinent> totalContinents) {
         if (totalContinents != null && !totalContinents.isEmpty()) {
             System.out.println("Display the Continent of Population");
-            System.out.println("---------------------------------------------------------------------------------------");
+            System.out.println("-----------------------------------------------------");
             System.out.printf("| %-25s |  %-25s | \n",
                     "Continent", "total_population");
-            System.out.println("---------------------------------------------------------------------------------------");
+            System.out.println("-----------------------------------------------------");
 
             for (TotalContinent totalContinent : totalContinents) {
                 System.out.printf("| %-25s |  %-25s | \n",
@@ -1865,7 +1865,7 @@ public class App
 
             }
 
-            System.out.println("----------------------------------------------------------------------------------------");
+            System.out.println("-----------------------------------------------------");
         } else {
             System.out.println("No total continent details available");
         }
@@ -1911,17 +1911,17 @@ public class App
     public void displayLanguage(ArrayList<Language> languages) {
         if (languages != null && !languages.isEmpty()) {
             System.out.println("All the language in the world orginze by largest to smallest");
-            System.out.println("----------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.println("------------------------------------------------------------------------------------------");
             System.out.printf("| %-25s |  %-25s |  %-30s | \n",
                     "language", "total_population", "Pcentage of language spoken");
-            System.out.println("----------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.println("------------------------------------------------------------------------------------------");
 
             for (Language language : languages) {
                 System.out.printf("| %-25s |  %-25s |  %-30s | \n",
                         language.getLanguage(), language.getTotalPopulation(), language.getPercentageOfLanguage());
             }
 
-            System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.println("------------------------------------------------------------------------------------------");
         } else {
             System.out.println("No Language details available");
         }

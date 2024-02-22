@@ -648,25 +648,24 @@ public class AppIntegration {
 
     }
 
-//    @Test
-//    void testLanguage() {
-//        // Assuming sortCity method returns a list of cities for testing
-//        ArrayList<Language> sortLanguage = app.sortLanguage(con);
-//
-//        // Add your assertions based on the expected results
-//        assertNotNull(sortLanguage);
-//        assertFalse(sortLanguage.isEmpty());
-//
-//        // Validate each property of the first city in the list
-//        Language firstLanguage = sortLanguage.get(0);
-//
-//        assertEquals("Chinese", firstLanguage.getLanguage());
-////        assertEquals(BigDecimal.valueOf(1191843539.00000), firstLanguage.getTotalPopulation());
-//        assertEquals(1191843539L, firstLanguage.getTotalPopulation());
-//        assertEquals(BigDecimal.valueOf(19.61), firstLanguage.getPercentageOfLanguage());
-//
-//
-//    }
+    @Test
+    void testLanguage() {
+        // Assuming sortCity method returns a list of cities for testing
+        ArrayList<Language> sortLanguage = app.sortLanguage(con);
+
+        // Add your assertions based on the expected results
+        assertNotNull(sortLanguage);
+        assertFalse(sortLanguage.isEmpty());
+
+        // Validate each property of the first city in the list
+        Language firstLanguage = sortLanguage.get(0);
+
+        assertEquals("Chinese", firstLanguage.getLanguage());
+        assertEquals(1191843539L, firstLanguage.getTotalPopulation());
+        assertEquals(19.61, firstLanguage.getPercentageOfLanguage());
+
+
+    }
 
     // Close the database connection after all tests are executed
     @AfterAll
