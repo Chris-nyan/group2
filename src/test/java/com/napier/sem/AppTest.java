@@ -1826,6 +1826,320 @@ public class AppTest {
 
     }
 
+//City population
+    @Test
+    public void displayCityPopulationNull() {
+        // Ensure app is not null before calling its methods
+        assertNotNull(app, "CityPopulation should not be null");
+        app.displayCityPopulation(null);
+//        ArrayList<CountriesInWorld> countries = app.getCountriesInWorld();
+//        assertNotNull(countries, "Countries list should not be null");
+    }
+
+    @Test
+    void displayCityPopulationEmpty()
+    {
+        // Create and populate the ArrayList of City objects
+        ArrayList<CityPopulation> sortCityList = new ArrayList<>();
+        // Test when sorting an empty list
+        app.displayCityPopulation(sortCityList);
+    }
+
+    @Test
+    void displayCityPopulationContainsNull()
+    {
+        // Create and populate the ArrayList of City objects with a null entry
+        ArrayList<CityPopulation> sortCityList = new ArrayList<>();
+//        sortCityList.add(null);
+        // Test when sorting a list containing null
+        app.displayCityPopulation(sortCityList);
+    }
+
+    @Test
+    void testDisplayCityPopulation() {
+        // Create and populate the ArrayList of CountriesInWorld objects
+        ArrayList<CityPopulation> sortCityList = new ArrayList<>();
+        // Add a sample CountriesInWorld object
+        CityPopulation cityPopulation = new CityPopulation();
+        cityPopulation.setName("Kabul");
+        cityPopulation.setPopulation(1780000);
+
+
+        sortCityList.add(cityPopulation);
+
+        // Call the displayCountry method
+        app.displayCityPopulation(sortCityList);
+
+
+    }
+
+    @Test
+    public void displayCountryPopulationNull() {
+        // Ensure app is not null before calling its methods
+        assertNotNull(app, "Country Population should not be null");
+        app.displayCountryPopulation(null);
+//        ArrayList<CountriesInWorld> countries = app.getCountriesInWorld();
+//        assertNotNull(countries, "Countries list should not be null");
+    }
+
+    @Test
+    void displayCountryPopulationEmpty()
+    {
+        // Create and populate the ArrayList of City objects
+        ArrayList<CountryPopulation> sortCountryPopulationList = new ArrayList<>();
+        // Test when sorting an empty list
+        app.displayCountryPopulation(sortCountryPopulationList);
+    }
+
+    @Test
+    void displayCountryPopulationContainsNull()
+    {
+        // Create and populate the ArrayList of City objects with a null entry
+        ArrayList<CountryPopulation> sortCountryPopulationList = new ArrayList<>();
+//        sortCityList.add(null);
+        // Test when sorting a list containing null
+        app.displayCountryPopulation(sortCountryPopulationList);
+    }
+
+    @Test
+    void testDisplayCountryPopulation() {
+        // Create and populate the ArrayList of CountriesInWorld objects
+        ArrayList<CountryPopulation> sortCountryPopulationList = new ArrayList<>();
+        // Add a sample CountriesInWorld object
+        CountryPopulation countryPopulation = new CountryPopulation();
+        countryPopulation.setName("Bahamas");
+        countryPopulation.setPopulation(307000);
+
+
+        sortCountryPopulationList.add(countryPopulation);
+
+        // Call the displayCountry method
+        app.displayCountryPopulation(sortCountryPopulationList);
+
+
+    }
+
+    @Test
+    public void displayDistrictPopulationNull() {
+        // Ensure app is not null before calling its methods
+        assertNotNull(app, "Distinct Population should not be null");
+        app.displayDistrictPopulation(null);
+//        ArrayList<CountriesInWorld> countries = app.getCountriesInWorld();
+//        assertNotNull(countries, "Countries list should not be null");
+    }
+
+    @Test
+    void displayDistrictPopulationEmpty()
+    {
+        // Create and populate the ArrayList of City objects
+        ArrayList<DistrictPopulation> sortDistrictPopulationList = new ArrayList<>();
+        // Test when sorting an empty list
+        app.displayDistrictPopulation(sortDistrictPopulationList);
+    }
+
+    @Test
+    void displayDistrictPopulationContainsNull()
+    {
+        // Create and populate the ArrayList of City objects with a null entry
+        ArrayList<DistrictPopulation> sortDistrictPopulationList = new ArrayList<>();
+        // Test when sorting an empty list
+        app.displayDistrictPopulation(sortDistrictPopulationList);
+    }
+
+    @Test
+    void testDisplayDistrictPopulation() {
+        // Create and populate the ArrayList of CountriesInWorld objects
+        ArrayList<DistrictPopulation> sortDistrictPopulationList = new ArrayList<>();
+        // Add a sample CountriesInWorld object
+        DistrictPopulation districtPopulation = new DistrictPopulation();
+        districtPopulation.setDistrict("England");
+        districtPopulation.setPopulation(19978543);
+
+
+        sortDistrictPopulationList.add(districtPopulation);
+
+        // Call the displayCountry method
+        app.displayDistrictPopulation(sortDistrictPopulationList);
+
+
+    }
+
+    @Test
+    public void displayLanguageNull() {
+        // Ensure app is not null before calling its methods
+        assertNotNull(app, "Language should not be null");
+        app.displayLanguage(null);
+//        ArrayList<CountriesInWorld> countries = app.getCountriesInWorld();
+//        assertNotNull(countries, "Countries list should not be null");
+    }
+
+    @Test
+    void displayLanguageEmpty()
+    {
+        // Create and populate the ArrayList of City objects
+        ArrayList<Language> sortLanguageList = new ArrayList<>();
+        // Test when sorting an empty list
+        app.displayLanguage(sortLanguageList);
+    }
+
+    @Test
+    void displayLanguageContainsNull()
+    {
+        // Create and populate the ArrayList of City objects with a null entry
+        ArrayList<Language> sortLanguageList = new ArrayList<>();
+        // Test when sorting an empty list
+        app.displayLanguage(sortLanguageList);
+    }
+
+    @Test
+    void testDisplayLanguage() {
+        // Create and populate the ArrayList of CountriesInWorld objects
+        ArrayList<Language> sortLanguageList = new ArrayList<>();
+        // Add a sample CountriesInWorld object
+        Language language = new Language();
+        language.setLanguage("Chinese");
+        language.setTotalPopulation(1968265500);
+        language.setPercentageOfWorldPopulation(32.38);
+        language.setPercentNotInWorld(67.62);
+
+        sortLanguageList.add(language);
+
+        // Call the displayCountry method
+        app.displayLanguage(sortLanguageList);
+
+
+    }
+
+    @Test
+    public void displayTotalContinentNull() {
+        // Ensure app is not null before calling its methods
+        assertNotNull(app, "Top Continent should not be null");
+        app.displayTotalContinent(null);
+//        ArrayList<CountriesInWorld> countries = app.getCountriesInWorld();
+//        assertNotNull(countries, "Countries list should not be null");
+    }
+
+    @Test
+    void displayTotalContinentEmpty()
+    {
+        // Create and populate the ArrayList of City objects
+        ArrayList<TotalContinent> sortTotalContinentList = new ArrayList<>();
+        // Test when sorting an empty list
+        app.displayTotalContinent(sortTotalContinentList);
+    }
+
+    @Test
+    void displayTotalContinentContainsNull()
+    {
+        // Create and populate the ArrayList of City objects with a null entry
+        ArrayList<TotalContinent> sortTotalContinentList = new ArrayList<>();
+        // Test when sorting an empty list
+        app.displayTotalContinent(sortTotalContinentList);
+    }
+
+    @Test
+    void testDisplayTotalContinent() {
+        // Create and populate the ArrayList of CountriesInWorld objects
+        ArrayList<TotalContinent> sortTotalContinentList = new ArrayList<>();
+        // Add a sample CountriesInWorld object
+        TotalContinent totalContinent = new TotalContinent();
+        totalContinent.setContinent("North America");
+        totalContinent.setTotal_population(482993000);
+
+        sortTotalContinentList.add(totalContinent);
+
+        // Call the displayCountry method
+        app.displayTotalContinent(sortTotalContinentList);
+
+
+    }
+
+    @Test
+    public void displayTotalPopulationNull() {
+        // Ensure app is not null before calling its methods
+        assertNotNull(app, "Top Population should not be null");
+        app.displayTotalPopulation(null);
+//        ArrayList<CountriesInWorld> countries = app.getCountriesInWorld();
+//        assertNotNull(countries, "Countries list should not be null");
+    }
+
+    @Test
+    void displayTotalPopulationEmpty()
+    {
+        // Create and populate the ArrayList of City objects
+        ArrayList<TotalPopulation> sortTotalPopulationList = new ArrayList<>();
+        // Test when sorting an empty list
+        app.displayTotalPopulation(sortTotalPopulationList);
+    }
+
+    @Test
+    void displayTotalPopulationContainsNull()
+    {
+        // Create and populate the ArrayList of City objects with a null entry
+        ArrayList<TotalPopulation> sortTotalPopulationList = new ArrayList<>();
+        // Test when sorting an empty list
+        app.displayTotalPopulation(sortTotalPopulationList);
+    }
+
+    @Test
+    void testDisplayTotalPopulation() {
+        // Create and populate the ArrayList of CountriesInWorld objects
+        ArrayList<TotalPopulation> sortTotalPopulationList = new ArrayList<>();
+        // Add a sample CountriesInWorld object
+        TotalPopulation totalPopulation = new TotalPopulation();
+        totalPopulation.setTotalPopulation(Long.parseLong("6078749450"));
+
+
+        sortTotalPopulationList.add(totalPopulation);
+
+        // Call the displayCountry method
+        app.displayTotalPopulation(sortTotalPopulationList);
+    }
+
+    @Test
+    public void displayTotalRegionNull() {
+        // Ensure app is not null before calling its methods
+        assertNotNull(app, "Top Region should not be null");
+        app.displayTotalRegion(null);
+//        ArrayList<CountriesInWorld> countries = app.getCountriesInWorld();
+//        assertNotNull(countries, "Countries list should not be null");
+    }
+
+    @Test
+    void displayTotalRegionEmpty()
+    {
+        // Create and populate the ArrayList of City objects
+        ArrayList<TotalRegion> sortTotalRegionList = new ArrayList<>();
+        // Test when sorting an empty list
+        app.displayTotalRegion(sortTotalRegionList);
+    }
+
+    @Test
+    void displayTotalRegionContainsNull()
+    {
+        // Create and populate the ArrayList of City objects with a null entry
+        ArrayList<TotalRegion> sortTotalRegionList = new ArrayList<>();
+        // Test when sorting an empty list
+        app.displayTotalRegion(sortTotalRegionList);
+    }
+
+    @Test
+    void testDisplayTotalRegion() {
+        // Create and populate the ArrayList of CountriesInWorld objects
+        ArrayList<TotalRegion> sortTotalRegionList = new ArrayList<>();
+        // Add a sample CountriesInWorld object
+        TotalRegion totalRegion = new TotalRegion();
+        totalRegion.setRegion("Middle East");
+        totalRegion.setTotalPopulation(188380700);
+
+        sortTotalRegionList.add(totalRegion);
+
+        // Call the displayCountry method
+        app.displayTotalRegion(sortTotalRegionList);
+
+
+    }
+
 
 
 
