@@ -7,6 +7,9 @@
     <list default="true" id="a8cdd79a-4e67-4a4d-b567-2df56dbddb5d" name="Changes" comment="merge release to develop">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/reports/SortCity" beforeDir="false" afterPath="$PROJECT_DIR$/reports/SortCity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/napier/sem/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/napier/sem/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/napier/sem/Language.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/napier/sem/Language.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/napier/sem/AppIntegration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/napier/sem/AppIntegration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/napier/sem/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/napier/sem/AppTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -62,6 +65,19 @@
     "Docker.docker-compose.yml.db: Compose Deployment.executor": "Run",
     "Docker.docker-compose.yml: Compose Deployment.executor": "Run",
     "JUnit.AppIntegration.executor": "Coverage",
+    "JUnit.AppIntegration.testCityDistrict.executor": "Run",
+    "JUnit.AppIntegration.testCityPopulation.executor": "Run",
+    "JUnit.AppIntegration.testCityTopContinent.executor": "Run",
+    "JUnit.AppIntegration.testCityTopCountry.executor": "Run",
+    "JUnit.AppIntegration.testCityTopDistrict.executor": "Run",
+    "JUnit.AppIntegration.testCityTopRegion.executor": "Run",
+    "JUnit.AppIntegration.testCityTopWorld.executor": "Run",
+    "JUnit.AppIntegration.testCountryPopulation.executor": "Run",
+    "JUnit.AppIntegration.testDistrictPopulation.executor": "Run",
+    "JUnit.AppIntegration.testLanguage.executor": "Run",
+    "JUnit.AppIntegration.testPopulation.executor": "Run",
+    "JUnit.AppIntegration.testPopulationCountry.executor": "Run",
+    "JUnit.AppIntegration.testPopulationRegion.executor": "Run",
     "JUnit.AppIntegration.testSortCity.executor": "Run",
     "JUnit.AppIntegration.testSortCityCountry.executor": "Run",
     "JUnit.AppIntegration.testSortCityRegion.executor": "Run",
@@ -70,6 +86,9 @@
     "JUnit.AppIntegration.testSortCountriesInWorld.executor": "Run",
     "JUnit.AppIntegration.testSortRegion.executor": "Run",
     "JUnit.AppIntegration.testSortUserInputWorld.executor": "Run",
+    "JUnit.AppIntegration.testTotalContinent.executor": "Run",
+    "JUnit.AppIntegration.testTotalPopulation.executor": "Run",
+    "JUnit.AppIntegration.testTotalRegion.executor": "Run",
     "JUnit.AppTest (1).executor": "Run",
     "JUnit.AppTest.disconnectNoConnection.executor": "Run",
     "JUnit.AppTest.disconnectSuccess.executor": "Run",
@@ -140,9 +159,9 @@
       <recent name="com.napier.sem" />
     </key>
   </component>
-  <component name="RunManager" selected="Docker.docker-compose.yml: Compose Deployment">
-    <configuration name="AppTest.testDisplayTotalPopulation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="group2" />
+  <component name="RunManager" selected="JUnit.AppIntegration.testTotalContinent">
+    <configuration name="AppIntegration.testCityPopulation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Group2" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.napier.sem.*" />
@@ -150,15 +169,15 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.napier.sem" />
-      <option name="MAIN_CLASS_NAME" value="com.napier.sem.AppTest" />
-      <option name="METHOD_NAME" value="testDisplayTotalPopulation" />
+      <option name="MAIN_CLASS_NAME" value="com.napier.sem.AppIntegration" />
+      <option name="METHOD_NAME" value="testCityPopulation" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AppTest.testGetPopulation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="group2" />
+    <configuration name="AppIntegration.testCountryPopulation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Group2" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.napier.sem.*" />
@@ -166,20 +185,60 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.napier.sem" />
-      <option name="MAIN_CLASS_NAME" value="com.napier.sem.AppTest" />
-      <option name="METHOD_NAME" value="testGetPopulation" />
+      <option name="MAIN_CLASS_NAME" value="com.napier.sem.AppIntegration" />
+      <option name="METHOD_NAME" value="testCountryPopulation" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
-      <deployment type="dockerfile">
-        <settings>
-          <option name="sourceFilePath" value="Dockerfile" />
-        </settings>
-      </deployment>
-      <method v="2" />
+    <configuration name="AppIntegration.testLanguage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Group2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.napier.sem.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.napier.sem" />
+      <option name="MAIN_CLASS_NAME" value="com.napier.sem.AppIntegration" />
+      <option name="METHOD_NAME" value="testLanguage" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AppIntegration.testTotalContinent" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Group2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.napier.sem.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.napier.sem" />
+      <option name="MAIN_CLASS_NAME" value="com.napier.sem.AppIntegration" />
+      <option name="METHOD_NAME" value="testTotalContinent" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AppIntegration.testTotalPopulation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Group2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.napier.sem.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.napier.sem" />
+      <option name="MAIN_CLASS_NAME" value="com.napier.sem.AppIntegration" />
+      <option name="METHOD_NAME" value="testTotalPopulation" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
       <deployment type="docker-compose.yml">
@@ -193,29 +252,13 @@
       </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="db/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
-      <deployment type="dockerfile">
-        <settings>
-          <option name="sourceFilePath" value="db/Dockerfile" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
-    <configuration name="docker-compose.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="sourceFilePath" value="docker-compose.yml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
-        <item itemvalue="Docker.db/Dockerfile" />
-        <item itemvalue="Docker.Dockerfile" />
-        <item itemvalue="JUnit.AppTest.testDisplayTotalPopulation" />
-        <item itemvalue="JUnit.AppTest.testGetPopulation" />
+        <item itemvalue="JUnit.AppIntegration.testTotalContinent" />
+        <item itemvalue="JUnit.AppIntegration.testLanguage" />
+        <item itemvalue="JUnit.AppIntegration.testTotalPopulation" />
+        <item itemvalue="JUnit.AppIntegration.testCountryPopulation" />
+        <item itemvalue="JUnit.AppIntegration.testCityPopulation" />
       </list>
     </recent_temporary>
   </component>
@@ -223,6 +266,7 @@
     <attachedChunks>
       <set>
         <option value="jdk-17.0.10-corretto-17.0.10-f644763e9732-24fca987" />
+        <option value="jdk-17.0.9-jbr-17.0.9-f644763e9732-e10f1064" />
         <option value="jdk-21.0.2-openjdk-21.0.2-f644763e9732-c0c073db" />
       </set>
     </attachedChunks>
@@ -266,6 +310,7 @@
       <workItem from="1707978268473" duration="1823000" />
       <workItem from="1708054710810" duration="10345000" />
       <workItem from="1708313871210" duration="11770000" />
+      <workItem from="1708588215099" duration="8868000" />
     </task>
     <task id="LOCAL-00003" summary="Unit Testing For All methods(success)">
       <option name="closed" value="true" />

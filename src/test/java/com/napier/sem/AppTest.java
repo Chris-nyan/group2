@@ -1999,8 +1999,7 @@ public class AppTest {
         Language language = new Language();
         language.setLanguage("Chinese");
         language.setTotalPopulation(1968265500);
-        language.setPercentageOfWorldPopulation(32.38);
-        language.setPercentNotInWorld(67.62);
+        language.setPercentageOfLanguage(19.2);
 
         sortLanguageList.add(language);
 

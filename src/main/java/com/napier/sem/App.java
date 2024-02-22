@@ -1880,26 +1880,29 @@ public class App
 
         try {
             Statement stmt = con.createStatement();
-            String strSelect = " SELECT cl.Language AS Language,SUM(c.Population) " +
-                    " AS TotalPopulation,ROUND((SUM(c.Population) / (SELECT SUM(Population) " +
-                    " FROM country)) * 100, 2) AS PercentageOfWorldPopulation, 100 - ROUND((SUM(c.Population) / (SELECT SUM(Population)" +
-                    " FROM country)) * 100, 2) AS PercentageNotInWorld " +
-                    " FROM countrylanguage cl JOIN country c ON cl.CountryCode = c.Code " +
-                    " GROUP BY cl.Language ORDER BY TotalPopulation DESC ";
+            String strSelect = "SELECT countrylanguage.Language, "
+                    + "SUM(country.Population * (countrylanguage.Percentage / 100)) AS `TotalPopulationwithlanguages`, "
+                    + "ROUND( "
+                    +   "(SUM(country.Population * (countrylanguage.Percentage / 100)) / "
+                    +   "(SELECT SUM(Population) FROM country)) * 100, 2) AS `Percentageofpopulationlanguages` "
+                    + "FROM country, countrylanguage WHERE country.Code = countrylanguage.CountryCode "
+                    + "AND countrylanguage.Language IN ('Chinese', 'English', 'Hindi', 'Spanish', 'Arabic') "
+                    + "GROUP BY countrylanguage.Language ORDER BY TotalPopulationwithlanguages DESC";
+
+
             ResultSet rset = stmt.executeQuery(strSelect);
 
             while (rset.next()) {
                 Language sortLanguage = new Language();
                 sortLanguage.setLanguage(rset.getString("Language"));
-                sortLanguage.setTotalPopulation(rset.getInt("TotalPopulation"));
-                sortLanguage.setPercentageOfWorldPopulation(rset.getDouble("PercentageOfWorldPopulation"));
-                sortLanguage.setPercentNotInWorld(rset.getDouble("PercentageNotInWorld"));
+                sortLanguage.setTotalPopulation(rset.getInt("TotalPopulationwithlanguages"));
+                sortLanguage.setPercentageOfLanguage(rset.getDouble("Percentageofpopulationlanguages"));
                 sortLanguageList.add(sortLanguage);
             }
             return sortLanguageList;
 
         } catch (Exception e) {
-            System.out.println("Error on sort city");
+            System.out.println("Error on sort language");
             e.printStackTrace();
         }
         return null;
@@ -1909,13 +1912,13 @@ public class App
         if (languages != null && !languages.isEmpty()) {
             System.out.println("All the language in the world orginze by largest to smallest");
             System.out.println("----------------------------------------------------------------------------------------------------------------------------------------");
-            System.out.printf("| %-25s |  %-25s |  %-30s | %-40s | \n",
-                    "language", "total_population", "percent_of_world_population", "percent_of_not_in_world_population");
+            System.out.printf("| %-25s |  %-25s |  %-30s | \n",
+                    "language", "total_population", "Pcentage of language spoken");
             System.out.println("----------------------------------------------------------------------------------------------------------------------------------------");
 
             for (Language language : languages) {
-                System.out.printf("| %-25s |  %-25s |  %-30s |  %-40s | \n",
-                        language.getLanguage(), language.getTotalPopulation(), language.getPercentageOfWorldPopulation(), language.getPercentNotInWorld());
+                System.out.printf("| %-25s |  %-25s |  %-30s | \n",
+                        language.getLanguage(), language.getTotalPopulation(), language.getPercentageOfLanguage());
             }
 
             System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------");
