@@ -1205,12 +1205,12 @@ public class App
         if (populations != null && !populations.isEmpty()) {
             System.out.println("The population of people, people living in cities, and people not living in cities in each continent.");
             System.out.println("------------------------------------------------------------------------------------------------------------------------------------------");
-            System.out.printf("| %-25s | %-30s | %-30s | %-20s | %-20s | %-20s |\n",
+            System.out.printf("| %-25s | %-20s | %-20s | %-20s | %-20s | %-20s |\n",
                     "Continent", "TotalPopulation", "PopulationInCities", "PopulationNotInCities", "PercentagePopulationInCities", "PercentagePopulationNotInCities");
             System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------");
 
             for (Population pol : populations) {
-                System.out.printf("| %-25s | %-30s | %-30s | %-20s | %-20s | %-20s |\n",
+                System.out.printf("| %-25s | %-20s | %-20s | %-20s | %-20s | %-20s |\n",
                         pol.getContinent(), pol.getTotal_Population(),pol.getPopulation_In_Cities(), pol.getPopulation_Not_In_Cities(), pol.getPercentage_Population_In_Cities(), pol.getPercentage_Population_Not_In_Cities());
             }
 
@@ -1270,12 +1270,12 @@ public class App
         if (populationRegions != null && !populationRegions.isEmpty()) {
             System.out.println("The population of people, people living in cities, and people not living in cities in each region.");
             System.out.println("------------------------------------------------------------------------------------------------------------------------");
-            System.out.printf("| %-25s | %-30s | %-30s | %-20s | %-20s | %-20s |\n",
+            System.out.printf("| %-25s | %-20s | %-20s | %-20s | %-20s | %-20s |\n",
                     "Region", "TotalPopulation", "PopulationInCities", "PopulationNotInCities", "PercentagePopulationInCities", "PercentagePopulationNotInCities");
             System.out.println("---------------------------------------------------------------------------------------------------------------------------");
 
             for (PopulationRegion pore : populationRegions) {
-                System.out.printf("| %-25s | %-30s | %-30s | %-20s | %-20s | %-20s |\n",
+                System.out.printf("| %-25s | %-20s | %-20s | %-20s | %-20s | %-20s |\n",
                         pore.getRegion(), pore.getTotal_Population(),pore.getPopulation_In_Cities(), pore.getPopulation_Not_In_Cities(), pore.getPercentage_Population_In_Cities(), pore.getPercentage_Population_Not_In_Cities());
             }
 
@@ -1332,12 +1332,12 @@ public class App
         if (populationCountries != null && !populationCountries.isEmpty()) {
             System.out.println("The population of people, people living in cities, and people not living in cities in each country.");
             System.out.println("------------------------------------------------------------------------------------------------------------------------");
-            System.out.printf("| %-25s | %-30s | %-30s | %-20s | %-20s | %-20s |\n",
+            System.out.printf("| %-25s | %-20s | %-20s | %-20s | %-20s | %-20s |\n",
                     "Name", "TotalPopulation", "PopulationInCities", "PopulationNotInCities", "PercentagePopulationInCities", "PercentagePopulationNotInCities");
             System.out.println("---------------------------------------------------------------------------------------------------------------------------");
 
             for (PopulationCountry pocoun : populationCountries) {
-                System.out.printf("| %-25s | %-30s | %-30s | %-20s | %-20s | %-20s |\n",
+                System.out.printf("| %-25s | %-20s | %-20s | %-20s | %-20s | %-20s |\n",
                         pocoun.getName(), pocoun.getTotal_Population(),pocoun.getPopulation_In_Cities(), pocoun.getPopulation_Not_In_Cities(), pocoun.getPercentage_Population_In_Cities(), pocoun.getPercentage_Population_Not_In_Cities());
             }
 
