@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a8cdd79a-4e67-4a4d-b567-2df56dbddb5d" name="Changes" comment="merge release to develop">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reports/SortCity" beforeDir="false" afterPath="$PROJECT_DIR$/reports/SortCity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/napier/sem/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/napier/sem/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/napier/sem/AppIntegration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/napier/sem/AppIntegration.java" afterDir="false" />
-    </list>
+    <list default="true" id="a8cdd79a-4e67-4a4d-b567-2df56dbddb5d" name="Changes" comment="update master" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -161,41 +156,9 @@
       <recent name="com.napier.sem" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="AppIntegration.testCountryPopulation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Group2" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.napier.sem.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.napier.sem" />
-      <option name="MAIN_CLASS_NAME" value="com.napier.sem.AppIntegration" />
-      <option name="METHOD_NAME" value="testCountryPopulation" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Docker.docker-compose.yml: Compose Deployment">
     <configuration name="AppIntegration.testLanguage (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="group2" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.napier.sem.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.napier.sem" />
-      <option name="MAIN_CLASS_NAME" value="com.napier.sem.AppIntegration" />
-      <option name="METHOD_NAME" value="testLanguage" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AppIntegration.testLanguage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Group2" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.napier.sem.*" />
@@ -226,21 +189,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AppIntegration.testTotalPopulation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Group2" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.napier.sem.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.napier.sem" />
-      <option name="MAIN_CLASS_NAME" value="com.napier.sem.AppIntegration" />
-      <option name="METHOD_NAME" value="testTotalPopulation" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="sourceFilePath" value="Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
     </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
       <deployment type="docker-compose.yml">
@@ -254,13 +209,29 @@
       </deployment>
       <method v="2" />
     </configuration>
+    <configuration name="db/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="sourceFilePath" value="db/Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+        <item itemvalue="Docker.db/Dockerfile" />
+        <item itemvalue="Docker.Dockerfile" />
         <item itemvalue="JUnit.AppIntegration.testLanguage (1)" />
         <item itemvalue="JUnit.AppIntegration.testTotalContinent" />
-        <item itemvalue="JUnit.AppIntegration.testLanguage" />
-        <item itemvalue="JUnit.AppIntegration.testTotalPopulation" />
-        <item itemvalue="JUnit.AppIntegration.testCountryPopulation" />
       </list>
     </recent_temporary>
   </component>
@@ -546,7 +517,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708495425160</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="update master">
+      <option name="closed" value="true" />
+      <created>1708621286123</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1708621286123</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -564,7 +543,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updated AppTest" />
     <MESSAGE value="Dockerfile and unit test updated" />
     <MESSAGE value="dependencies updated" />
     <MESSAGE value="Integration Test Updated Success" />
@@ -589,7 +567,8 @@
     <MESSAGE value="App Integration update changing bug-report" />
     <MESSAGE value="App Integration update changing format" />
     <MESSAGE value="merge release to develop" />
-    <option name="LAST_COMMIT_MESSAGE" value="merge release to develop" />
+    <MESSAGE value="update master" />
+    <option name="LAST_COMMIT_MESSAGE" value="update master" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/group2$AppIntegration.ic" NAME="AppIntegration Coverage Results" MODIFIED="1707468936503" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
